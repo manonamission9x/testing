@@ -1,0 +1,268 @@
+/* ============================================
+   TriMurti Plant Sciences — Base Styles
+   ============================================ */
+
+:root {
+  /* ---- brand palette ---- */
+  --green-900: #0D1A12;
+  --green-800: #132A1C;
+  --green-700: #1B4D32;
+  --green-600: #245C3C;
+  --green-500: #2F7048;
+  --green-400: #356B43;
+  --green-300: #4A8B5C;
+  --green-200: #7BAF88;
+  --green-100: #C5DFCC;
+
+  /* logo brand green (extracted from TriMurti logo) */
+  --logo-green:    #40A040;
+  --logo-green-dim: rgba(64, 160, 64, 0.15);
+
+  --gold:       #C9A227;
+  --gold-light: #DFC060;
+  --gold-dim:   rgba(201, 162, 39, 0.15);
+
+  --bone:       #F7F5EF;
+  --bone-75:    #F2EFE6;
+  --bone-50:    #EAE7DB;
+  --bone-dark:  #C9C7B8;
+
+  --bg-dark:    #1C1C1C;
+  --bg-darker:  #161616;
+
+  --line:       rgba(247, 245, 239, 0.10);
+  --line-solid: #D4D2C5;
+  --text:       #1A1A18;
+  --text-light: #6B6B5E;
+  --text-muted: #9B9B8C;
+  --white:      #FFFFFF;
+
+  /* ---- spacing ---- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* ---- typography ---- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* ---- radius ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ---- transitions ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.35s;
+  --duration-slow: 0.6s;
+}
+
+/* ---- reset & base ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+ul { list-style: none; }
+
+/* ---- typography ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); letter-spacing: -0.015em; }
+h3 { font-size: clamp(1.125rem, 2vw, 1.375rem); }
+h4 { font-size: 1rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; }
+
+p { margin-bottom: 1em; }
+p:last-child { margin-bottom: 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  border: 1px solid var(--gold-dim);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+/* ---- buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-out);
+  white-space: nowrap;
+}
+
+.btn-arrow {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--green-900);
+  border-color: var(--gold);
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.3);
+}
+
+.btn-dark {
+  background: var(--green-800);
+  color: var(--bone);
+  border-color: var(--green-800);
+}
+.btn-dark:hover {
+  background: var(--green-700);
+  border-color: var(--green-700);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(15, 40, 24, 0.2);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--bone);
+  border-color: rgba(247, 245, 239, 0.3);
+}
+.btn-ghost:hover {
+  border-color: var(--bone);
+  background: rgba(247, 245, 239, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ---- container ---- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* ---- section ---- */
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.section-head p {
+  color: var(--text-light);
+  font-size: 1.0625rem;
+  margin-top: 12px;
+}
+
+/* ---- reveal animation ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal[data-delay="1"] { transition-delay: 0.1s; }
+.reveal[data-delay="2"] { transition-delay: 0.2s; }
+.reveal[data-delay="3"] { transition-delay: 0.3s; }
+.reveal[data-delay="4"] { transition-delay: 0.4s; }
+
+/* ---- field-tag badge ---- */
+.field-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.field-tag span:first-child {
+  color: var(--text-light);
+}
+.field-tag span + span::before {
+  content: "·";
+  margin-right: 8px;
+  color: var(--bone-dark);
+}
+
+/* ---- photo-notice placeholder ---- */
+.photo-note {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  opacity: 0.5;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+/* ---- selection ---- */
+::selection {
+  background: var(--gold);
+  color: var(--green-900);
+}
