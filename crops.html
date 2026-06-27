@@ -108,8 +108,11 @@
 </footer>
 
 <script src="products-data.js"></script>
+<script src="products-skus.js"></script>
 <script>
 (function(){
+// Merge aggregate + SKU products
+var PRODUCTS = (typeof PRODUCTS_SKUS !== 'undefined') ? PRODUCTS.concat(PRODUCTS_SKUS) : PRODUCTS;
 var c=document.getElementById('cropSections');
 var fb=document.getElementById('filterBar');
 var PAGE_SIZE=12;
