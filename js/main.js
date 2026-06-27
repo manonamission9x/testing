@@ -239,6 +239,35 @@
     });
   }
 
+  // ========== CROP SEARCH FILTER ==========
+  function initCropSearch() {
+    const searchInput = document.querySelector('[oninput*="filterProducts"]');
+    if (!searchInput) return;
+    
+    const allCards = document.querySelectorAll('.product-card');
+    const allSections = document.querySelectorAll('.crop-section-inner');
+    
+    window.filterProducts = function(val) {
+      const q = val.toLowerCase().trim();
+      
+      // Filter individual cards
+      allCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = (!q || text.includes(q)) ? '' : 'none';
+      });
+      
+      // Show/hide entire sections
+      allSections.forEach(section => {
+        const visibleCards = section.querySelectorAll('.product-card[style*="display: none"]');
+        const totalCards = section.querySelectorAll('.product-card');
+        const header = section.querySelector('.crop-section-header');
+        if (header) {
+          header.style.display = (visibleCards.length === totalCards.length && q) ? 'none' : '';
+        }
+      });
+    };
+  }
+
   // ========== INIT ==========
   document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
@@ -248,6 +277,7 @@
     initCounters();
     initTouchDropdown();
     initSmoothScroll();
+    initCropSearch();
   });
 
 })();

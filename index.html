@@ -29,6 +29,39 @@
       <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences">
 
     </a>
+    <nav class="main-nav">
+      <div class="nav-item">
+        <a href="about.html" class="nav-link">About Us
+          <svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="about.html#vision-mission">Vision &amp; Mission</a>
+          <a href="about.html#leadership">Leadership</a>
+          <a href="about.html#inception">Inception</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="crops.html" class="nav-link">Products
+          <svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="crops.html#field-crops">Field Crops</a>
+          <a href="crops.html#vegetables">Vegetables</a>
+          <a href="crops.html#fodder">Fodder</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="research.html" class="nav-link">R&amp;D
+          <svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="research.html">Breeding &amp; Research</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
+      <div class="nav-item"><a href="partner.html" class="nav-link">Distributor</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
+    </nav>
     <div class="header-actions">
       <button class="mobile-menu-toggle" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -74,6 +107,7 @@
     </li>
     <li><a href="facilities.html" class="mobile-nav-link">Facilities</a></li>
     <li><a href="research.html" class="mobile-nav-link">R&amp;D</a></li>
+    <li><a href="partner.html" class="mobile-nav-link">Distributor</a></li>
     <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
   </ul>
   <div class="mobile-nav-cta">
@@ -83,7 +117,12 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="hero-grain"></div>
+  <div class="hero-bg">
+    <div class="slide active" style="background-image:url('images/hero/hero-1.jpg')"></div>
+    <div class="slide" style="background-image:url('images/hero/hero-2.jpg')"></div>
+    <div class="slide" style="background-image:url('images/hero/hero-3.jpg')"></div>
+    <div class="overlay"></div>
+  </div>
   <div class="hero-inner">
     <div class="hero-copy reveal" data-delay="1">
       <span class="eyebrow">Trimurti Plant Sciences Private Limited</span>
@@ -95,7 +134,7 @@
       </div>
     </div>
     <div class="hero-visual reveal" data-delay="2">
-      <div class="field-art" style="height:100%; border-radius:8px; border:1px solid rgba(247,245,239,0.12);">
+      <div class="field-art tone-bone" style="height:100%; border-radius:8px; border:1px solid var(--line-solid);">
         <div class="row-lines"></div>
         <div class="glow" style="width:280px;height:280px;background:rgba(201,162,39,0.25);top:-60px;right:-60px;"></div>
         <div class="glow" style="width:220px;height:220px;background:rgba(47,112,72,0.5);bottom:-40px;left:-40px;"></div>
@@ -120,7 +159,7 @@
           </g>
           <line x1="0" y1="320" x2="460" y2="320" stroke="rgba(247,245,239,0.15)" stroke-width="1"/>
         </svg>
-        <span class="photo-note">Photography pending — placeholder art</span>
+        <span class="photo-note">Replace images/hero/*.jpg with your photos</span>
       </div>
       <div class="hero-card-float">
         <div class="field-tag"><span>Founded</span><span>2011</span></div>
@@ -308,44 +347,29 @@
   </div>
 </section>
 
-<!-- ============ LEADERSHIP PREVIEW ============ -->
-<section class="section" style="background:var(--bone-50); border-top:1px solid var(--line-solid); border-bottom:1px solid var(--line-solid);">
+<!-- ============ LEADERSHIP ============ -->
+<section class="section leader-section">
   <div class="container">
     <div class="section-head reveal">
-      <h2>Led by 25 years inside the industry</h2>
-      <p>An IIM Kozhikode Gold Medalist, Stanford Seed alumnus, and an IARI-trained geneticist at the helm.</p>
+      <h2>Led by seasoned seed industry professionals</h2>
+      <p>Our leadership team brings decades of combined experience in genetics, agribusiness, and seed technology — driven by a shared commitment to farmer success.</p>
     </div>
-    <div class="leader-grid">
-      <div class="leader-card reveal">
-        <div class="leader-photo field-art tone-bone">
-          <svg width="100%" height="100%" viewBox="0 0 300 220"><rect width="300" height="220" fill="#EFEDE3"/><circle cx="150" cy="90" r="40" fill="#C9C7B8"/><path d="M80 220C80 170 110 145 150 145C190 145 220 170 220 220" fill="#C9C7B8"/></svg>
-          <span class="photo-note">Photo pending</span>
-        </div>
-        <h3>Mr. Raghu Vasu A</h3>
-        <span class="leader-role">Founder &amp; CEO</span>
-        <p>MBA, IIM Kozhikode (Gold Medalist) · LLM, Osmania University · Stanford Seed Program, 2019.</p>
+    <div style="max-width:720px;margin:0 auto;">
+      <div class="leader-praise reveal" style="margin-bottom:var(--space-lg);">
+        <h3 style="font-size:1.25rem;">Mr. Raghu Vasu A</h3>
+        <span style="display:inline-block;font-size:0.8125rem;font-weight:600;color:var(--green-600);margin-bottom:8px;">Founder &amp; CEO</span>
+        <p>MBA, IIM Kozhikode (Gold Medalist) · LLM, Osmania University · Stanford Seed Program, 2019. Over 25 years in the seed industry.</p>
       </div>
-      <div class="leader-card reveal">
-        <div class="leader-photo field-art tone-bone">
-          <svg width="100%" height="100%" viewBox="0 0 300 220"><rect width="300" height="220" fill="#EFEDE3"/><circle cx="150" cy="90" r="40" fill="#C9C7B8"/><path d="M80 220C80 170 110 145 150 145C190 145 220 170 220 220" fill="#C9C7B8"/></svg>
-          <span class="photo-note">Photo pending</span>
-        </div>
-        <h3>Dr. Syamal Krishna Ghosh</h3>
-        <span class="leader-role">Chief Innovation Officer</span>
+      <div class="leader-praise reveal">
+        <h3 style="font-size:1.25rem;">Dr. Syamal Krishna Ghosh</h3>
+        <span style="display:inline-block;font-size:0.8125rem;font-weight:600;color:var(--green-600);margin-bottom:8px;">Chief Innovation Officer</span>
         <p>Ph.D. in Genetics, IARI New Delhi · 25+ years in the seed industry · with Trimurti since 2011.</p>
       </div>
-      <div class="leader-card reveal">
-        <div class="leader-photo field-art tone-bone">
-          <svg width="100%" height="100%" viewBox="0 0 300 220"><rect width="300" height="220" fill="#EFEDE3"/><circle cx="150" cy="90" r="40" fill="#C9C7B8"/><path d="M80 220C80 170 110 145 150 145C190 145 220 170 220 220" fill="#C9C7B8"/></svg>
-          <span class="photo-note">Photo pending</span>
-        </div>
-        <h3>Dr. Pankaj Kumar Singh</h3>
-        <span class="leader-role">Deputy General Manager</span>
+      <div class="leader-praise reveal" style="margin-top:var(--space-lg);">
+        <h3 style="font-size:1.25rem;">Dr. Pankaj Kumar Singh</h3>
+        <span style="display:inline-block;font-size:0.8125rem;font-weight:600;color:var(--green-600);margin-bottom:8px;">Deputy General Manager</span>
         <p>Ph.D. in Seed Technology · 15+ years in the seed industry · with Trimurti since 2016.</p>
       </div>
-    </div>
-    <div style="text-align:center; margin-top:40px;">
-      <a href="about.html" class="btn btn-dark">Meet the full leadership team</a>
     </div>
   </div>
 </section>
@@ -387,7 +411,7 @@
       <div>
         <div class="footer-brand-logo">
           <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences" style="height:28px;width:auto;">
-          <span class="logo-text">TriMurti</span>
+
         </div>
         <p class="footer-tagline">Transforming lives through superior seeds, leveraging science &amp; technology.</p>
         <div class="footer-social">
@@ -440,5 +464,17 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+(function() {
+  var slides = document.querySelectorAll('.hero-bg .slide');
+  if (slides.length < 2) return;
+  var current = 0;
+  setInterval(function() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+})();
+</script>
 </body>
 </html>

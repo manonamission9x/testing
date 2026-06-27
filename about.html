@@ -23,6 +23,39 @@
       <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences">
 
     </a>
+    <nav class="main-nav">
+      <div class="nav-item">
+        <a href="about.html" class="nav-link">About Us
+          <svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="about.html#vision-mission">Vision &amp; Mission</a>
+          <a href="about.html#leadership">Leadership</a>
+          <a href="about.html#inception">Inception</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="crops.html" class="nav-link">Products
+          <svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="crops.html#field-crops">Field Crops</a>
+          <a href="crops.html#vegetables">Vegetables</a>
+          <a href="crops.html#fodder">Fodder</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="research.html" class="nav-link">R&amp;D
+          <svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="research.html">Breeding &amp; Research</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
+      <div class="nav-item"><a href="partner.html" class="nav-link">Distributor</a></div>
+      <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
+    </nav>
     <div class="header-actions">
       <button class="mobile-menu-toggle" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -65,6 +98,7 @@
     </li>
     <li><a href="facilities.html" class="mobile-nav-link">Facilities</a></li>
     <li><a href="research.html" class="mobile-nav-link">R&amp;D</a></li>
+    <li><a href="partner.html" class="mobile-nav-link">Distributor</a></li>
     <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
   </ul>
   <div class="mobile-nav-cta">
@@ -83,8 +117,8 @@
   </div>
 </section>
 
-<!-- ============ OUR STORY ============ -->
-<section class="section">
+<!-- ============ OUR STORY (Inception) ============ -->
+<section class="section" id="inception">
   <div class="container">
     <div class="story-grid">
       <div class="story-art field-art tone-bone reveal">
@@ -111,10 +145,23 @@
 </section>
 
 <!-- ============ MISSION & VALUES ============ -->
-<section class="section" style="background:var(--bone-50); border-top:1px solid var(--line-solid); border-bottom:1px solid var(--line-solid);">
+<!-- ============ OUR MISSION ============ -->
+<section class="section">
   <div class="container">
     <div class="section-head reveal">
-      <h2>Our mission &amp; values</h2>
+      <h2>Our Mission</h2>
+      <p>To improve farming outcomes across India and neighbouring markets by delivering high-quality, scientifically bred seeds that meet the real-world conditions of Indian agriculture.</p>
+    </div>
+    <div style="max-width:720px;margin:0 auto;" class="reveal">
+      <p style="font-size:1.0625rem;color:var(--text-light);line-height:1.75;">Every hybrid we develop, every seed lot we produce, and every partnership we build is guided by the same purpose: to put better genetics in the hands of farmers. We achieve this through rigorous scientific breeding, extensive field testing across diverse agro-climatic zones, and an unwavering commitment to quality at every stage — from parent-line development to the seed packet that reaches the farmer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-75); border-top:1px solid var(--line); border-bottom:1px solid var(--line);" id="vision-mission">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Our Values</h2>
       <p>Every decision we make is guided by the same principle: deliver value to the farmer through science, quality, and integrity.</p>
     </div>
     <div class="values-grid">
@@ -164,86 +211,60 @@
   </div>
 </section>
 
-<!-- ============ LEADERSHIP ============ -->
+<!-- ============ THE TRIMURTI PLEDGE ============ -->
 <section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>The Trimurti Pledge</h2>
+      <p>Our promise to every farmer, dealer, and partner who trusts TriMurti seeds.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Reliable Seeds, Every Time</h3>
+        <p>Every seed lot is tested for germination, purity, and vigour before it leaves our facilities. We stand by the quality of every packet.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7L12 2L21 7M3 7V17L12 22M3 7L12 12M21 7V17L12 22M21 7L12 12M12 12V22" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Transparent Quality Standards</h3>
+        <p>Our quality metrics are clear and available to our partners. What we promise in the field is what you deliver to the farmer.</p>
+      </div>
+      <div class="diff-card reveal">
+        <div class="diff-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 2V5M12 19V22M22 12H19M5 12H2M19.07 4.93L16.95 7.05M7.05 16.95L4.93 19.07" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Continuous R&amp;D</h3>
+        <p>We invest consistently in breeding programs across India's major agro-climatic zones, developing products tailored to local conditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERSHIP ============ -->
+<section class="section" id="leadership">
   <div class="container">
     <div class="section-head reveal">
       <h2>Leadership team</h2>
       <p>Industry veterans with decades of combined experience in seed science, genetics, and agribusiness.</p>
     </div>
 
-    <div class="leader-grid" style="margin-bottom:var(--space-3xl);">
-      <div class="leader-card reveal">
-        <div class="leader-photo field-art tone-bone">
-          <svg width="100%" height="100%" viewBox="0 0 300 220"><rect width="300" height="220" fill="#EFEDE3"/><circle cx="150" cy="90" r="40" fill="#C9C7B8"/><path d="M80 220C80 170 110 145 150 145C190 145 220 170 220 220" fill="#C9C7B8"/></svg>
-          <span class="photo-note">Photo pending</span>
-        </div>
-        <h3>Mr. Raghu Vasu A</h3>
-        <span class="leader-role">Founder &amp; CEO</span>
-        <p>MBA, IIM Kozhikode (Gold Medalist) &middot; LLM, Osmania University &middot; Stanford Seed Program, 2019. Over 25 years in the seed industry.</p>
+    <div style="max-width:720px;margin:0 auto auto var(--space-3xl);">
+      <div class="leader-praise reveal" style="margin-bottom:var(--space-lg);">
+        <h3 style="font-size:1.25rem;">Mr. Raghu Vasu A</h3>
+        <span style="display:inline-block;font-size:0.8125rem;font-weight:600;color:var(--green-600);margin-bottom:8px;">Founder &amp; CEO</span>
+        <p>MBA, IIM Kozhikode (Gold Medalist) · LLM, Osmania University · Stanford Seed Program, 2019. Over 25 years in the seed industry.</p>
       </div>
-      <div class="leader-card reveal">
-        <div class="leader-photo field-art tone-bone">
-          <svg width="100%" height="100%" viewBox="0 0 300 220"><rect width="300" height="220" fill="#EFEDE3"/><circle cx="150" cy="90" r="40" fill="#C9C7B8"/><path d="M80 220C80 170 110 145 150 145C190 145 220 170 220 220" fill="#C9C7B8"/></svg>
-          <span class="photo-note">Photo pending</span>
-        </div>
-        <h3>Dr. Syamal Krishna Ghosh</h3>
-        <span class="leader-role">Chief Innovation Officer</span>
-        <p>Ph.D. in Genetics, IARI New Delhi &middot; 25+ years in the seed industry &middot; with Trimurti since 2011.</p>
+      <div class="leader-praise reveal">
+        <h3 style="font-size:1.25rem;">Dr. Syamal Krishna Ghosh</h3>
+        <span style="display:inline-block;font-size:0.8125rem;font-weight:600;color:var(--green-600);margin-bottom:8px;">Chief Innovation Officer</span>
+        <p>Ph.D. in Genetics, IARI New Delhi · 25+ years in the seed industry · with Trimurti since 2011.</p>
       </div>
-      <div class="leader-card reveal">
-        <div class="leader-photo field-art tone-bone">
-          <svg width="100%" height="100%" viewBox="0 0 300 220"><rect width="300" height="220" fill="#EFEDE3"/><circle cx="150" cy="90" r="40" fill="#C9C7B8"/><path d="M80 220C80 170 110 145 150 145C190 145 220 170 220 220" fill="#C9C7B8"/></svg>
-          <span class="photo-note">Photo pending</span>
-        </div>
-        <h3>Dr. Pankaj Kumar Singh</h3>
-        <span class="leader-role">Deputy General Manager</span>
-        <p>Ph.D. in Seed Technology &middot; 15+ years in the seed industry &middot; with Trimurti since 2016.</p>
+      <div class="leader-praise reveal" style="margin-top:var(--space-lg);">
+        <h3 style="font-size:1.25rem;">Dr. Pankaj Kumar Singh</h3>
+        <span style="display:inline-block;font-size:0.8125rem;font-weight:600;color:var(--green-600);margin-bottom:8px;">Deputy General Manager</span>
+        <p>Ph.D. in Seed Technology · 15+ years in the seed industry · with Trimurti since 2016.</p>
       </div>
     </div>
 
-    <div class="section-head reveal" style="margin-top:var(--space-3xl);">
-      <h2>Our journey</h2>
-      <p>Key milestones in TriMurti's evolution from a seed startup to a trusted name across India and Nepal.</p>
-    </div>
-    <div class="timeline" style="max-width:640px;margin:0 auto;">
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2011</div>
-        <h3>Founded in Hyderabad</h3>
-        <p>TPSPL was incorporated with a focus on field crop hybrids for Indian growing conditions.</p>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2013</div>
-        <h3>First product launches</h3>
-        <p>Initial hybrid maize and rice varieties introduced to market, receiving strong farmer adoption.</p>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2016</div>
-        <h3>R&amp;D expansion</h3>
-        <p>Established dedicated research centres across key agro-climatic zones to strengthen breeding programs.</p>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2018</div>
-        <h3>Nepal market entry</h3>
-        <p>Expanded distribution network into Nepal, bringing TriMurti seeds to new geographies.</p>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2019</div>
-        <h3>Stanford Seed Program</h3>
-        <p>Founder &amp; CEO Raghu Vasu A selected for the Stanford Seed Transformation Program.</p>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-year">2021</div>
-        <h3>120+ hybrids &amp; varieties</h3>
-        <p>Portfolio expanded to cover field crops, vegetables, and fodder — serving 2.5Mn+ acres annually.</p>
-      </div>
-    </div>
+
   </div>
 </section>
 
@@ -270,7 +291,7 @@
       <div>
         <div class="footer-brand-logo">
           <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences" style="height:28px;width:auto;">
-          <span class="logo-text">TriMurti</span>
+
         </div>
         <p class="footer-tagline">Transforming lives through superior seeds, leveraging science &amp; technology.</p>
         <div class="footer-social">

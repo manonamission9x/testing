@@ -1,0 +1,197 @@
+/* ============================================
+   TriMurti Plant Sciences — Crop Detail Pages
+   ============================================ */
+
+.crop-detail-hero {
+  padding: 120px 0 50px;
+  background: linear-gradient(135deg, var(--green-100) 0%, var(--cream) 60%, var(--white) 100%);
+  text-align: center;
+}
+.crop-detail-hero h1 { margin-bottom: 6px; }
+.crop-detail-hero .crop-subtitle {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.crop-detail-nav {
+  background: var(--white);
+  border-bottom: 1.5px solid var(--line-solid);
+  padding: 12px 0;
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+}
+.crop-detail-nav-inner {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.crop-detail-nav-inner a {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1.5px solid var(--line-solid);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+.crop-detail-nav-inner a:hover {
+  border-color: var(--green-400);
+  color: var(--green-700);
+  background: var(--green-100);
+}
+
+/* ---- Variety Card ---- */
+.variety-card {
+  border: 1.5px solid var(--line-solid);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--white);
+  margin-bottom: var(--space-lg);
+  transition: all var(--duration-base) var(--ease-out);
+  scroll-margin-top: 140px;
+}
+.variety-card:target {
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 3px rgba(47, 112, 72, 0.1);
+}
+
+.variety-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--cream-75);
+  border-bottom: 1.5px solid var(--line-solid);
+}
+.variety-card-header .variety-name {
+  font-size: 1.125rem;
+  font-weight: 650;
+  color: var(--green-800);
+}
+.variety-card-header .variety-badge {
+  font-size: 0.625rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--green-100);
+  color: var(--green-700);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.variety-card-body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+}
+.variety-card-image {
+  background: var(--cream-50);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-right: 1.5px solid var(--line-solid);
+}
+.variety-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.variety-card-image .img-placeholder {
+  text-align: center;
+  color: var(--text-muted);
+}
+.variety-card-image .img-placeholder svg {
+  width: 36px;
+  height: 36px;
+  opacity: 0.25;
+  margin-bottom: 4px;
+}
+.variety-card-image .img-placeholder span {
+  display: block;
+  font-size: 0.625rem;
+  opacity: 0.4;
+}
+
+.variety-card-info {
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.variety-card-info p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+.variety-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.variety-spec {
+  padding: 6px 10px;
+  background: var(--cream-75);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+}
+.variety-spec strong {
+  display: block;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+.variety-spec span {
+  color: var(--green-800);
+  font-weight: 500;
+}
+
+/* ---- Related Products ---- */
+.related-section {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1.5px solid var(--line-solid);
+}
+.related-section h3 {
+  font-size: 1.0625rem;
+  margin-bottom: var(--space-md);
+  color: var(--green-800);
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+.related-card {
+  border: 1.5px solid var(--line-solid);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  text-align: center;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+.related-card:hover {
+  border-color: var(--green-300);
+  transform: translateY(-2px);
+}
+.related-card .rel-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--green-800);
+}
+.related-card .rel-tag {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .variety-card-body { grid-template-columns: 1fr; }
+  .variety-card-image { min-height: 120px; border-right: none; border-bottom: 1.5px solid var(--line-solid); }
+  .variety-specs { grid-template-columns: 1fr; }
+}
