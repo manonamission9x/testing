@@ -4163,8 +4163,3 @@ const PRODUCTS_SKUS = [
     hybrids:[]
   },
 ];
-
-function getActiveProducts(){return PRODUCTS.filter(function(p){return p.active!==false}).sort(function(a,b){return(a.order||99)-(b.order||99)});}
-function getProductsByCategory(c){return getActiveProducts().filter(function(p){return p.category===c;});}
-function getActiveProducts(){return PRODUCTS_SKUS.filter(function(p){return p.active!==false}).sort(function(a,b){return(a.order||99)-(b.order||99)});}
-function getProductsByCategory(c){return getActiveProducts().filter(function(p){return p.category===c;});}

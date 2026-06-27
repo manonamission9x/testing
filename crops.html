@@ -111,8 +111,11 @@
 <script src="products-skus.js"></script>
 <script>
 (function(){
-// Merge aggregate + SKU products
-var PRODUCTS = (typeof PRODUCTS_SKUS !== 'undefined') ? PRODUCTS.concat(PRODUCTS_SKUS) : PRODUCTS;
+// Merge aggregate + SKU products into global
+var _ALL_PRODUCTS = null;
+if (typeof PRODUCTS_SKUS !== 'undefined') {
+  _ALL_PRODUCTS = PRODUCTS.concat(PRODUCTS_SKUS);
+}
 var c=document.getElementById('cropSections');
 var fb=document.getElementById('filterBar');
 var PAGE_SIZE=12;
@@ -121,6 +124,7 @@ var ab=document.createElement('button');ab.className='filter-btn active';ab.text
 cats.forEach(function(c){var b=document.createElement('button');b.className='filter-btn';b.textContent=c.l;b.setAttribute('data-filter',c.k);fb.appendChild(b);});
 function getPageItems(items,page){var start=(page-1)*PAGE_SIZE;return items.slice(start,start+PAGE_SIZE);}
 function getTotalPages(items){return Math.max(1,Math.ceil(items.length/PAGE_SIZE));}
+function getAllProducts(){return _ALL_PRODUCTS || getActiveProducts();}
 function card(p){
  var hh='';if(p.hybrids){p.hybrids.forEach(function(h){hh+='<div class="hybrid-item"><span class="hybrid-name">'+h.name+'</span><span class="hybrid-desc">'+h.desc+'</span></div>';});}
  var fh='';if(p.features&&p.features.length){fh='<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px;">';p.features.forEach(function(f){fh+='<span style="font-size:0.6875rem;padding:2px 8px;background:var(--green-100);color:var(--green-700);border-radius:var(--radius-full);">'+f+'</span>';});fh+='</div>';}
@@ -143,7 +147,7 @@ function card(p){
 }
 var currentFilter='all';var currentSearch='';var pages={};
 function renderAll(){
- var ops=getActiveProducts();
+ var ops=getAllProducts();
  currentSearch=((document.getElementById('cropSearch')||{}).value||'').toLowerCase().trim();
  var ss='';
  cats.forEach(function(ca){
