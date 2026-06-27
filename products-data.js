@@ -1,7 +1,7 @@
 // TRIMURTI PRODUCT CATALOG
 // Generated from detailed scrape of trimurti.in
 
-const PRODUCTS = [
+var PRODUCTS = [
   {
     id:"maize",
     name:"Maize",
