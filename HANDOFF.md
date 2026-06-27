@@ -1,10 +1,15 @@
 # TriMurti Plant Sciences — Complete Handoff
 
+**Last updated:** June 22, 2026  
+**GitHub:** `github.com/manonamission9x/testing` — branch `main`  
+**Deploy:** GitHub → Vercel (set Root Directory to `trimurti-redesign`)  
+**Location:** `C:\Users\kingo\trimurti-redesign\`  
+
+---
+
 ## Project Overview
 
-A 7-page static website redesign for **TriMurti Plant Sciences Private Limited**, a Hyderabad-based seed company. Built with vanilla HTML, CSS, and JS — no frameworks, no build step. Opens directly from the filesystem.
-
-**Location:** `C:\Users\kingo\trimurti-redesign\`
+A 9-page static website for **TriMurti Plant Sciences Private Limited**, a Hyderabad-based seed company. Built with vanilla HTML, CSS, and JS — no frameworks. Light/cream farming-positive theme with dark green accents and gold highlights. Phosphor icons via CDN.
 
 ---
 
@@ -12,29 +17,50 @@ A 7-page static website redesign for **TriMurti Plant Sciences Private Limited**
 
 ```
 trimurti-redesign/
-├── index.html              # Homepage — hero, proof bar, crops, R&D, leadership, CTA
-├── about.html              # Company story, 6 values, 3 leaders, timeline (2011→2021)
-├── crops.html              # 3 catalog tables: field crops (9), vegetables (10), fodder (3)
-├── facilities.html         # 4 facility cards + dark quality process section
-├── research.html           # 4 R&D centres by agro-climatic zone + breeding priorities
-├── contact.html            # Contact info + form + social links + map placeholder
-├── partner.html            # Partner benefits (6 cards) + 3-step process + inquiry form
+├── index.html              # Homepage — hero carousel, proof bar, crops, R&D, leadership, CTA
+├── about.html              # Company story, Mission, Values (6), The Trimurti Pledge, Leadership
+├── crops.html              # Data-driven product catalog (22 products) — filters, search, PDFs
 │
+├── crops/                  # Individual crop detail pages (9 field crops)
+│   ├── maize.html          #   Nagma, TMRH-1422, TMRH-871 + image slots
+│   ├── rice.html           #   TMRH-221, TMRH-335, TMRH-448
+│   ├── mustard.html        #   TMRH-511, TMRH-622, TMRH-733
+│   ├── bajra.html          #   TMRB-101, TMRB-202
+│   ├── jowar.html          #   TMRJ-301, TMRJ-402
+│   ├── sunflower.html      #   TMRSF-501, TMRSF-602
+│   ├── cotton.html         #   TMRC-701, TMRC-802
+│   ├── green-gram.html     #   TMRG-901, TMRG-902
+│   └── black-gram.html     #   TMRB-951, TMRB-952
+│
+├── research.html           # R&D — breeding focus, priorities (YIELD centre removed)
+├── contact.html            # Contact form (→ info@trimurti.in) + Google Maps embed
+├── partner.html            # "Partner with TriMurti" — distributor inquiry form
+├── careers.html            # "Join the TriMurti Team" — career application + resume upload
+├── thank-you.html          # Post-submission confirmation page
+│
+├── products-data.js        # ★ ALL 22 products here — add/edit/remove from this one file
+├── build.py                # Build script — generates pages from components/*
+│
+├── components/
+│   └── subpage-header.html # Canonical header + nav (edit once, rebuild all)
+│
+├── brochures/              # Upload PDF brochures here (linked from products-data.js)
 ├── images/
-│   └── trimurti-logo.png   # Official TriMurti logo (300×105 PNG)
+│   ├── trimurti-logo.png   # Official TriMurti logo
+│   ├── hero/               # Hero background carousel (hero-1.jpg, hero-2.jpg, hero-3.jpg)
+│   └── products/           # Product photos (e.g. maize.jpg — linked from products-data.js)
 │
 ├── css/
-│   ├── base.css            # CSS variables, reset, typography, buttons, reveal animations
-│   ├── layout.css          # Header, nav, mobile nav, search overlay, footer, responsive
-│   ├── field-art.css       # Abstract field patterns, glow blobs, grain textures, card art
-│   ├── home.css            # Hero, proof bar, cert strip, diff grid, crop grid, R&D, leadership, partner CTA
-│   └── pages.css           # Inner page styles: banners, sub-nav, tables, facilities, contact, partner
+│   ├── base.css            # Variables, typography, buttons, animations
+│   ├── layout.css          # Header, nav, mobile nav, search, footer
+│   ├── home.css            # Hero, proof bar, crop grid, partner CTA
+│   ├── pages.css           # Inner page styles, product cards
+│   ├── field-art.css       # Abstract field patterns
+│   └── crops-detail.css    # Crop detail page variety cards
 │
 └── js/
-    └── main.js             # Scroll-reveal, counter animation, sticky header, mobile nav, search
+    └── main.js             # Scroll-reveal, counter animation, sticky header, mobile nav
 ```
-
-**Total:** 14 files, ~4,300 lines, 220KB on disk.
 
 ---
 
@@ -42,29 +68,70 @@ trimurti-redesign/
 
 | Token | Value | Usage |
 |---|---|---|
-| `--bg-darker` | `#161616` | Page banners, hero, crop section, footer |
-| `--bg-dark` | `#1C1C1C` | Header, proof bar, partner CTA, quality cards |
-| `--logo-green` | `#40A040` | Extracted from logo — available for future accents |
-| `--gold` | `#C9A227` | Accent — buttons, highlights, decorative elements |
-| `--bone` | `#F7F5EF` | Light section backgrounds, text on dark |
-| `--green-700 / 800 / 900` | Dark greens | Button backgrounds, dropdowns, decorative elements |
+| `--bg-darker` | `#0A1A0F` | Footer, partner CTA |
+| `--bg-dark` | `#0F2818` | Hero overlay, dark accents |
+| `--green-600` | `#245C3C` | Primary buttons, active filters |
+| `--logo-green` | `#40A040` | Logo brand green |
+| `--gold` | `#C9A227` | Accent — badges, special traits, decorative |
+| `--cream` | `#FAFAF5` | Light section backgrounds |
+| `--white` | `#FFFFFF` | Main background |
 | Inter font | Google Fonts | All body and heading text |
+| Phosphor icons | CDN (`@phosphor-icons/web@2.1.1`) | All utility icons |
 
 ---
 
-## Design Decisions
+## Products Page — Data-Driven System
 
-1. **Minimal header** — Only the logo image on desktop. Navigation is behind the hamburger menu (visible on mobile) and in the footer. Clean, brand-forward layout.
+**Key file:** `products-data.js` — All 22 products are defined here as a JS array.  
+**Card rendering:** `crops.html` reads `PRODUCTS` and generates cards dynamically.
 
-2. **Dark theme with green-gold accents** — Background references pulled from your screenshot (#1C1C1C range). Gold (#C9A227) provides contrast. Logo brand green (#40A040) available for future use.
+### Each product has these fields:
 
-3. **Local logo file** — `images/trimurti-logo.png` downloaded from the live site's CDN. All 4 logo instances (header, footer, mobile top, mobile bottom) reference this local file — no external URL dependency.
+```javascript
+{
+  id:"maize",               // Unique slug
+  name:"Maize",             // Display name
+  category:"field-crops",   // "field-crops" | "vegetables" | "fodder"
+  type:"Hybrid",            // "Hybrid" | "Variety"
+  code:"TMR-MZ",            // Internal product code
+  active:true,              // false = hidden without deleting
+  order:1,                  // Display order within category
+  detailPage:true,          // true = links to crops/maize.html
+  description:"...",        // Short description
+  image:"images/products/maize.jpg",  // Product photo (optional)
+  features:[                // Feature tags (shown as green pills)
+    "Biotech & conventional options",
+    "Kharif & Rabi seasons"
+  ],
+  region:"Central & Southern India",
+  season:"Kharif / Rabi",
+  duration:"95-115 days",
+  special:"Pest tolerant",  // Special trait badge (gold)
+  pdf:"brochures/maize.pdf",// Brochure PDF (optional)
+  markets:"India, Nepal",
+  hybrids:[                 // Hybrid/variety sub-items
+    { name:"Nagma", desc:"Biotech Hybrid — Kharif" }
+  ]
+}
+```
 
-4. **SVG placeholder art** — Used throughout where photography is pending (leaders, facilities, hero visual). Marked with "photo pending" labels. Designed to be swapped with real images.
+### To add/update products:
+1. Open `products-data.js`
+2. Add/edit/remove objects in the `PRODUCTS` array
+3. Save — cards render automatically
 
-5. **Fully responsive** — Mobile, tablet, and desktop breakpoints. Mobile nav uses a full-screen overlay with sub-menu expand/collapse.
+---
 
-6. **No build step** — Pure HTML/CSS/JS. Open any `.html` file directly in a browser. Google Fonts loaded via CDN.
+## Forms
+
+| Form | Routes to | Features |
+|---|---|---|
+| **Contact** | `info@trimurti.in` | Subject dropdown, CAPTCHA, thank-you redirect |
+| **Careers** | `info@trimurti.in` | Resume upload (PDF/DOC), CAPTCHA |
+| **Distributor** | `info@trimurti.in` | Business details enquiry, CAPTCHA |
+
+All forms use **FormSubmit.co** (no backend needed). Submissions land in the inbox.  
+Optional: Create a `thank-you.html` page (already exists).
 
 ---
 
@@ -72,99 +139,87 @@ trimurti-redesign/
 
 | Feature | Trigger | Details |
 |---|---|---|
+| Hero background carousel | Page load | 3 images cycle every 5 seconds with fade transition |
 | Scroll-reveal animations | Page scroll | Sections fade + slide up on entering viewport |
-| Counter animation | Scroll to proof bar | Numbers animate from 0 → target (2.5Mn, 150+, 5000+, 200K+) |
-| Sticky header | Page scroll | Header darkens with blur backdrop after 60px |
-| Mobile navigation | Hamburger icon | Full-screen overlay, sub-menu expand/collapse, close on Escape |
-| Search overlay | Header search icon / Ctrl+K | Full-screen overlay with input, close on Escape |
-
----
-
-## Key HTML Patterns
-
-**Logo (header):**
-```html
-<a href="index.html" class="logo">
-  <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences">
-</a>
-```
-
-**Logo (footer):**
-```html
-<div class="footer-brand-logo">
-  <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences" style="height:28px;width:auto;">
-  <span class="logo-text">TriMurti</span>
-</div>
-```
-
-**Mobile nav logo (top):**
-```html
-<img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti" style="height:28px;width:auto;">
-```
-
-**Mobile nav logo (bottom):**
-```html
-<img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti" style="height:32px;width:auto;">
-```
-
----
-
-## What's Still TODO
-
-### Priority — Before Launch
-
-1. **Replace "photo pending" SVGs** with actual photography:
-   - Leader photos (about.html + index.html — 3 people)
-   - Facility photos (facilities.html — 4 cards)
-   - Hero visual art (index.html — SVG plant illustration)
-   - R&D visual art (research.html + index.html — SVG lab building)
-   - Story section art (about.html)
-
-2. **Wire up contact forms** to a backend endpoint:
-   - contact.html — general inquiry form
-   - partner.html — distributor inquiry form
-   - Currently uses `action="#"` — needs a real endpoint URL
-
-3. **Replace certification placeholders** (index.html):
-   - 5 "Logo space" boxes in `.cert-placeholder-row` → replace with actual certification logos
-
-4. **Add real testimonials** (index.html):
-   - `.testimonial-reserved` section — currently shows reserved placeholder
-
-5. **No external URL dependencies remain** ✅ (logo is local)
-
-### Enhancement Ideas
-
-6. **Google Maps embed** — `contact.html` has a placeholder div `.map-placeholder` ready for an iframe
-
-7. **Product images** — Add real photos to the crop cards (index.html) and crop tables (crops.html)
-
-8. **SEO meta tags** — All pages have basic description; could add Open Graph / Twitter Card tags
-
-9. **Favicon** — Currently an inline SVG favicon; replace with the actual brand favicon from the live site
+| Counter animation | Scroll to proof bar | Numbers animate 0 → target (2.5Mn, 150+, 5000+, 200K+) |
+| Sticky header | Page scroll | White header with shadow after 60px |
+| Mobile navigation | Hamburger icon | Full-screen overlay, sub-menu expand/collapse |
+| Product filters | Category buttons | Show/hide by category (All / Field Crops / Vegetables / Fodder) |
+| Product search | Input field | Real-time card filtering |
+| Brochure download | Card button | Links to PDF in `brochures/` folder |
+| Enquire button | Card button | Links to contact page with product name pre-filled |
 
 ---
 
 ## Deployment
 
-The site is pure static HTML/CSS/JS — upload all files to any web server or static host:
+### Vercel (Recommended)
+1. Push to `github.com/manonamission9x/testing` → `main` branch
+2. Go to [vercel.com](https://vercel.com) → **Add New → Project**
+3. Import the `testing` repo
+4. Set **Root Directory** to `trimurti-redesign`
+5. Click **Deploy**
 
-1. Upload the entire `trimurti-redesign/` folder to your server's document root
-2. No server-side processing needed (unless wiring up forms)
-3. Update the logo path if deploying to a subdirectory (e.g., `/tri-murti/images/trimurti-logo.png`)
+### Build Pipeline (optional)
+```bash
+python build.py     # Rebuilds pages from components/* partials
+```
+Run before deploy if you edit `components/subpage-header.html`.  
+If you only edit `products-data.js` or individual HTML files, no build step needed.
 
-For local development: open any `.html` file directly in a browser at `file:///C:/Users/kingo/trimurti-redesign/index.html`.
+---
+
+## What's Still TODO
+
+### Before Launch
+1. **Upload product images** — Place JPG/WebP files in `images/products/` and set the `image` field in `products-data.js`
+2. **Upload PDF brochures** — Place in `brochures/` folder and set the `pdf` field in `products-data.js`
+3. **Replace hero background images** — Drop your photos into `images/hero/hero-1.jpg` through `hero-3.jpg` (1600×900 recommended)
+4. **Replace "Add image" placeholders** on crop detail pages (`crops/maize.html` etc.) — each variety has an image slot
+5. **Replace certification placeholders** (index.html) — 5 "Logo space" boxes
+6. **Add real testimonials** (index.html) — reserved section
+7. **Upload real product photos** for all 22 products
+
+### Enhancement Ideas
+8. **Add Open Graph / Twitter Card meta tags** for social sharing
+9. **Replace inline SVG favicon** with actual brand favicon
+10. **Set up Google Analytics** or similar
+11. **Create a real CMS** — Migrate to Decap CMS for non-technical editing
+
+---
+
+## Change Log
+
+| Date | Change | Files |
+|---|---|---|
+| Jun 22 | Initial full redesign — 7 pages, CSS, JS, light theme | All files |
+| Jun 22 | Logo replaced with actual TriMurti PNG | All HTML files |
+| Jun 22 | Light theme → dark theme → light theme again | CSS + HTML |
+| Jun 22 | Navigation rebuilt with dropdowns (About, Products, R&D, Careers, Distributor, Contact) | All HTML files |
+| Jun 22 | Products page rebuilt with data-driven cards | `products-data.js`, `crops.html` |
+| Jun 22 | About page: Mission + Values + Pledge added, Journey removed | `about.html` |
+| Jun 22 | R&D nav renamed, research centres removed, facilities delinked | `research.html`, all navs |
+| Jun 22 | Careers "Join the TriMurti Team", Distributor "Partner with TriMurti" | `careers.html`, `partner.html` |
+| Jun 22 | Hero background carousel added | `index.html`, `images/hero/` |
+| Jun 22 | Forms wired to `info@trimurti.in` + CAPTCHA + thank-you page | `contact.html`, `careers.html`, `partner.html`, `thank-you.html` |
+| Jun 22 | Google Maps embed added | `contact.html` |
+| Jun 22 | Resume upload added to Careers form | `careers.html` |
+| Jun 22 | Phosphor icons added (CDN), SVGs replaced | All HTML files |
+| Jun 22 | Build system created (header/footer partials) | `build.py`, `components/` |
+| Jun 22 | Image field added to product cards | `products-data.js`, `crops.html` |
+| Jun 22 | Unused files deleted (facilities.html, templates) | — |
+| Jun 22 | Pushed to `github.com/manonamission9x/testing` → `main` | — |
 
 ---
 
 ## Tech Stack
 
 - **HTML5** — Semantic markup with ARIA labels
-- **CSS3** — Custom properties, Grid, Flexbox, backdrop-filter, Intersection Observer animations
-- **JavaScript (vanilla)** — ~250 lines, ES6+, no dependencies
-- **Google Fonts** — Inter (400, 500, 600, 700) via CDN
+- **CSS3** — Custom properties, Grid, Flexbox, backdrop-filter
+- **JavaScript (vanilla)** — ~280 lines, ES6+, no dependencies
+- **Phosphor Icons** — via CDN (`@phosphor-icons/web@2.1.1`)
+- **Google Fonts** — Inter (400, 500, 600, 700)
 - **Logo** — `images/trimurti-logo.png` (300×105, 3.3KB PNG)
-
----
-
-*Handoff prepared: June 22, 2026*
+- **Forms** — FormSubmit.co (no backend)
+- **GitHub** — `github.com/manonamission9x/testing` → `main`
+- **Deploy target** — Vercel (static)
