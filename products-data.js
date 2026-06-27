@@ -35,6 +35,7 @@ const PRODUCTS = [
     id:"maize", name:"Maize", category:"field-crops", type:"Hybrid",
     code:"TMR-MZ", active:true, order:1, detailPage:true,
     description:"High-yielding biotech and conventional maize hybrids for Kharif and Rabi seasons. Strong pest tolerance and excellent grain quality.",
+    image:"images/products/maize.jpg",
     features:["Biotech & conventional options","Kharif & Rabi seasons","Excellent stay-green trait","High shelling percentage"],
     region:"Central & Southern India", season:"Kharif / Rabi", duration:"95-115 days",
     special:"Pest tolerant, drought tolerance", pdf:"brochures/maize.pdf",

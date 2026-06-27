@@ -34,14 +34,14 @@
       <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
     </nav>
     <div class="header-actions">
-      <button class="search-toggle" aria-label="Search"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <button class="search-toggle" aria-label="Search"><i class="ph ph-magnifying-glass" style="font-size:18px"></i></button>
       <a href="partner.html" class="btn btn-primary header-cta">Become a Distributor</a>
       <button class="mobile-menu-toggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     </div>
   </div>
 </header>
 
-<div class="search-overlay"><div class="search-box"><div class="search-box-input-row"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input type="text" id="cropSearch" placeholder="Search crops, hybrids, varieties&#8230;" autocomplete="off"><button class="search-close" aria-label="Close search"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div><div class="search-hint">Press <strong>Esc</strong> to close</div></div></div>
+<div class="search-overlay"><div class="search-box"><div class="search-box-input-row"><i class="ph ph-magnifying-glass" style="font-size:18px"></i><input type="text" id="cropSearch" placeholder="Search crops, hybrids, varieties&#8230;" autocomplete="off"><button class="search-close" aria-label="Close search"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div><div class="search-hint">Press <strong>Esc</strong> to close</div></div></div>
 
 <nav class="mobile-nav">
   <div class="mobile-nav-top"><img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti" style="height:28px;width:auto;"><button class="mobile-nav-close" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M6 18L18 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
@@ -121,12 +121,13 @@ function card(p){
  var mh='';var mp=[];if(p.region)mp.push(p.region);if(p.season)mp.push(p.season);if(p.duration)mp.push(p.duration);if(mp.length){mh='<div style="margin-top:10px;font-size:0.75rem;color:var(--text-muted);">'+mp.join(' &middot; ')+'</div>';}
  var sh='';if(p.special){sh='<span style="display:inline-block;margin-top:8px;font-size:0.6875rem;font-weight:600;color:var(--gold);border:1px solid var(--gold-dim);padding:2px 8px;border-radius:var(--radius-full);">'+p.special+'</span>';}
  var mk=p.markets?'<div class="product-card-footer"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M12 21C16.5 17 20 13.4 20 9C20 5.13 16.87 2 13 2H11C7.13 2 4 5.13 4 9C4 13.4 7.5 17 12 21Z" stroke="currentColor" stroke-width="1.6"/></svg> '+p.markets+'</div>':'';
+ var im='';if(p.image){im='<div style="margin-bottom:8px;border-radius:var(--radius-sm);overflow:hidden;height:120px;"><img src="'+p.image+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:cover;"></div>';}
  var ph='';if(p.pdf){ph='<a href="'+p.pdf+'" class="pdf-btn" target="_blank"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M14 2H6C5.47 2 4.96 2.21 4.59 2.59C4.21 2.96 4 3.47 4 4v16c0 .53.21 1.04.59 1.41C4.96 21.79 5.47 22 6 22h12c.53 0 1.04-.21 1.41-.59S20 20.53 20 20V8l-6-6z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" fill="none"/></svg> Brochure</a>';}
  var eq='<a href="contact.html?product='+encodeURIComponent(p.name)+'" class="pdf-btn" style="margin-left:6px;"><svg viewBox="0 0 24 24" fill="none" style="width:12px;height:12px;"><path d="M22 4L12 10L2 4" stroke="currentColor" stroke-width="1.6"/><path d="M2 4v16h20V4" stroke="currentColor" stroke-width="1.6"/></svg> Enquire</a>';
  var tg=p.detailPage?'a href="crops/'+p.id+'.html"':'div';var et=p.detailPage?'/a':'/div';
  return '<'+tg+' class="product-card reveal" style="display:block;text-decoration:none;color:inherit;">'
   +'<div class="product-card-header"><span class="crop-name">'+p.name+'</span><span class="crop-badge">'+p.type+'</span></div>'
-  +'<div class="product-card-body">'
+  +'<div class="product-card-body">'+im
   +'<div style="font-size:0.8125rem;color:var(--text-light);margin-bottom:6px;">'+p.description+'</div>'
   +'<div class="hybrid-label">Hybrids &amp; Varieties</div><div class="hybrid-list">'+hh+'</div>'
   +fh+sh+mh
