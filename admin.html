@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TriMurti — Product Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   TriMurti Admin Panel — Styles
+   ============================================ */
+:root {
+  --green-900: #0A1A0F;
+  --green-800: #0F2818;
+  --green-700: #1B4D32;
+  --green-600: #245C3C;
+  --green-500: #2F7048;
+  --green-400: #4A8B5C;
+  --green-300: #7BAF88;
+  --green-200: #B5D6BE;
+  --green-100: #E2F0E6;
+  --logo-green:    #40A040;
+  --logo-green-dim: rgba(64, 160, 64, 0.12);
+  --gold:       #C9A227;
+  --gold-light: #DDBB4A;
+  --gold-dim:   rgba(201, 162, 39, 0.12);
+  --cream:      #FAFAF5;
+  --cream-75:   #F5F3EC;
+  --cream-50:   #EFEDE3;
+  --cream-dark: #D4D2C5;
+  --white:      #FFFFFF;
+  --bg-light:   #FDFDFA;
+  --line:       rgba(0, 0, 0, 0.06);
+  --line-solid: #E0DED5;
+  --text:       #1A2818;
+  --text-light: #3D513B;
+  --text-muted: #6B8467;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.2s;
+  --duration-base: 0.35s;
+  --danger: #C0392B;
+  --danger-light: #FADBD8;
+  --warning: #E67E22;
+  --warning-light: #FDEBD0;
+  --success: #27AE60;
+  --success-light: #D5F5E3;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--cream);
+}
+
+/* ---- Layout ---- */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--line-solid);
+  padding: 0 var(--space-lg);
+}
+.app-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 56px;
+}
+.app-header h1 {
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.app-header h1 span {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.8125rem;
+}
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.header-stats strong { color: var(--text); font-weight: 600; }
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+/* ---- Tabs ---- */
+.tab-bar {
+  display: flex;
+  gap: 2px;
+  background: var(--cream-50);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 8px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active {
+  background: var(--white);
+  color: var(--green-700);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  font-weight: 600;
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ---- Section Headers ---- */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.section-head h2 {
+  font-size: 1.125rem;
+  font-weight: 650;
+}
+.section-head .subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* ---- Cards ---- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--line-solid);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--line);
+  background: var(--cream-75);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.card-header h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.card-body { padding: var(--space-lg); }
+
+/* ---- Toolbar ---- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+}
+.btn-sm { padding: 5px 10px; font-size: 0.75rem; }
+.btn-xs { padding: 3px 8px; font-size: 0.6875rem; border-radius: 3px; }
+.btn-primary {
+  background: var(--green-600);
+  color: var(--white);
+  border-color: var(--green-600);
+}
+.btn-primary:hover {
+  background: var(--green-700);
+  border-color: var(--green-700);
+}
+.btn-secondary {
+  background: var(--cream-75);
+  color: var(--text-light);
+  border-color: var(--line-solid);
+}
+.btn-secondary:hover {
+  background: var(--cream-50);
+  border-color: var(--cream-dark);
+}
+.btn-danger {
+  background: var(--danger);
+  color: var(--white);
+  border-color: var(--danger);
+}
+.btn-danger:hover { opacity: 0.85; }
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: transparent;
+}
+.btn-ghost:hover { color: var(--text); background: var(--cream-75); }
+.btn-gold {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+.btn-gold:hover { background: #B8911F; border-color: #B8911F; }
+.btn-outline {
+  background: transparent;
+  color: var(--green-700);
+  border-color: var(--green-400);
+}
+.btn-outline:hover {
+  background: rgba(45, 107, 70, 0.06);
+  border-color: var(--green-600);
+}
+
+/* ---- Table ---- */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+thead th {
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  background: var(--cream-75);
+  border-bottom: 2px solid var(--line-solid);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+tbody tr:hover { background: rgba(64, 160, 64, 0.03); }
+tbody tr.inactive { opacity: 0.5; background: var(--cream-50); }
+
+/* ---- Status badges ---- */
+.badge {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+.badge-active { background: var(--success-light); color: var(--success); }
+.badge-inactive { background: var(--cream-50); color: var(--text-muted); }
+.badge-field { background: #E8F0FE; color: #1A73E8; }
+.badge-veg { background: #FEF3E2; color: #D4A017; }
+.badge-fodder { background: #E6F7E6; color: #2E7D32; }
+.badge-hybrid { background: #EBF5FB; color: #2980B9; }
+.badge-variety { background: #F0E6F6; color: #8E44AD; }
+
+/* ---- Form elements ---- */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.form-group .hint {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.form-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-md);
+}
+.form-row-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--space-md);
+}
+input[type="text"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  padding: 8px 10px;
+  border: 1.5px solid var(--line-solid);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--text);
+  transition: border-color var(--duration-fast) var(--ease-out);
+  outline: none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--green-400);
+  box-shadow: 0 0 0 3px var(--logo-green-dim);
+}
+textarea { resize: vertical; min-height: 60px; }
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--green-500);
+  cursor: pointer;
+}
+
+/* ---- Inline edit ---- */
+.inline-edit {
+  border: 1.5px solid transparent;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  width: 100%;
+  min-width: 60px;
+  background: transparent;
+  color: var(--text);
+  transition: all var(--duration-fast) var(--ease-out);
+  outline: none;
+}
+.inline-edit:hover { border-color: var(--cream-dark); }
+.inline-edit:focus {
+  border-color: var(--green-400);
+  background: var(--white);
+  box-shadow: 0 0 0 2px var(--logo-green-dim);
+}
+.inline-edit-sm { font-size: 0.75rem; min-width: 40px; }
+
+/* ---- Features / Hybrids chips ---- */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 4px 0;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.6875rem;
+  background: var(--cream-75);
+  border: 1px solid var(--line-solid);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+}
+.chip .remove-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 10px;
+  border-radius: 50%;
+  padding: 0;
+  line-height: 1;
+}
+.chip .remove-chip:hover { color: var(--danger); background: var(--danger-light); }
+
+/* ---- Modal ---- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--duration-base) var(--ease-out);
+}
+.modal-overlay.open { opacity: 1; visibility: visible; }
+.modal {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+  transform: translateY(20px);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--line);
+}
+.modal-header h3 { font-size: 1rem; font-weight: 650; }
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-size: 1.25rem;
+}
+.modal-close:hover { color: var(--text); background: var(--cream-75); }
+.modal-body { padding: var(--space-lg); }
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--line);
+  background: var(--cream-75);
+}
+
+/* ---- Toast ---- */
+.toast-container {
+  position: fixed;
+  top: 72px;
+  right: var(--space-lg);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.toast {
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  animation: slideIn 0.25s var(--ease-out);
+  max-width: 360px;
+}
+.toast-success { background: var(--success); }
+.toast-error { background: var(--danger); }
+.toast-info { background: var(--green-600); }
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ---- Empty state ---- */
+.empty-state {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+  color: var(--text-muted);
+}
+.empty-state svg {
+  width: 48px;
+  height: 48px;
+  color: var(--cream-dark);
+  margin-bottom: var(--space-md);
+}
+.empty-state h3 { font-size: 1rem; color: var(--text-light); margin-bottom: 4px; }
+.empty-state p { font-size: 0.8125rem; }
+
+/* ---- Filter bar ---- */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+.filter-bar select,
+.filter-bar input {
+  width: auto;
+  min-width: 140px;
+}
+.search-input {
+  min-width: 200px !important;
+}
+
+/* ---- Category list ---- */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--cream-75);
+  border: 1px solid var(--line-solid);
+  border-radius: var(--radius-sm);
+}
+.category-item .cat-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 0.8125rem;
+}
+.category-item .cat-count {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  background: var(--cream-50);
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
+}
+.cat-color-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ---- Drop zone ---- */
+.drop-zone {
+  border: 2px dashed var(--cream-dark);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xl);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  background: var(--cream-75);
+}
+.drop-zone:hover, .drop-zone.dragover {
+  border-color: var(--green-400);
+  background: var(--green-100);
+}
+.drop-zone p { font-size: 0.875rem; color: var(--text-muted); }
+.drop-zone .icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+  color: var(--green-400);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .form-row, .form-row-3, .form-row-4 {
+    grid-template-columns: 1fr;
+  }
+  .app-container { padding: var(--space-md); }
+  .card-body { padding: var(--space-md); }
+}
+@media (max-width: 600px) {
+  .app-header-inner { flex-wrap: wrap; height: auto; padding: var(--space-sm) 0; gap: var(--space-sm); }
+  .tab-bar { gap: 1px; }
+  .tab-btn { padding: 6px 12px; font-size: 0.75rem; }
+  .header-stats { font-size: 0.6875rem; }
+}
+
+/* ---- Bulk actions bar ---- */
+.bulk-bar {
+  display: none;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--gold-dim);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  font-size: 0.8125rem;
+}
+.bulk-bar.show { display: flex; }
+
+/* ---- Code preview ---- */
+.code-preview {
+  background: #1A2818;
+  color: #E2F0E6;
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
+  white-space: pre;
+}
+
+/* ---- Toggle switch (for active) ---- */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 18px;
+  cursor: pointer;
+}
+.toggle input { display: none; }
+.toggle-slider {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--cream-dark);
+  border-radius: 18px;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.toggle-slider::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 2px;
+  bottom: 2px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.toggle input:checked + .toggle-slider { background: var(--green-500); }
+.toggle input:checked + .toggle-slider::after { transform: translateX(14px); }
+
+.col-actions { min-width: 80px; text-align: center; }
+.col-order { width: 50px; }
+.col-active { width: 60px; text-align: center; }
+.col-name { min-width: 120px; }
+.col-category { min-width: 90px; }
+.col-type { min-width: 60px; }
+
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="app-header">
+  <div class="app-header-inner">
+    <h1>
+      🌿 TriMurti Admin
+      <span>Product Manager</span>
+    </h1>
+    <div class="header-stats">
+      <span>Products: <strong id="total-count">0</strong></span>
+      <span>Active: <strong id="active-count">0</strong></span>
+      <span>Inactive: <strong id="inactive-count">0</strong></span>
+      <span id="storage-indicator" style="color:var(--success);font-size:0.6875rem;">● live</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CONTAINER ============ -->
+<div class="app-container">
+
+  <!-- Tabs -->
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="products">📋 Products</button>
+    <button class="tab-btn" data-tab="add">➕ Add Product</button>
+    <button class="tab-btn" data-tab="categories">🏷️ Categories</button>
+    <button class="tab-btn" data-tab="tools">🔧 Export / Import</button>
+  </div>
+
+  <!-- ============ TAB: PRODUCTS ============ -->
+  <div class="tab-panel active" id="tab-products">
+
+    <div class="section-head">
+      <div>
+        <h2>All Products</h2>
+        <div class="subtitle">Edit inline, toggle active status, reorder, or delete</div>
+      </div>
+      <div class="toolbar">
+        <button class="btn btn-secondary btn-sm" onclick="resetFromSource()">↺ Reset from source</button>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search products..." oninput="renderTable()">
+      <select id="filterCategory" onchange="renderTable()">
+        <option value="">All categories</option>
+        <option value="field-crops">Field Crops</option>
+        <option value="vegetables">Vegetables</option>
+        <option value="fodder">Fodder</option>
+      </select>
+      <select id="filterStatus" onchange="renderTable()">
+        <option value="">All status</option>
+        <option value="active">Active only</option>
+        <option value="inactive">Inactive only</option>
+      </select>
+      <button class="btn btn-secondary btn-sm" onclick="clearFilters()">Clear filters</button>
+    </div>
+
+    <!-- Bulk action bar -->
+    <div class="bulk-bar" id="bulkBar">
+      <span id="bulkCount">0 selected</span>
+      <button class="btn btn-sm btn-danger" onclick="bulkDelete()">Delete selected</button>
+      <button class="btn btn-sm btn-secondary" onclick="bulkActivate(true)">Activate all</button>
+      <button class="btn btn-sm btn-secondary" onclick="bulkActivate(false)">Deactivate all</button>
+      <button class="btn btn-sm btn-ghost" onclick="clearSelection()">Clear</button>
+    </div>
+
+    <!-- Table -->
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:30px"><input type="checkbox" id="selectAll" onchange="toggleSelectAll()"></th>
+              <th class="col-order">Order</th>
+              <th class="col-active">Active</th>
+              <th class="col-name">Name</th>
+              <th class="col-category">Category</th>
+              <th class="col-type">Type</th>
+              <th>Code</th>
+              <th>Description</th>
+              <th>Features</th>
+              <th>Region</th>
+              <th>Season</th>
+              <th>Duration</th>
+              <th>Special</th>
+              <th>Hybrids</th>
+              <th class="col-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody">
+            <!-- rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="empty-state" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>No products found</h3>
+        <p>Try adjusting your filters or add a new product.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: ADD PRODUCT ============ -->
+  <div class="tab-panel" id="tab-add">
+    <div class="card">
+      <div class="card-header"><h3>Add New Product</h3></div>
+      <div class="card-body">
+        <form id="addForm" onsubmit="addProduct(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Product Name *</label>
+              <input type="text" id="addName" required placeholder="e.g. New Hybrid Maize">
+            </div>
+            <div class="form-group">
+              <label>ID (slug) *</label>
+              <input type="text" id="addId" required placeholder="e.g. new-hybrid-maize">
+              <div class="hint">URL-friendly identifier, lowercase with hyphens</div>
+            </div>
+          </div>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label>Category *</label>
+              <select id="addCategory" required>
+                <option value="field-crops">Field Crops</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="fodder">Fodder</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Type</label>
+              <select id="addType">
+                <option value="Hybrid">Hybrid</option>
+                <option value="Variety">Variety</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Product Code</label>
+              <input type="text" id="addCode" placeholder="e.g. TMR-NM">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea id="addDescription" rows="2" placeholder="Short description of the product..."></textarea>
+          </div>
+          <div class="form-row-4">
+            <div class="form-group">
+              <label>Region</label>
+              <input type="text" id="addRegion" placeholder="e.g. All India">
+            </div>
+            <div class="form-group">
+              <label>Season</label>
+              <input type="text" id="addSeason" placeholder="e.g. Kharif / Rabi">
+            </div>
+            <div class="form-group">
+              <label>Duration</label>
+              <input type="text" id="addDuration" placeholder="e.g. 95-115 days">
+            </div>
+            <div class="form-group">
+              <label>Special Traits</label>
+              <input type="text" id="addSpecial" placeholder="e.g. Drought tolerant">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Image path</label>
+              <input type="text" id="addImage" placeholder="e.g. images/products/maize.jpg">
+            </div>
+            <div class="form-group">
+              <label>PDF brochure path</label>
+              <input type="text" id="addPdf" placeholder="e.g. brochures/maize.pdf">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Markets</label>
+              <input type="text" id="addMarkets" placeholder="e.g. India, Nepal">
+            </div>
+            <div class="form-group">
+              <label>Order</label>
+              <input type="number" id="addOrder" value="99" min="1" max="999">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Active</label>
+              <div style="display:flex;align-items:center;gap:var(--space-sm);padding-top:4px;">
+                <label class="toggle">
+                  <input type="checkbox" id="addActive" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <span id="addActiveLabel" style="font-size:0.8125rem;">Active</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Has detail page</label>
+              <div style="display:flex;align-items:center;gap:var(--space-sm);padding-top:4px;">
+                <label class="toggle">
+                  <input type="checkbox" id="addDetailPage" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+                <span id="addDetailLabel" style="font-size:0.8125rem;">Yes</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Features (one per line)</label>
+            <textarea id="addFeatures" rows="3" placeholder="Enter each feature on a new line..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Hybrids / Varieties (format: Name | Description, one per line)</label>
+            <textarea id="addHybrids" rows="3" placeholder="e.g.&#10;Hybrid A | High yield, drought tolerant&#10;Hybrid B | Early maturity"></textarea>
+          </div>
+          <div style="display:flex;gap:var(--space-sm);padding-top:var(--space-sm);border-top:1px solid var(--line);">
+            <button type="submit" class="btn btn-primary">➕ Add Product</button>
+            <button type="reset" class="btn btn-secondary" onclick="return false;">Clear form</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: CATEGORIES ============ -->
+  <div class="tab-panel" id="tab-categories">
+    <div class="card">
+      <div class="card-header">
+        <h3>Category Manager</h3>
+        <div class="subtitle">Manage product categories</div>
+      </div>
+      <div class="card-body">
+        <div class="category-list" id="categoryList">
+          <!-- rendered by JS -->
+        </div>
+
+        <div style="margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:1px solid var(--line);">
+          <h4 style="font-size:0.8125rem;font-weight:600;margin-bottom:var(--space-sm);">Add / Edit Category</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Category ID (slug)</label>
+              <input type="text" id="catId" placeholder="e.g. pulses">
+            </div>
+            <div class="form-group">
+              <label>Display Name</label>
+              <input type="text" id="catName" placeholder="e.g. Pulses">
+            </div>
+          </div>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label>Color (hex)</label>
+              <input type="text" id="catColor" value="#4A8B5C" placeholder="e.g. #4A8B5C">
+            </div>
+            <div class="form-group">
+              <label>Badge class</label>
+              <input type="text" id="catBadge" value="badge-field" placeholder="e.g. badge-field">
+            </div>
+            <div style="display:flex;align-items:flex-end;gap:var(--space-sm);padding-bottom:var(--space-sm);">
+              <button class="btn btn-primary btn-sm" onclick="addCategory()">Add Category</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: EXPORT/IMPORT ============ -->
+  <div class="tab-panel" id="tab-tools">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);">
+      <!-- Export -->
+      <div class="card">
+        <div class="card-header"><h3>📥 Export</h3></div>
+        <div class="card-body">
+          <p style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:var(--space-md);">
+            Download the current product data as a <code>products-data.js</code> file. 
+            Replace the existing file in the project to publish changes.
+          </p>
+          <button class="btn btn-gold" onclick="exportAsJS()">⬇ Download products-data.js</button>
+          <hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+          <p style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:var(--space-sm);">
+            Preview the generated JavaScript:
+          </p>
+          <div class="code-preview" id="codePreview">// Click "Generate preview" to see the code</div>
+          <div style="margin-top:var(--space-sm);">
+            <button class="btn btn-secondary btn-sm" onclick="generatePreview()">👁 Generate preview</button>
+            <button class="btn btn-secondary btn-sm" onclick="copyToClipboard()">📋 Copy to clipboard</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Import -->
+      <div class="card">
+        <div class="card-header"><h3>📤 Import</h3></div>
+        <div class="card-body">
+          <p style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:var(--space-md);">
+            Upload a modified <code>products-data.js</code> file to replace all current data. 
+            The file must contain a valid <code>PRODUCTS</code> array.
+          </p>
+          <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+            <div class="icon">📂</div>
+            <p>Drop a products-data.js file here, or click to browse</p>
+          </div>
+          <input type="file" id="fileInput" accept=".js" style="display:none" onchange="handleImport(event)">
+          <div id="importStatus" style="margin-top:var(--space-sm);font-size:0.8125rem;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Storage management -->
+    <div class="card" style="margin-top:var(--space-lg);">
+      <div class="card-header">
+        <h3>💾 Storage Management</h3>
+      </div>
+      <div class="card-body">
+        <p style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:var(--space-md);">
+          Data is saved to your browser's localStorage. If localStorage data exists, it takes priority over the source file.
+        </p>
+        <div class="toolbar">
+          <button class="btn btn-secondary" onclick="resetFromSource()">↺ Reset from source (reload products-data.js)</button>
+          <button class="btn btn-danger" onclick="clearAllData()">⚠ Clear all local data</button>
+          <button class="btn btn-secondary" onclick="saveToLocalStorage()">💾 Save current to localStorage</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ MODAL: Edit Product ============ -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Edit Product: <span id="editTitle"></span></h3>
+      <button class="modal-close" onclick="closeModal('editModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="editForm">
+        <input type="hidden" id="editIndex">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Product Name *</label>
+            <input type="text" id="editName" required>
+          </div>
+          <div class="form-group">
+            <label>ID (slug) *</label>
+            <input type="text" id="editId" required>
+          </div>
+        </div>
+        <div class="form-row-3">
+          <div class="form-group">
+            <label>Category</label>
+            <select id="editCategory">
+              <option value="field-crops">Field Crops</option>
+              <option value="vegetables">Vegetables</option>
+              <option value="fodder">Fodder</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <select id="editType">
+              <option value="Hybrid">Hybrid</option>
+              <option value="Variety">Variety</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Code</label>
+            <input type="text" id="editCode">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="editDescription" rows="2"></textarea>
+        </div>
+        <div class="form-row-4">
+          <div class="form-group">
+            <label>Region</label>
+            <input type="text" id="editRegion">
+          </div>
+          <div class="form-group">
+            <label>Season</label>
+            <input type="text" id="editSeason">
+          </div>
+          <div class="form-group">
+            <label>Duration</label>
+            <input type="text" id="editDuration">
+          </div>
+          <div class="form-group">
+            <label>Special</label>
+            <input type="text" id="editSpecial">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Image path</label>
+            <input type="text" id="editImage">
+          </div>
+          <div class="form-group">
+            <label>PDF path</label>
+            <input type="text" id="editPdf">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Markets</label>
+            <input type="text" id="editMarkets">
+          </div>
+          <div class="form-group">
+            <label>Order</label>
+            <input type="number" id="editOrder" min="1" max="999">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Active</label>
+            <label class="toggle" style="margin-top:4px;">
+              <input type="checkbox" id="editActive">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Detail page</label>
+            <label class="toggle" style="margin-top:4px;">
+              <input type="checkbox" id="editDetailPage">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Features (one per line)</label>
+          <textarea id="editFeatures" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Hybrids / Varieties (format: Name | Description, one per line)</label>
+          <textarea id="editHybrids" rows="3" placeholder="Hybrid A | Description"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('editModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveEditProduct()">💾 Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOAST CONTAINER ============ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="products-data.js"></script>
+<script>
+// ================================================================
+// TriMurti Admin Panel — JavaScript
+// ================================================================
+
+// ---- Category config ----
+const CATEGORIES = [
+  { id:'field-crops', name:'Field Crops', color:'#1A73E8', badge:'badge-field' },
+  { id:'vegetables',  name:'Vegetables',  color:'#D4A017', badge:'badge-veg' },
+  { id:'fodder',      name:'Fodder',      color:'#2E7D32', badge:'badge-fodder' }
+];
+
+// ---- State ----
+let products = [];
+let selectedIds = new Set();
+
+// ---- Init ----
+function init() {
+  // Try localStorage first
+  const stored = localStorage.getItem('trimurti_products');
+  if (stored) {
+    try {
+      products = JSON.parse(stored);
+      showToast('info', 'Loaded products from localStorage');
+    } catch(e) {
+      products = getProductsFromSource();
+    }
+  } else {
+    products = getProductsFromSource();
+  }
+  updateHeaderStats();
+  renderTable();
+  renderCategories();
+}
+init();
+
+// ---- Source helpers ----
+function getProductsFromSource() {
+  if (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) {
+    return JSON.parse(JSON.stringify(PRODUCTS)); // deep clone
+  }
+  return [];
+}
+
+function saveToLocalStorage() {
+  localStorage.setItem('trimurti_products', JSON.stringify(products));
+  showToast('success', 'Saved to localStorage');
+}
+
+// ---- Header stats ----
+function updateHeaderStats() {
+  document.getElementById('total-count').textContent = products.length;
+  document.getElementById('active-count').textContent = products.filter(p => p.active !== false).length;
+  document.getElementById('inactive-count').textContent = products.filter(p => p.active === false).length;
+}
+
+// ---- Tab switching ----
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+    if (this.dataset.tab === 'products') renderTable();
+  });
+});
+
+// ---- Table rendering ----
+function renderTable() {
+  const search = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+  const catFilter = document.getElementById('filterCategory').value;
+  const statusFilter = document.getElementById('filterStatus').value;
+
+  let filtered = products.filter(p => {
+    if (search) {
+      const haystack = (p.name + ' ' + p.id + ' ' + p.code + ' ' + p.description + ' ' + (p.region||'') + ' ' + (p.special||'') + ' ' + (p.markets||'')).toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+    if (catFilter && p.category !== catFilter) return false;
+    if (statusFilter === 'active' && p.active === false) return false;
+    if (statusFilter === 'inactive' && p.active !== false) return false;
+    return true;
+  });
+
+  const tbody = document.getElementById('productTableBody');
+  const empty = document.getElementById('emptyState');
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  // Sort by category then order
+  filtered.sort((a, b) => {
+    if (a.category !== b.category) return a.category.localeCompare(b.category);
+    return (a.order || 99) - (b.order || 99);
+  });
+
+  let html = '';
+  filtered.forEach((p, idx) => {
+    const realIdx = products.indexOf(p);
+    const active = p.active !== false;
+    const featuresStr = Array.isArray(p.features) ? p.features.join(', ') : (p.features || '');
+    const hybridsStr = Array.isArray(p.hybrids) ? p.hybrids.map(h => h.name + (h.desc ? ' | ' + h.desc : '')).join('; ') : '';
+    const catInfo = CATEGORIES.find(c => c.id === p.category) || {};
+    const catLabel = catInfo.name || p.category;
+    const catBadge = catInfo.badge || 'badge-field';
+
+    html += '<tr class="' + (active ? '' : 'inactive') + '">';
+    html += '<td><input type="checkbox" class="row-select" data-idx="' + realIdx + '" ' + (selectedIds.has(realIdx) ? 'checked' : '') + ' onchange="toggleRowSelect(' + realIdx + ')"></td>';
+    html += '<td class="col-order"><input type="number" class="inline-edit inline-edit-sm" value="' + (p.order || 99) + '" min="1" max="999" onchange="updateField(' + realIdx + ',\'order\',this.value)" style="width:45px"></td>';
+    html += '<td class="col-active"><label class="toggle"><input type="checkbox" ' + (active ? 'checked' : '') + ' onchange="toggleActive(' + realIdx + ')"><span class="toggle-slider"></span></label></td>';
+    html += '<td class="col-name"><input class="inline-edit" value="' + escHtml(p.name) + '" onchange="updateField(' + realIdx + ',\'name\',this.value)"></td>';
+    html += '<td><span class="badge ' + catBadge + '">' + catLabel + '</span></td>';
+    html += '<td><span class="badge ' + (p.type === 'Variety' ? 'badge-variety' : 'badge-hybrid') + '">' + (p.type || 'Hybrid') + '</span></td>';
+    html += '<td><input class="inline-edit inline-edit-sm" value="' + escHtml(p.code||'') + '" onchange="updateField(' + realIdx + ',\'code\',this.value)" style="width:70px"></td>';
+    html += '<td style="max-width:200px"><input class="inline-edit" value="' + escHtml(p.description||'') + '" onchange="updateField(' + realIdx + ',\'description\',this.value)"></td>';
+    html += '<td style="max-width:150px"><input class="inline-edit" value="' + escHtml(featuresStr) + '" onchange="updateFeatures(' + realIdx + ',this.value)" placeholder="comma-separated"></td>';
+    html += '<td><input class="inline-edit" value="' + escHtml(p.region||'') + '" onchange="updateField(' + realIdx + ',\'region\',this.value)" style="width:100px"></td>';
+    html += '<td><input class="inline-edit" value="' + escHtml(p.season||'') + '" onchange="updateField(' + realIdx + ',\'season\',this.value)" style="width:90px"></td>';
+    html += '<td><input class="inline-edit" value="' + escHtml(p.duration||'') + '" onchange="updateField(' + realIdx + ',\'duration\',this.value)" style="width:80px"></td>';
+    html += '<td><input class="inline-edit" value="' + escHtml(p.special||'') + '" onchange="updateField(' + realIdx + ',\'special\',this.value)" style="width:90px"></td>';
+    html += '<td style="max-width:150px;font-size:0.6875rem;">' + escHtml(hybridsStr) + '</td>';
+    html += '<td class="col-actions">';
+    html += '<button class="btn btn-xs btn-secondary" onclick="openEditModal(' + realIdx + ')" title="Full edit">✎</button> ';
+    html += '<button class="btn btn-xs btn-ghost" onclick="duplicateProduct(' + realIdx + ')" title="Duplicate">⧉</button> ';
+    html += '<button class="btn btn-xs btn-danger" onclick="deleteProduct(' + realIdx + ')" title="Delete">✕</button>';
+    html += '</td>';
+    html += '</tr>';
+  });
+  tbody.innerHTML = html;
+}
+
+function escHtml(s) {
+  if (typeof s !== 'string') return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+}
+
+// ---- Field update helpers ----
+function updateField(idx, field, value) {
+  if (idx < 0 || idx >= products.length) return;
+  if (field === 'order') {
+    value = parseInt(value) || 99;
+  }
+  products[idx][field] = value;
+  saveToLocalStorage();
+  updateHeaderStats();
+  showToast('info', 'Updated ' + field + ' for ' + (products[idx].name || 'product'));
+}
+
+function toggleActive(idx) {
+  if (idx < 0 || idx >= products.length) return;
+  products[idx].active = products[idx].active === false ? true : false;
+  saveToLocalStorage();
+  updateHeaderStats();
+  renderTable();
+  showToast('info', (products[idx].active !== false ? 'Activated' : 'Deactivated') + ' ' + products[idx].name);
+}
+
+function updateFeatures(idx, value) {
+  if (idx < 0 || idx >= products.length) return;
+  const arr = value.split(',').map(s => s.trim()).filter(s => s.length > 0);
+  products[idx].features = arr;
+  saveToLocalStorage();
+  showToast('info', 'Updated features');
+}
+
+function updateHybrids(idx, value) {
+  // Not used inline; handled via modal
+}
+
+// ---- Selection & bulk ----
+function toggleRowSelect(idx) {
+  if (selectedIds.has(idx)) selectedIds.delete(idx);
+  else selectedIds.add(idx);
+  updateBulkBar();
+}
+function toggleSelectAll() {
+  const checked = document.getElementById('selectAll').checked;
+  const rows = document.querySelectorAll('.row-select');
+  selectedIds.clear();
+  if (checked) {
+    rows.forEach(cb => { const idx = parseInt(cb.dataset.idx); selectedIds.add(idx); cb.checked = true; });
+  }
+  updateBulkBar();
+}
+function clearSelection() {
+  selectedIds.clear();
+  document.getElementById('selectAll').checked = false;
+  document.querySelectorAll('.row-select').forEach(cb => cb.checked = false);
+  updateBulkBar();
+}
+function updateBulkBar() {
+  const bar = document.getElementById('bulkBar');
+  const count = selectedIds.size;
+  document.getElementById('bulkCount').textContent = count + ' selected';
+  bar.classList.toggle('show', count > 0);
+}
+function bulkDelete() {
+  if (selectedIds.size === 0) return;
+  if (!confirm('Delete ' + selectedIds.size + ' product(s)? This cannot be undone.')) return;
+  const sorted = Array.from(selectedIds).sort((a,b) => b - a);
+  sorted.forEach(idx => products.splice(idx, 1));
+  selectedIds.clear();
+  saveToLocalStorage();
+  updateHeaderStats();
+  renderTable();
+  updateBulkBar();
+  showToast('success', 'Deleted ' + sorted.length + ' product(s)');
+}
+function bulkActivate(active) {
+  if (selectedIds.size === 0) return;
+  selectedIds.forEach(idx => {
+    if (idx >= 0 && idx < products.length) products[idx].active = active;
+  });
+  saveToLocalStorage();
+  updateHeaderStats();
+  renderTable();
+  showToast('info', (active ? 'Activated' : 'Deactivated') + ' ' + selectedIds.size + ' product(s)');
+  clearSelection();
+}
+
+// ---- Delete single ----
+function deleteProduct(idx) {
+  if (idx < 0 || idx >= products.length) return;
+  if (!confirm('Delete "' + (products[idx].name || products[idx].id) + '"? This cannot be undone.')) return;
+  products.splice(idx, 1);
+  saveToLocalStorage();
+  updateHeaderStats();
+  renderTable();
+  showToast('success', 'Product deleted');
+}
+
+// ---- Duplicate ----
+function duplicateProduct(idx) {
+  if (idx < 0 || idx >= products.length) return;
+  const p = products[idx];
+  const newP = JSON.parse(JSON.stringify(p));
+  newP.id = p.id + '-copy';
+  newP.name = p.name + ' (Copy)';
+  if (newP.code) newP.code = p.code + '-CP';
+  products.push(newP);
+  saveToLocalStorage();
+  updateHeaderStats();
+  renderTable();
+  showToast('success', 'Duplicated ' + p.name);
+}
+
+// ---- Add product ----
+function addProduct(e) {
+  e.preventDefault();
+  const name = document.getElementById('addName').value.trim();
+  const id = document.getElementById('addId').value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+  if (!name || !id) { showToast('error', 'Name and ID are required'); return; }
+
+  // Check unique ID
+  if (products.some(p => p.id === id)) {
+    showToast('error', 'A product with ID "' + id + '" already exists');
+    return;
+  }
+
+  const featuresArr = document.getElementById('addFeatures').value.split('\n').map(s=>s.trim()).filter(s=>s.length>0);
+  const hybridsRaw = document.getElementById('addHybrids').value.split('\n').map(s=>s.trim()).filter(s=>s.length>0);
+  const hybridsArr = hybridsRaw.map(line => {
+    const parts = line.split('|').map(s=>s.trim());
+    return { name: parts[0] || '', desc: parts[1] || '' };
+  }).filter(h => h.name);
+
+  const product = {
+    id: id,
+    name: name,
+    category: document.getElementById('addCategory').value,
+    type: document.getElementById('addType').value,
+    code: document.getElementById('addCode').value.trim() || undefined,
+    active: document.getElementById('addActive').checked,
+    order: parseInt(document.getElementById('addOrder').value) || 99,
+    detailPage: document.getElementById('addDetailPage').checked || undefined,
+    description: document.getElementById('addDescription').value.trim() || undefined,
+    features: featuresArr.length > 0 ? featuresArr : undefined,
+    region: document.getElementById('addRegion').value.trim() || undefined,
+    season: document.getElementById('addSeason').value.trim() || undefined,
+    duration: document.getElementById('addDuration').value.trim() || undefined,
+    special: document.getElementById('addSpecial').value.trim() || undefined,
+    image: document.getElementById('addImage').value.trim() || undefined,
+    pdf: document.getElementById('addPdf').value.trim() || undefined,
+    markets: document.getElementById('addMarkets').value.trim() || undefined,
+    hybrids: hybridsArr.length > 0 ? hybridsArr : undefined
+  };
+
+  // Remove undefined fields
+  Object.keys(product).forEach(k => { if (product[k] === undefined) delete product[k]; });
+
+  products.push(product);
+  saveToLocalStorage();
+  updateHeaderStats();
+  renderTable();
+  document.getElementById('addForm').reset();
+  document.getElementById('addActive').checked = true;
+  document.getElementById('addDetailPage').checked = true;
+  showToast('success', 'Added product: ' + name);
+
+  // Switch to products tab
+  document.querySelector('[data-tab="products"]').click();
+}
+
+// ---- Edit modal ----
+function openEditModal(idx) {
+  if (idx < 0 || idx >= products.length) return;
+  const p = products[idx];
+  document.getElementById('editIndex').value = idx;
+  document.getElementById('editTitle').textContent = p.name || p.id;
+  document.getElementById('editName').value = p.name || '';
+  document.getElementById('editId').value = p.id || '';
+  document.getElementById('editCategory').value = p.category || 'field-crops';
+  document.getElementById('editType').value = p.type || 'Hybrid';
+  document.getElementById('editCode').value = p.code || '';
+  document.getElementById('editDescription').value = p.description || '';
+  document.getElementById('editRegion').value = p.region || '';
+  document.getElementById('editSeason').value = p.season || '';
+  document.getElementById('editDuration').value = p.duration || '';
+  document.getElementById('editSpecial').value = p.special || '';
+  document.getElementById('editImage').value = p.image || '';
+  document.getElementById('editPdf').value = p.pdf || '';
+  document.getElementById('editMarkets').value = p.markets || '';
+  document.getElementById('editOrder').value = p.order || 99;
+  document.getElementById('editActive').checked = p.active !== false;
+  document.getElementById('editDetailPage').checked = p.detailPage === true;
+  document.getElementById('editFeatures').value = Array.isArray(p.features) ? p.features.join('\n') : (p.features || '');
+  document.getElementById('editHybrids').value = Array.isArray(p.hybrids) ? p.hybrids.map(h => h.name + (h.desc ? ' | ' + h.desc : '')).join('\n') : '';
+  openModal('editModal');
+}
+
+function saveEditProduct() {
+  const idx = parseInt(document.getElementById('editIndex').value);
+  if (idx < 0 || idx >= products.length) return;
+  const p = products[idx];
+
+  const newId = document.getElementById('editId').value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+  if (!newId) { showToast('error', 'ID cannot be empty'); return; }
+  // Check uniqueness
+  const conflict = products.find((prod, i) => i !== idx && prod.id === newId);
+  if (conflict) { showToast('error', 'Another product already has ID "' + newId + '"'); return; }
+
+  const featuresArr = document.getElementById('editFeatures').value.split('\n').map(s=>s.trim()).filter(s=>s.length>0);
+  const hybridsRaw = document.getElementById('editHybrids').value.split('\n').map(s=>s.trim()).filter(s=>s.length>0);
+  const hybridsArr = hybridsRaw.map(line => {
+    const parts = line.split('|').map(s=>s.trim());
+    return { name: parts[0] || '', desc: parts[1] || '' };
+  }).filter(h => h.name);
+
+  p.id = newId;
+  p.name = document.getElementById('editName').value.trim();
+  p.category = document.getElementById('editCategory').value;
+  p.type = document.getElementById('editType').value;
+  p.code = document.getElementById('editCode').value.trim() || undefined;
+  p.description = document.getElementById('editDescription').value.trim() || undefined;
+  p.region = document.getElementById('editRegion').value.trim() || undefined;
+  p.season = document.getElementById('editSeason').value.trim() || undefined;
+  p.duration = document.getElementById('editDuration').value.trim() || undefined;
+  p.special = document.getElementById('editSpecial').value.trim() || undefined;
+  p.image = document.getElementById('editImage').value.trim() || undefined;
+  p.pdf = document.getElementById('editPdf').value.trim() || undefined;
+  p.markets = document.getElementById('editMarkets').value.trim() || undefined;
+  p.order = parseInt(document.getElementById('editOrder').value) || 99;
+  p.active = document.getElementById('editActive').checked;
+  p.detailPage = document.getElementById('editDetailPage').checked ? true : undefined;
+  p.features = featuresArr.length > 0 ? featuresArr : undefined;
+  p.hybrids = hybridsArr.length > 0 ? hybridsArr : undefined;
+
+  // Clean up undefined
+  Object.keys(p).forEach(k => { if (p[k] === undefined) delete p[k]; });
+
+  saveToLocalStorage();
+  updateHeaderStats();
+  renderTable();
+  closeModal('editModal');
+  showToast('success', 'Saved changes to ' + p.name);
+}
+
+// ---- Categories ----
+function renderCategories() {
+  const list = document.getElementById('categoryList');
+  let html = '';
+  CATEGORIES.forEach(cat => {
+    const count = products.filter(p => p.category === cat.id).length;
+    html += '<div class="category-item">';
+    html += '  <div class="cat-name">';
+    html += '    <span class="cat-color-swatch" style="background:' + cat.color + '"></span>';
+    html += '    ' + escHtml(cat.name);
+    html += '    <span class="badge ' + (cat.badge||'') + '" style="margin-left:6px;">' + cat.id + '</span>';
+    html += '  </div>';
+    html += '  <div style="display:flex;align-items:center;gap:8px;">';
+    html += '    <span class="cat-count">' + count + ' products</span>';
+    html += '    <button class="btn btn-xs btn-ghost" onclick="editCategory(\'' + cat.id + '\')">✎</button>';
+    html += '    <button class="btn btn-xs btn-danger" onclick="deleteCategory(\'' + cat.id + '\')">✕</button>';
+    html += '  </div>';
+    html += '</div>';
+  });
+  list.innerHTML = html;
+}
+
+function addCategory() {
+  const id = document.getElementById('catId').value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+  const name = document.getElementById('catName').value.trim();
+  const color = document.getElementById('catColor').value.trim();
+  const badge = document.getElementById('catBadge').value.trim();
+  if (!id || !name) { showToast('error', 'Category ID and Name are required'); return; }
+  if (CATEGORIES.some(c => c.id === id)) { showToast('error', 'Category "' + id + '" already exists'); return; }
+
+  CATEGORIES.push({ id, name, color: color || '#888', badge: badge || '' });
+  document.getElementById('catId').value = '';
+  document.getElementById('catName').value = '';
+  renderCategories();
+  // Update filter dropdown
+  const filterCat = document.getElementById('filterCategory');
+  const opt = document.createElement('option');
+  opt.value = id;
+  opt.textContent = name;
+  filterCat.appendChild(opt);
+  showToast('success', 'Added category: ' + name);
+}
+
+function deleteCategory(catId) {
+  const count = products.filter(p => p.category === catId).length;
+  if (count > 0) {
+    if (!confirm('Category "' + catId + '" has ' + count + ' product(s). Reassign them first or delete anyway? The products will keep this category value.')) return;
+  } else {
+    if (!confirm('Delete category "' + catId + '"?')) return;
+  }
+  const idx = CATEGORIES.findIndex(c => c.id === catId);
+  if (idx > -1) CATEGORIES.splice(idx, 1);
+  renderCategories();
+  // Update filter
+  const sel = document.getElementById('filterCategory');
+  const opt = sel.querySelector('option[value="' + catId + '"]');
+  if (opt) opt.remove();
+  showToast('info', 'Deleted category: ' + catId);
+}
+
+function editCategory(catId) {
+  const cat = CATEGORIES.find(c => c.id === catId);
+  if (!cat) return;
+  document.getElementById('catId').value = cat.id;
+  document.getElementById('catName').value = cat.name;
+  document.getElementById('catColor').value = cat.color || '#888';
+  document.getElementById('catBadge').value = cat.badge || '';
+  // Scroll to form
+  document.getElementById('tab-categories').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ---- Export ----
+function generateJSArrayString() {
+  const indent = '  ';
+  const lines = [];
+  
+  lines.push('// ================================================================');
+  lines.push('// TRIMURTI PRODUCT CATALOG — Edit this file to manage all products');
+  lines.push('// ================================================================');
+  lines.push('// HOW TO ADD A PRODUCT:');
+  lines.push('//   Copy a block below, paste it inside the PRODUCTS array,');
+  lines.push('//   fill in the fields, and save. The page builds itself.');
+  lines.push('//');
+  lines.push('// FIELDS:');
+  lines.push('//   id           unique slug (e.g. "maize")');
+  lines.push('//   name         product display name');
+  lines.push('//   category     "field-crops" | "vegetables" | "fodder"');
+  lines.push('//   type         "Hybrid" | "Variety"');
+  lines.push('//   code         internal product code (optional)');
+  lines.push('//   description  short description (1-2 lines)');
+  lines.push('//   features     array of key features (strings)');
+  lines.push('//   region       suitable region');
+  lines.push('//   season       suitable season');
+  lines.push('//   duration     crop duration');
+  lines.push('//   special      special traits (e.g. "Drought tolerant")');
+  lines.push('//   image        path to product image (optional)');
+  lines.push('//   pdf          path to brochure PDF (optional — place in brochures/)');
+  lines.push('//   markets      market regions (optional)');
+  lines.push('//   active       true/false — set false to hide without deleting');
+  lines.push('//   order        display order within category (lower = first)');
+  lines.push('//   detailPage   true = has own detail page at crops/{id}.html');
+  lines.push('//   hybrids      array of { name, desc }');
+  lines.push('// ================================================================');
+  lines.push('');
+  lines.push('const PRODUCTS = [');
+
+  // Group by category
+  const byCat = {};
+  products.forEach(p => {
+    const cat = p.category || 'other';
+    if (!byCat[cat]) byCat[cat] = [];
+    byCat[cat].push(p);
+  });
+
+  const catNames = {
+    'field-crops': 'FIELD CROPS',
+    'vegetables': 'VEGETABLES',
+    'fodder': 'FODDER'
+  };
+
+  let firstCat = true;
+  Object.keys(byCat).forEach(cat => {
+    if (!firstCat) lines.push('');
+    lines.push('');
+    lines.push('  // ======================================================================');
+    lines.push('  // ' + (catNames[cat] || cat.toUpperCase()));
+    lines.push('  // ======================================================================');
+    
+    byCat[cat].sort((a,b) => (a.order||99) - (b.order||99)).forEach((p, i) => {
+      if (i > 0) lines.push('');
+      lines.push('  {');
+      
+      // Core fields in specific order
+      const fields = [
+        ['id', p.id],
+        ['name', p.name],
+        ['category', p.category],
+        ['type', p.type || 'Hybrid'],
+        ['code', p.code],
+        ['active', p.active !== false ? true : false],
+        ['order', p.order || 99],
+        ['detailPage', p.detailPage || undefined],
+        ['description', p.description],
+        ['image', p.image],
+        ['features', p.features && p.features.length > 0 ? p.features : undefined],
+        ['region', p.region],
+        ['season', p.season],
+        ['duration', p.duration],
+        ['special', p.special],
+        ['pdf', p.pdf],
+        ['markets', p.markets],
+        ['hybrids', p.hybrids && p.hybrids.length > 0 ? p.hybrids : undefined]
+      ];
+
+      // Filter out undefined
+      const definedFields = fields.filter(([k, v]) => v !== undefined && v !== null && v !== '' && !(Array.isArray(v) && v.length === 0));
+
+      definedFields.forEach(([key, value], fi) => {
+        const comma = fi < definedFields.length - 1 ? ',' : '';
+        if (key === 'features') {
+          lines.push('    features:[' + value.map(f => JSON.stringify(f)).join(',') + ']' + comma);
+        } else if (key === 'hybrids') {
+          const hStr = value.map(h => '{ name:' + JSON.stringify(h.name) + ', desc:' + JSON.stringify(h.desc||'') + ' }').join(',');
+          lines.push('    hybrids:[' + hStr + ']' + comma);
+        } else if (typeof value === 'string') {
+          lines.push('    ' + key + ':' + JSON.stringify(value) + comma);
+        } else if (typeof value === 'boolean') {
+          lines.push('    ' + key + ':' + (value ? 'true' : 'false') + comma);
+        } else if (typeof value === 'number') {
+          lines.push('    ' + key + ':' + value + comma);
+        }
+      });
+
+      lines.push('  }' + (i < byCat[cat].length - 1 || Object.keys(byCat).indexOf(cat) < Object.keys(byCat).length - 1 ? ',' : ''));
+    });
+
+    firstCat = false;
+  });
+
+  lines.push('];');
+  lines.push('');
+  lines.push('// Helper: get active products sorted by order');
+  lines.push('function getActiveProducts() {');
+  lines.push('  return PRODUCTS.filter(function(p) { return p.active !== false; })');
+  lines.push('    .sort(function(a, b) { return (a.order || 99) - (b.order || 99); });');
+  lines.push('}');
+  lines.push('');
+  lines.push('// Helper: get products by category');
+  lines.push('function getProductsByCategory(category) {');
+  lines.push('  return getActiveProducts().filter(function(p) { return p.category === category; });');
+  lines.push('}');
+  lines.push('');
+
+  return lines.join('\n');
+}
+
+function exportAsJS() {
+  const content = generateJSArrayString();
+  const blob = new Blob([content], { type: 'text/javascript' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'products-data.js';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('success', 'Downloaded products-data.js');
+}
+
+function generatePreview() {
+  document.getElementById('codePreview').textContent = generateJSArrayString();
+  showToast('info', 'Preview generated');
+}
+
+function copyToClipboard() {
+  const text = generateJSArrayString();
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('success', 'Copied to clipboard');
+  }).catch(() => {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    showToast('info', 'Copied to clipboard');
+  });
+}
+
+// ---- Import ----
+function handleImport(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  importFile(file);
+}
+
+// Drop zone
+const dropZone = document.getElementById('dropZone');
+dropZone.addEventListener('dragover', e => {
+  e.preventDefault();
+  dropZone.classList.add('dragover');
+});
+dropZone.addEventListener('dragleave', () => {
+  dropZone.classList.remove('dragover');
+});
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  const files = e.dataTransfer.files;
+  if (files.length > 0) importFile(files[0]);
+});
+
+function importFile(file) {
+  const status = document.getElementById('importStatus');
+  if (!file.name.endsWith('.js')) {
+    status.innerHTML = '<span style="color:var(--danger)">✕ Please select a .js file</span>';
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const content = e.target.result;
+    try {
+      // Extract the PRODUCTS array using a temp eval-like approach
+      // We'll use Function constructor for safer evaluation
+      const extracted = extractProductsFromJS(content);
+      if (!extracted || extracted.length === 0) {
+        status.innerHTML = '<span style="color:var(--danger)">✕ Could not find a valid PRODUCTS array in the file</span>';
+        return;
+      }
+      products = extracted;
+      saveToLocalStorage();
+      updateHeaderStats();
+      renderTable();
+      renderCategories();
+      status.innerHTML = '<span style="color:var(--success)">✓ Successfully imported ' + extracted.length + ' products</span>';
+      showToast('success', 'Imported ' + extracted.length + ' products');
+    } catch(err) {
+      status.innerHTML = '<span style="color:var(--danger)">✕ Error parsing file: ' + escHtml(err.message) + '</span>';
+      showToast('error', 'Import failed: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+function extractProductsFromJS(content) {
+  // Use Function constructor to evaluate the JS file content
+  // We create a sandbox where we capture the PRODUCTS variable
+  let extracted = null;
+  
+  // Try matching the PRODUCTS array pattern first as a safer approach
+  // Use a Function scope to get the data
+  const fn = new Function('var PRODUCTS; ' + content + '; return PRODUCTS;');
+  const result = fn();
+  if (Array.isArray(result) && result.length > 0) {
+    return JSON.parse(JSON.stringify(result));
+  }
+  return null;
+}
+
+// ---- Filter helpers ----
+function clearFilters() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('filterCategory').value = '';
+  document.getElementById('filterStatus').value = '';
+  renderTable();
+}
+
+// ---- Reset from source ----
+function resetFromSource() {
+  if (!confirm('Reset all products from the source file (products-data.js)? Any local changes will be lost.')) return;
+  if (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) {
+    products = JSON.parse(JSON.stringify(PRODUCTS));
+    saveToLocalStorage();
+    updateHeaderStats();
+    renderTable();
+    renderCategories();
+    showToast('success', 'Reset from source (' + products.length + ' products)');
+  } else {
+    showToast('error', 'PRODUCTS array not found in source file');
+  }
+}
+
+function clearAllData() {
+  if (!confirm('Clear ALL localStorage product data? Products will be reloaded from the source file on next page load.')) return;
+  localStorage.removeItem('trimurti_products');
+  products = getProductsFromSource();
+  updateHeaderStats();
+  renderTable();
+  renderCategories();
+  showToast('info', 'Local data cleared, reloaded from source');
+}
+
+// ---- Modal helpers ----
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+// Close modal on overlay click
+document.querySelectorAll('.modal-overlay').forEach(el => {
+  el.addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('open');
+  });
+});
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(el => el.classList.remove('open'));
+  }
+});
+
+// ---- Toast ----
+function showToast(type, message) {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = 'toast toast-' + type;
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.3s';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// ---- Toggle label sync ----
+document.getElementById('addActive').addEventListener('change', function() {
+  document.getElementById('addActiveLabel').textContent = this.checked ? 'Active' : 'Inactive';
+});
+document.getElementById('addDetailPage').addEventListener('change', function() {
+  document.getElementById('addDetailLabel').textContent = this.checked ? 'Yes' : 'No';
+});
+
+// ---- Keyboard shortcut: Cmd/Ctrl+S to save ----
+document.addEventListener('keydown', function(e) {
+  if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+    e.preventDefault();
+    saveToLocalStorage();
+    showToast('success', 'Saved');
+  }
+});
+</script>
+</body>
+</html>

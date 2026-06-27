@@ -1,0 +1,135 @@
+======================================================================
+TRIMURTI PRODUCT IMAGE & PDF DOWNLOADER
+======================================================================
+Image target: C:\Users\kingo\trimurti-redesign\images\products
+PDF target: C:\Users\kingo\trimurti-redesign\product-migration\pdfs
+
+
+--- FIELD-CROPS ---
+
+[maize]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/tmmh-846-3d-pouch_optimized.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to maize.jpg
+  Trying PDF: https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-846.pdf
+  ✓ Downloaded PDF to maize.pdf
+
+[rice]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/TMRH_2106_web_-HR-min.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to rice.jpg
+  Trying PDF: https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-2106.pdf
+  ✓ Downloaded PDF to rice.pdf
+
+[mustard]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/TMMD-2904.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to mustard.jpg
+  Trying PDF: https://trimurti.in/wp-content/uploads/2023/10/POP-Hybrid-Mustard-TMMD-2904.pdf
+  ✓ Downloaded PDF to mustard.pdf
+
+[bajra]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/09/TMBH_633_-HR-min.webp?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to bajra.jpg
+  Trying PDF: https://trimurti.in/wp-content/uploads/2023/09/POP-Hybrid-Bajra-TMBH-633.pdf
+  ✓ Downloaded PDF to bajra.pdf
+
+[jowar]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/CHARU-GOLD-PNG.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to jowar.jpg
+  - No PDF found for jowar
+
+[sunflower]
+  Trying (name fallback) full-size: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/Jewel.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded to sunflower.jpg
+  - No PDF found for sunflower
+
+[cotton]
+  ✗ Could not download image for cotton
+  - No PDF found for cotton
+
+[green-gram]
+  ✗ Could not download image for green-gram
+  - No PDF found for green-gram
+
+[black-gram]
+  ✗ Could not download image for black-gram
+  - No PDF found for black-gram
+
+--- VEGETABLES ---
+
+[tomato]
+  Trying (name fallback) full-size: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/Abeesh_.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded to tomato.jpg
+  - No PDF found for tomato
+
+[brinjal]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2025/07/Ayesha-3D.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to brinjal.jpg
+  - No PDF found for brinjal
+
+[chilli]
+  Trying (name fallback) full-size: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2026/04/Nagma-Rice-Hybrid.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded to chilli.jpg
+  - No PDF found for chilli
+
+[okra]
+  Trying (name fallback) full-size: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/NIVI-scaled.jpg?lossy=2&strip=1&webp=1
+  ✓ Downloaded to okra.jpg
+  Trying (name fallback) PDF: https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-2110.pdf
+  ✓ Downloaded PDF to okra.pdf
+
+[bottle-gourd]
+  Trying (name fallback) full-size: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/Ila1409.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded to bottle-gourd.jpg
+  - No PDF found for bottle-gourd
+
+[ridge-gourd]
+  Trying (name fallback) full-size: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/RUMI-3D.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded to ridge-gourd.jpg
+  - No PDF found for ridge-gourd
+
+[cabbage]
+  ✗ Could not download image for cabbage
+  - No PDF found for cabbage
+
+[cauliflower]
+  Trying (name fallback) full-size: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2025/07/White-lily.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded to cauliflower.jpg
+  - No PDF found for cauliflower
+
+[cucumber]
+  Trying (name fallback) full-size: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/hemaPLUS-scaled.jpg?lossy=2&strip=1&webp=1
+  ✓ Downloaded to cucumber.jpg
+  - No PDF found for cucumber
+
+[watermelon]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/Aasma_.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to watermelon.jpg
+  - No PDF found for watermelon
+
+--- FODDER ---
+
+[maize-fodder]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/tmmh-2832-3d-pouch_optimized.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to maize-fodder.jpg
+  - No PDF found for maize-fodder
+
+[sorghum-fodder]
+  Trying full-size URL: https://b4288757.smushcdn.com/4288757/wp-content/uploads/2023/10/CHARU-GOLD-PNG.png?lossy=2&strip=1&webp=1
+  ✓ Downloaded full-size to sorghum-fodder.jpg
+  Trying PDF: https://trimurti.in/wp-content/uploads/2023/10/Samata_POP.pdf
+  ✓ Downloaded PDF to sorghum-fodder.pdf
+
+[cowpea-fodder]
+  ✗ Could not download image for cowpea-fodder
+  - No PDF found for cowpea-fodder
+
+======================================================================
+SUMMARY
+======================================================================
+Images downloaded: 17
+PDFs downloaded: 6
+Failed: 5
+  - cotton
+  - green-gram
+  - black-gram
+  - cabbage
+  - cowpea-fodder
