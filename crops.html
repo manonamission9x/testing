@@ -26,7 +26,7 @@
 <header class="site-header"><div class="header-inner">
 <a href="index.html" class="logo"><img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences"></a>
 <nav class="main-nav">
-<div class="nav-item"><a href="about.html" class="nav-link">About Us<svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg></a><div class="nav-dropdown"><a href="about.html">Company Overview</a></div></div>
+<div class="nav-item"><a href="about.html" class="nav-link">About Us<svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg></a><div class="nav-dropdown"><a href="about.html#vision-mission">Vision &amp; Mission</a><a href="about.html#leadership">Leadership</a><a href="about.html#inception">Inception</a></div></div>
 <div class="nav-item"><a href="crops.html" class="nav-link active">Products<svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg></a><div class="nav-dropdown"><a href="#field-crops">Field Crops</a><a href="#vegetables">Vegetables</a><a href="#fodder">Fodder</a></div></div>
 <div class="nav-item"><a href="research.html" class="nav-link">R&amp;D<svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg></a><div class="nav-dropdown"><a href="research.html">Breeding &amp; Research</a></div></div>
 <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
@@ -42,7 +42,7 @@
 <section class="page-banner"><div class="container">
 <span class="eyebrow">Our Crops</span>
 <h1>Product Catalogue</h1>
-<p>Browse our range of hybrids and varieties. Products will be added to this page shortly.</p>
+<p>Browse our range of hybrids and varieties across field crops, vegetables, and fodder.</p>
 <div class="banner-line"></div>
 </div></section>
 <div id="cropSections"></div>
@@ -73,5 +73,39 @@
 </div>
 <div class="footer-bottom"><span>&copy; 2026 Trimurti Plant Sciences Private Limited. All rights reserved.</span><span>Hyderabad, Telangana, India</span></div>
 </div></footer>
+
+<nav class="mobile-nav">
+  <div class="mobile-nav-top">
+    <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti" style="height:28px;width:auto;">
+    <button class="mobile-nav-close" aria-label="Close menu">
+      <i class="ph ph-x" style="font-size:22px"></i>
+    </button>
+  </div>
+  <ul class="mobile-nav-list">
+    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+    <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+    <li><a href="#" class="mobile-nav-link" data-sub="sub-crops">Products<i class="ph ph-caret-down mobile-caret" style="font-size:16px;transition:transform 0.2s"></i></a><div class="mobile-sub" id="sub-crops"><a href="crops.html#field-crops">Field Crops</a><a href="crops.html#vegetables">Vegetables</a><a href="crops.html#fodder">Fodder</a></div></li>
+    <li><a href="research.html" class="mobile-nav-link">R&amp;D</a></li>
+    <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+    <li><a href="partner.html" class="mobile-nav-link">Distributor</a></li>
+    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-cta">
+    <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti" style="height:32px;width:auto;">
+  </div>
+</nav>
+
+<div class="search-overlay">
+  <div class="search-box">
+    <div class="search-box-input-row">
+      <i class="ph ph-magnifying-glass" style="font-size:18px"></i>
+      <input type="text" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
+      <button class="search-close" aria-label="Close search">
+        <i class="ph ph-x" style="font-size:22px"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
