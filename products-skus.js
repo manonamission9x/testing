@@ -18,7 +18,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 90 \u2013 100 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-846.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -38,7 +38,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif:125-130 days",
     special:"Field tolerance to BLB, blast, and other major diseases Tolerant to lodging I...",
-    pdf:"https://trimurti.in/wp-content/uploads/2024/03/POP_-Rice-variety-TMRV-1626.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -98,7 +98,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 120-125 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases Suitable f...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Variety-TMRV-1666.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -118,7 +118,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 120-130 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases Suitable f...",
-    pdf:"https://trimurti.in/wp-content/uploads/2026/04/POP-Rice-Variety-TMRV-1734.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -138,7 +138,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Maturity duration: Kharif \u2013 120-125 days & Rabi \u2013 125-130 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases Wider adap...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP_-Rice-variety-TMRV-1686.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -198,7 +198,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 115-120 days",
     special:"Field tolerance to major pests and diseases with wider adaptability Tolerant ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-102-Kamakshi.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -218,7 +218,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 135-140 days",
     special:"Field tolerance to major pests and diseases with wider adaptability Tolerant ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Hybrid-Rice-TMRH-114-Mani.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -238,7 +238,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 130-135 days",
     special:"Field tolerance to major pests and diseases \u2022 Tolerant to lodging \u2022 Widely ad...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-2106.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -258,7 +258,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 116-122 days",
     special:"Tolerant to lodging \u2022 Field tolerant to major pests, BLB and Blast \u2022 Suitable...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-106.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -278,7 +278,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 115-120 days",
     special:"Tolerant to lodging \u2022 Field tolerance to major pests and diseases \u2022 Suitable ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-Pavitra-TMRH-108.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -298,7 +298,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 112-117 days",
     special:"Tolerant to lodging \u2022 Field tolerance to major pests and diseases \u2022 Suitable ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-2171.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -318,7 +318,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 118-125 days",
     special:"Tolerant to lodging \u2022 Highly tolerant to BLB and Blasts \u2022 Suitable for AP, BR...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Hybrid-Rice-TMRH-2112-Chetak-Gold.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -338,7 +338,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 115-120 days",
     special:"Tolerant to lodging \u2022 Field tolerance to BLB and Blast with wider adaptabilit...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-5544.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -358,7 +358,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi, Spring",
     duration:"Kharif: 105-110 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Maize-Hybrid-TMMH-826.com_.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -378,7 +378,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 115-120 days",
     special:"Tolerant to lodging Widely adapted for cultivation in all rice growing areas ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Hybrid-TMRH-2156.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -418,7 +418,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 115-125 days",
     special:"Tolerant to lodging OD, PB, TG, TN, UK, UP & WB \u2022 Field tolerance to major pe...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-2161.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -458,7 +458,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 108-112 days",
     special:"Tolerant to lodging and major pests and diseases \u2022 Suitable for AP, AS, BR, C...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-129.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -498,7 +498,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 125-130 days",
     special:"Field tolerance to False smut, BLB and Blast with wider adaptability \u2022 Suitab...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-124.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -518,7 +518,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 90-100 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-8842.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -538,7 +538,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 125-130 days",
     special:"Tolerant to lodging and Field toleranyt to major pests and diseases \u2022 Widely ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-5556.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -558,7 +558,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 95-100 days",
     special:"",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Hybrid-Maize-TMMH-2852.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -578,7 +578,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 115-120 days",
     special:"Tolerant to lodging \u2022 Widely adapted for cultivation in all rice growing area...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-5750.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -598,7 +598,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 115-120 days",
     special:"Field tolerance to major pests and diseases with wider adaptability and toler...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-111.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -618,7 +618,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif :85-90 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-812.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -638,7 +638,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 135 -145 days",
     special:"Tolerant to lodging \u2022 Widely adapted for cultivation in all rice growing area...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-2151.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -658,7 +658,7 @@ self.PRODUCTS_SKUS = [
     season:"Rabi, Spring",
     duration:"",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Maize-Hybrid-TMMH-826.com_.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -678,7 +678,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 120-125 days",
     special:"Tolerant to lodging Widely adapted for cultivation in all rice growing areas ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Hybrid-TMRH-5535.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -698,7 +698,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 110-115 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases Widely ada...",
-    pdf:"https://trimurti.in/wp-content/uploads/2026/05/POP-Rice-Hybrid-JRH-5.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -718,7 +718,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 135-135 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases Widely ada...",
-    pdf:"https://trimurti.in/wp-content/uploads/2026/03/POP-Rice-Hybrid-TMRH-2135.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -738,7 +738,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 135-135 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases Widely ada...",
-    pdf:"https://trimurti.in/wp-content/uploads/2026/04/POP-Rice-Hybrid-TMRH-5513Nagma.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -758,7 +758,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 135-135 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases Widely ada...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Hybrid-TMRH-5559.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -778,7 +778,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 116-122 days",
     special:"Tolerant to lodging Field tolerant to BLB, Blasts and other major pests and d...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Hybrid-TMRH-5788.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -818,7 +818,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 101-108 days",
     special:"Tolerant to lodging \u2022 Field tolerance to major pests and diseases \u2022 Widely ad...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-101.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -858,7 +858,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Medium maturity: Kharif 90-100 days and Rabi 115-120 days",
     special:"Field tolerance to major pests and diseases Ideal for both rain-fed and high ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Maize-Hybrid-TMMH-8805.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -898,7 +898,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 90-95 days",
     special:"Tolerant to lodging due to proper cob placement at medium height \u2022 Ideal for ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-807.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -918,7 +918,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Medium maturity and maturity duration in Kharif is 90-95 days, Suitable for h...",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Maize-Hybrid-TMMH-8135.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -938,7 +938,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi, Spring",
     duration:"Medium maturity: Kharif 90-100 days and Rabi 115-120 days",
     special:"Field tolerance to major pests and diseases Suitable for both rain-fed and hi...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Hybrid-Maize-TMMH-2861.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -978,7 +978,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 125-130 days",
     special:"Field tolerance to BLB, False smut and Blast \u2022 Tolerant to lodging \u2022 Suitable...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-107-Devi.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1018,7 +1018,7 @@ self.PRODUCTS_SKUS = [
     season:"Spring",
     duration:"Maturity duration: Spring 90-95 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2026/04/POP-Hybrid-Maize-TMMH-8833.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1078,7 +1078,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 132-138 days",
     special:"Field tolerance to major pests and diseases \u2022 Tolerant to lodging \u2022 Widely ad...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TNRH-174-Supriya.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1098,7 +1098,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Maturity duration: Kharif 125-130 days and Rabi 130-135 days",
     special:"",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Variety-TMRV-3615.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1118,7 +1118,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi, Spring",
     duration:"Medium maturity; around 90\u2013100 days for Kharif and 115\u2013120 days for Rabi",
     special:"Tolerant to major field pests and diseases Suitable for rain-fed and high-inp...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-2838.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1278,7 +1278,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 80-85 days",
     special:"Resistant to downy mildew and major pests \u2022 Tolerant to heat, drought and lod...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/09/POP-Hybrid-Bajra-TMBH-633.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1298,7 +1298,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 78-82 days",
     special:"Resistant to downy mildew and major pests \u2022Tolerant to Heat, drought and lodg...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/09/POP-Bajra-Hybrid-TMBH-680.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1318,7 +1318,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 78-82 days",
     special:"Resistant to downy mildew and other major diseases \u2022 Tolerant to heat, drough...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/09/POP-Hybrid-Bajra-TMBH-2652.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1338,7 +1338,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 80-85 days",
     special:"Resistant to downy mildew and major pests \u2022 Tolerant to heat, drought and lod...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/09/POP-Hybrid-Bajra-TMBH-2631.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1358,7 +1358,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 78-82 days",
     special:"Resistant to downy mildew and major pests \u2022Tolerant to Heat, drought and lodg...",
-    pdf:"https://trimurti.in/wp-content/uploads/2026/04/POP-Bajra-Hybrid-TMBH-601.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1378,7 +1378,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 78-82 days",
     special:"Resistant to downy mildew and major pests \u2022Tolerant to Heat, drought and lodg...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/12/POP-Hybrid-Bajra-TMBH-602.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1398,7 +1398,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 75-80 days",
     special:"Resistant to downy mildew and major pests Widely adapted for cultivation duri...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Hybrid-Bajra-TMBH-2627.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1458,7 +1458,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 90-100 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-809-Sainath.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1498,7 +1498,7 @@ self.PRODUCTS_SKUS = [
     season:"",
     duration:"Mid-early maturing (125-135 days) basmati rice variety with high yield potential",
     special:"Field tolerance to major pests and diseases with wider adaptability Tolerant ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Variety-TMRV-1121.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1518,7 +1518,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif:115-120 days",
     special:"Field tolerance to major pests and diseases Tolerant to lodging Suitable for ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-variety-TMRV-1509.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1538,7 +1538,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 110-115 days",
     special:"Tolerant to lodging Field tolerant to BLB, Blasts and other major pests and d...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Hybrid-TMRH-1105.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1558,7 +1558,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 125-130 days",
     special:"Tolerant to lodging and field tolerance to major pests and diseases Widely ad...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP_-Rice-variety-TMRV-1632.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1598,7 +1598,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Maturity duration: Kharif \u2013 130-135 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases Wider adap...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Variety-TMRV-1685.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1618,7 +1618,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 85-90 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Hybrid-Maize-TMMH-804.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1638,7 +1638,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi, Spring",
     duration:"Kharif: 110-115 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-844.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1818,7 +1818,7 @@ self.PRODUCTS_SKUS = [
     season:"",
     duration:"Medium maturity: 115-120 days",
     special:"Tolerant to major pests and diseases \u2022 Widely adapted for cultivation in BR, ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Hybrid-Mustard-TMMD-2904.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1858,7 +1858,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 95-100 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Hybrid-Maize-TMMH-2831-Plus.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1878,7 +1878,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 95-100 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Hybrid-Maize-TMMH-2831-Plus.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -1898,7 +1898,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 90-100 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-hybrid-TMMH-2834.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2018,7 +2018,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 90 \u2013 100 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Maize-Hybrid-TMMH-846.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2058,7 +2058,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 120-125 days",
     special:"Field tolerance to False smut, BLB, and Blast with wider adaptability \u2022 Ideal...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Hybrid-TMRH-124.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2078,7 +2078,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 150-155 days",
     special:"Tolerant to lodging \u2022 Suitable for cultivation in AP, BR, CG, HR, MH, MP, PB,...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-variety-TMRV-1509.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2098,7 +2098,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 140-145 days",
     special:"Tolerant to lodging \u2022 Widely adapted for cultivation in AP, AS, BR, CG, HR, J...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/TMRV-1611-POP.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2118,7 +2118,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 100-105 days",
     special:"Field tolerance to major pests and diseases with wider adaptability \u2022 Suitabl...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/TMRV-1617-POP.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2138,7 +2138,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif:125-130 days",
     special:"Field tolerance to BLB, blast, and other major diseases Tolerant to lodging I...",
-    pdf:"https://trimurti.in/wp-content/uploads/2024/03/POP_-Rice-variety-TMRV-1626.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2158,7 +2158,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 120-125 days",
     special:"Tolerant to lodging and field tolerant to major pests and diseases \u2022 Suitable...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/TMRV-1628_POP.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2178,7 +2178,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 150-155 days",
     special:"tolerant to major pests and diseases with wider adaptability \u2022 Tolerant to lo...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/TMRV-1629-pop.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2198,7 +2198,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 130-135 days",
     special:"Field tolerance to major pests and diseases with wider adaptability Suitable ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Variety-TMRV-1682.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2258,7 +2258,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 125-130 days",
     special:"Tolerant to lodging and field tolerance to major pests and diseases \u2022 Widely ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/TMRV-3641-POP.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2278,7 +2278,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 140-145 days",
     special:"Tolerant to lodging \u2022 Widely adapted for cultivation in AP, AS, BR, CG, HR, J...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Variety-TMRV-3644.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2298,7 +2298,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 115-120 days",
     special:"Tolerant to lodging \u2022 Field tolerance to major pests and diseases \u2022 Widely ad...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Rice-Variety-TMRV-3649.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2338,7 +2338,7 @@ self.PRODUCTS_SKUS = [
     season:"",
     duration:"Mid-early maturing (115-120 days) basmati rice variety with high yield potential",
     special:"Field tolerance to BLB, Blasts and other major pests and diseases Tolerant to...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-variety-Trimurti-92.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2358,7 +2358,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 110-115 days",
     special:"Hybrid Maize",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-Hybrid-Maize-TMMH-802.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2378,7 +2378,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif, Rabi",
     duration:"Kharif: 125-135 days",
     special:"Field tolerance to major pests and diseases with wider adaptability Suitable ...",
-    pdf:"https://trimurti.in/wp-content/uploads/2025/07/POP-Rice-Variety-TMRV-1621-Ustaad.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -2398,7 +2398,7 @@ self.PRODUCTS_SKUS = [
     season:"Kharif",
     duration:"Kharif: 115-120 days",
     special:"Tolerant to lodging Widely adapted for cultivation in AP, AS, BR, CG, HR, JH,...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/TMRV_1610_Rice_Variety_POP.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -3958,7 +3958,7 @@ self.PRODUCTS_SKUS = [
     season:"",
     duration:"",
     special:"Tolerant to leaf diseases \u2022 Widely adapted for cultivation in AP, AS, BR, CG,...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/POP-SSG-Hybrid-TMSH-1201-Charu.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -4018,7 +4018,7 @@ self.PRODUCTS_SKUS = [
     season:"",
     duration:"",
     special:"Tolerant to leaf diseases \u2022 Widely adapted for cultivation in AP, AS, BR, CG,...",
-    pdf:"https://trimurti.in/wp-content/uploads/2023/10/Samata_POP.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
@@ -4098,7 +4098,7 @@ self.PRODUCTS_SKUS = [
     season:"",
     duration:"",
     special:"Fodder",
-    pdf:"https://trimurti.in/wp-content/uploads/2026/02/TMFh-1241-POP.pdf",
+    pdf:"",
     markets:"",
     hybrids:[]
   },
