@@ -4726,22 +4726,8 @@ const PRODUCTS_SKUS = [
       var ab=document.createElement('button');ab.className='filter-btn active';ab.textContent='All Products';ab.setAttribute('data-filter','all');fb.appendChild(ab);
       cats.forEach(function(c){var b=document.createElement('button');b.className='filter-btn';b.textContent=c.l;b.setAttribute('data-filter',c.k);fb.appendChild(b);});
   
-      // Products array - starts with 22, SKUs get merged async
+      // Products array - starts with 22, SKUs load from products-skus.js below
       window.ALL_PRODUCTS = PRODUCTS;
-  
-      // Load SKUs async
-      (function(){
-        var x=new XMLHttpRequest();
-        x.open('GET','products-skus.js',true);
-        x.onload=function(){
-          try{
-            eval(x.responseText);
-            window.ALL_PRODUCTS = PRODUCTS.concat(PRODUCTS_SKUS);
-            renderAll();
-          }catch(e){console.log('SKU load issue:',e.message);}
-        };
-        x.send();
-      })();
   
       function getPageItems(items,page){var start=(page-1)*PAGE_SIZE;return items.slice(start,start+PAGE_SIZE);}
       function getTotalPages(items){return Math.max(1,Math.ceil(items.length/PAGE_SIZE));}
@@ -4795,7 +4781,13 @@ const PRODUCTS_SKUS = [
       var bts=fb.querySelectorAll('.filter-btn');
       bts.forEach(function(b){b.addEventListener('click',function(){bts.forEach(function(x){x.classList.remove('active');});this.classList.add('active');currentFilter=this.getAttribute('data-filter');for(var k in pages)pages[k]=1;renderAll();});});
       var si=document.getElementById('cropSearch');if(si){var st;si.addEventListener('input',function(){clearTimeout(st);st=setTimeout(function(){for(var k in pages)pages[k]=1;renderAll();},300);});}
+      window.renderAll = renderAll;
     })();
+    </script>
+    <script src="products-skus.js"></script>
+    <script>
+    window.ALL_PRODUCTS = PRODUCTS.concat(self.PRODUCTS_SKUS);
+    renderAll();
     </script>
 </body>
 </html>

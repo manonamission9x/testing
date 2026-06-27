@@ -1,7 +1,7 @@
 // TRIMURTI PRODUCT CATALOG — Individual SKUs
 // Loaded separately for performance
 
-const PRODUCTS_SKUS = [
+self.PRODUCTS_SKUS = [
   {
     id:"tmmh846",
     name:"TMMH 846",
