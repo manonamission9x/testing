@@ -721,6 +721,7 @@ input[type="checkbox"] {
     <button class="tab-btn" data-tab="add">➕ Add Product</button>
     <button class="tab-btn" data-tab="categories">🏷️ Categories</button>
     <button class="tab-btn" data-tab="tools">🔧 Export / Import</button>
+    <button class="tab-btn" data-tab="help">❓ Help</button>
   </div>
 
   <!-- ============ TAB: PRODUCTS ============ -->
@@ -1015,6 +1016,129 @@ input[type="checkbox"] {
           <button class="btn btn-danger" onclick="clearAllData()">⚠ Clear all local data</button>
           <button class="btn btn-secondary" onclick="saveToLocalStorage()">💾 Save current to localStorage</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: HELP / GUIDE ============ -->
+  <div class="tab-panel" id="tab-help">
+    <div class="card">
+      <div class="card-header"><h3>📖 How to Use the Product Manager</h3></div>
+      <div class="card-body" style="font-size:0.875rem;line-height:1.7;color:var(--text);">
+
+<p><strong>This admin panel lets you manage all products for the TriMurti website.</strong> Changes are saved to your browser's storage and can be exported as a file to update the live site.</p>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">🔤 Basic Workflow</h4>
+<ol style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li><strong>Add products</strong> using the <strong>➕ Add Product</strong> tab</li>
+  <li><strong>Edit / delete / reorder</strong> products in the <strong>📋 Products</strong> tab</li>
+  <li><strong>Organize</strong> categories in the <strong>🏷️ Categories</strong> tab</li>
+  <li><strong>Export</strong> your data as <code>products-data.js</code> using the <strong>🔧 Export / Import</strong> tab</li>
+  <li><strong>Upload</strong> the exported file to your website's server (via GitHub push)</li>
+</ol>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">📋 Products Tab</h4>
+<p>Shows all products in a table. Click any cell to edit it inline. Use the checkboxes to select products for bulk actions:</p>
+<ul style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li><strong>Bulk Delete</strong> — remove all selected products at once</li>
+  <li><strong>Bulk Deactivate</strong> — hide selected products from the website</li>
+  <li><strong>Bulk Activate</strong> — show selected products on the website</li>
+  <li><strong>Search</strong> — filter products by name or code</li>
+  <li><strong>Filter by category</strong> — show only Field Crops, Vegetables, or Fodder</li>
+  <li>Click the ⬆/⬇ arrows to reorder products within a category</li>
+</ul>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">➕ Adding a Product</h4>
+<p>Each product has the following fields:</p>
+<table style="width:100%;border-collapse:collapse;font-size:0.8125rem;margin:0 0 var(--space-md)">
+  <tr style="background:var(--cream-50)"><th style="padding:6px 10px;text-align:left;border:1px solid var(--line-solid);width:140px">Field</th><th style="padding:6px 10px;text-align:left;border:1px solid var(--line-solid)">Description</th></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Product Name</strong> *</td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Display name (e.g. "TMMH 846")</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Category</strong> *</td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Field Crops, Vegetables, or Fodder</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Type</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">"Hybrid" or "Variety"</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Product Code</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Internal code (e.g. "TMMH846")</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Description</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Short 1-2 line description shown on product cards</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Features</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Comma-separated list (e.g. "Drought tolerance, High yield")</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Region</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Growing region (e.g. "Central & Southern India")</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Season</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Growing season (e.g. "Kharif", "Rabi", or "Kharif / Rabi")</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Duration</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Maturity duration (e.g. "95-115 days")</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Special</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Special trait shown as a gold badge (e.g. "Pest tolerant")</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Image</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Path to product image (e.g. "images/products/maize.jpg"). Leave empty if no image.</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>PDF</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Path to brochure PDF (e.g. "brochures/maize.pdf"). Leave empty if no brochure.</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Markets</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Export markets (e.g. "India, Nepal")</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Hybrids</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Sub-varieties. Format: <code>Name | Description</code>, one per line. (Only for featured/aggregate products.)</td></tr>
+  <tr><td style="padding:6px 10px;border:1px solid var(--line-solid)"><strong>Active</strong></td><td style="padding:6px 10px;border:1px solid var(--line-solid)">Uncheck to hide the product from the website without deleting it</td></tr>
+</table>
+<p><em>* Required fields</em></p>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">🏷️ Managing Categories</h4>
+<p>The website has 3 preset categories: <strong>Field Crops, Vegetables, Fodder</strong>. You can:</p>
+<ul style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li>Rename a category (e.g. "Field Crops" → "Field Crops & Grains")</li>
+  <li>Change its color</li>
+  <li>Add new categories (e.g. "Oilseeds", "Pulses")</li>
+  <li>Delete unused categories</li>
+</ul>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">🔧 Exporting to the Live Site</h4>
+<ol style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li>Go to the <strong>🔧 Export / Import</strong> tab</li>
+  <li>Click <strong>⬇ Download products-data.js</strong> — this downloads a file</li>
+  <li><strong>Replace</strong> the existing <code>products-data.js</code> in your project folder</li>
+  <li><strong>Push to GitHub</strong> — Vercel auto-deploys the changes</li>
+</ol>
+<p><strong>Tip:</strong> You can also edit products directly in <code>products-data.js</code> if you prefer working with the raw file.</p>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">📸 Adding Product Images</h4>
+<ol style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li>Save the image as a <code>.jpg</code> file in the <code>images/products/</code> folder</li>
+  <li>In the product form, set Image path to <code>images/products/your-image-name.jpg</code></li>
+  <li>The image must be committed to GitHub to appear on the live site</li>
+  <li>If a product has no image, just leave the Image field blank</li>
+</ol>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">📄 Adding Brochure PDFs</h4>
+<ol style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li>Save the PDF in the <code>brochures/</code> folder</li>
+  <li>In the product form, set PDF path to <code>brochures/your-file.pdf</code></li>
+  <li>The Brochure button only appears on the website when a PDF is set</li>
+  <li>If a product has no brochure, just leave the PDF field blank</li>
+</ol>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">💾 Data Storage</h4>
+<ul style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li>All edits are saved to your browser's <strong>localStorage</strong> automatically</li>
+  <li>If localStorage has data, it takes priority over the source file</li>
+  <li>To discard localStorage changes and reload from file: click <strong>↺ Reset from source</strong></li>
+  <li>To clear all data: click <strong>⚠ Clear all local data</strong></li>
+  <li>Keyboard shortcut: <strong>Ctrl+S / Cmd+S</strong> saves to localStorage</li>
+</ul>
+
+<hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
+
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">⚠️ Important Notes</h4>
+<ul style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li><strong>Changes in this panel are local only</strong> — they won't appear on the live website until you export and upload the file</li>
+  <li>Always <strong>export before clearing localStorage</strong> to avoid losing your work</li>
+  <li>The <code>products-skus.js</code> file (used for the 208 SKU products) is managed separately — this panel handles the main <code>products-data.js</code> file</li>
+  <li>Product <strong>images</strong> and <strong>PDFs</strong> are separate files — they must be uploaded to the server independently</li>
+</ul>
+
       </div>
     </div>
   </div>
