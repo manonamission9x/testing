@@ -4716,81 +4716,86 @@ const PRODUCTS_SKUS = [
     duration:"",
     special:"Tolerant to drought situation \u2022 Tolerant to leaf diseases \u2022 Widely adapted fo...",
     pdf:"",
-    markets:"",
-    hybrids:[]
-  },
-];
-</script>
-<script>
-(function(){
-// Merge all products 
-var _ALL_PRODUCTS = PRODUCTS.concat(PRODUCTS_SKUS);
-var c=document.getElementById('cropSections');
-var fb=document.getElementById('filterBar');
-var PAGE_SIZE=12;
-var cats=[{k:'field-crops',l:'Field Crops',s:'09 product lines',b:''},{k:'vegetables',l:'Vegetables',s:'Seasonal portfolio',b:'style="background:var(--cream-75);border-top:1px solid var(--line);border-bottom:1px solid var(--line);"'},{k:'fodder',l:'Fodder',s:'High-yield forage',b:''}];
-var ab=document.createElement('button');ab.className='filter-btn active';ab.textContent='All Products';ab.setAttribute('data-filter','all');fb.appendChild(ab);
-cats.forEach(function(c){var b=document.createElement('button');b.className='filter-btn';b.textContent=c.l;b.setAttribute('data-filter',c.k);fb.appendChild(b);});
-function getPageItems(items,page){var start=(page-1)*PAGE_SIZE;return items.slice(start,start+PAGE_SIZE);}
-function getTotalPages(items){return Math.max(1,Math.ceil(items.length/PAGE_SIZE));}
-function getAllProducts(){return _ALL_PRODUCTS;}
-function card(p){
- var hh='';if(p.hybrids){p.hybrids.forEach(function(h){hh+='<div class="hybrid-item"><span class="hybrid-name">'+h.name+'</span><span class="hybrid-desc">'+h.desc+'</span></div>';});}
- var fh='';if(p.features&&p.features.length){fh='<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px;">';p.features.forEach(function(f){fh+='<span style="font-size:0.6875rem;padding:2px 8px;background:var(--green-100);color:var(--green-700);border-radius:var(--radius-full);">'+f+'</span>';});fh+='</div>';}
- var mh='';var mp=[];if(p.region)mp.push(p.region);if(p.season)mp.push(p.season);if(p.duration)mp.push(p.duration);if(mp.length){mh='<div style="margin-top:10px;font-size:0.75rem;color:var(--text-muted);">'+mp.join(' &middot; ')+'</div>';}
- var sh='';if(p.special){sh='<span style="display:inline-block;margin-top:8px;font-size:0.6875rem;font-weight:600;color:var(--gold);border:1px solid var(--gold-dim);padding:2px 8px;border-radius:var(--radius-full);">'+p.special+'</span>';}
- var mk=p.markets?'<div class="product-card-footer"><i class="ph ph-map-pin" style="font-size:14px;font-weight:700;"></i> '+p.markets+'</div>':'';
- var im='';if(p.image){im='<div style="margin-bottom:8px;border-radius:var(--radius-sm);overflow:hidden;height:120px;"><img src="'+p.image+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:cover;"></div>';}
- var ph='';if(p.pdf){ph='<a href="'+p.pdf+'" class="pdf-btn" target="_blank"><i class="ph ph-file-pdf" style="font-size:14px;font-weight:700;"></i> Brochure</a>';}
- var eq='<a href="contact.html?product='+encodeURIComponent(p.name)+'" class="pdf-btn" style="margin-left:6px;"><i class="ph ph-envelope" style="font-size:14px;font-weight:700;"></i> Enquire</a>';
- var tg=p.detailPage?'a href="crops/'+p.id+'.html"':'div';var et=p.detailPage?'/a':'/div';
- return '<'+tg+' class="product-card reveal" style="display:block;text-decoration:none;color:inherit;">'
-  +'<div class="product-card-header"><span class="crop-name">'+p.name+'</span><span class="crop-badge">'+p.type+'</span></div>'
-  +'<div class="product-card-body">'+im
-  +'<div style="font-size:0.8125rem;color:var(--text-light);margin-bottom:6px;">'+p.description+'</div>'
-  +'<div class="hybrid-label">Hybrids &amp; Varieties</div><div class="hybrid-list">'+hh+'</div>'
-  +fh+sh+mh
-  +'<div style="margin-top:10px;">'+ph+eq+'</div>'
-  +'</div>'+mk
-  +'</'+et+'>';
-}
-var currentFilter='all';var currentSearch='';var pages={};
-function renderAll(){
- var ops=getAllProducts();
- currentSearch=((document.getElementById('cropSearch')||{}).value||'').toLowerCase().trim();
- var ss='';
- cats.forEach(function(ca){
-  var items=ops.filter(function(p){return p.category===ca.k;});
-  if(!items.length)return;
-  if(currentSearch){items=items.filter(function(p){return p.name.toLowerCase().includes(currentSearch)||(p.code||'').toLowerCase().includes(currentSearch)||(p.description||'').toLowerCase().includes(currentSearch);});}
-  if(!items.length)return;
-  var total=getTotalPages(items);
-  if(!pages[ca.k])pages[ca.k]=1;
-  if(pages[ca.k]>total)pages[ca.k]=1;
-  var pageItems=getPageItems(items,pages[ca.k]);
-  ss+='<section class="section crop-group" id="group-'+ca.k+'" '+ca.b+' style="padding-top:0;">'
-   +'<div class="container"><div class="crop-section-header"><h2>'+ca.l+'</h2><span>'+ca.s+' ('+items.length+' products)</span></div><div class="product-grid">';
-  pageItems.forEach(function(p){ss+=card(p);});
-  ss+='</div>';
-  if(total>1){
-   ss+='<div class="pagination" style="display:flex;justify-content:center;gap:4px;margin-top:20px;flex-wrap:wrap;">';
-   for(var pi=1;pi<=total;pi++){
-    var act=pi===pages[ca.k]?' background:var(--green-600);color:var(--white);':' background:var(--white);color:var(--text-light);';
-    ss+='<button class="page-btn" data-cat="'+ca.k+'" data-page="'+pi+'" style="padding:6px 14px;font-size:0.8125rem;font-weight:600;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast);'+act+'">'+pi+'</button>';
-   }
-   ss+='</div>';
-  }
-  if(ca.k==='fodder'){ss+='<div class="reveal" style="margin-top:var(--space-xl);padding:var(--space-lg);background:var(--green-100);border-radius:var(--radius-sm);border:1.5px solid var(--green-200);"><p style="font-size:0.9375rem;font-weight:500;margin-bottom:0;"><strong>Note:</strong> Product portfolios are seasonal. Contact us for current availability.</p></div>';}
-  ss+='</div></section>';
- });
- c.innerHTML=ss;
- document.querySelectorAll('.page-btn').forEach(function(b){b.addEventListener('click',function(){pages[this.getAttribute('data-cat')]=parseInt(this.getAttribute('data-page'));renderAll();});});
-}
-renderAll();
-var bts=fb.querySelectorAll('.filter-btn');
-bts.forEach(function(b){b.addEventListener('click',function(){bts.forEach(function(x){x.classList.remove('active');});this.classList.add('active');currentFilter=this.getAttribute('data-filter');for(var k in pages)pages[k]=1;renderAll();});});
-var si=document.getElementById('cropSearch');if(si){var st;si.addEventListener('input',function(){clearTimeout(st);st=setTimeout(function(){for(var k in pages)pages[k]=1;renderAll();},300);});}
-})();
-</script>
+    <script src="products-data.js"></script>
+    <script>
+    (function(){
+      var c=document.getElementById('cropSections');
+      var fb=document.getElementById('filterBar');
+      var PAGE_SIZE=12;
+      var cats=[{k:'field-crops',l:'Field Crops',s:'09 product lines',b:''},{k:'vegetables',l:'Vegetables',s:'Seasonal portfolio',b:'style="background:var(--cream-75);border-top:1px solid var(--line);border-bottom:1px solid var(--line);"'},{k:'fodder',l:'Fodder',s:'High-yield forage',b:''}];
+      var ab=document.createElement('button');ab.className='filter-btn active';ab.textContent='All Products';ab.setAttribute('data-filter','all');fb.appendChild(ab);
+      cats.forEach(function(c){var b=document.createElement('button');b.className='filter-btn';b.textContent=c.l;b.setAttribute('data-filter',c.k);fb.appendChild(b);});
+  
+      // Products array - starts with 22, SKUs get merged async
+      window.ALL_PRODUCTS = PRODUCTS;
+  
+      // Load SKUs async
+      (function(){
+        var x=new XMLHttpRequest();
+        x.open('GET','products-skus.js',true);
+        x.onload=function(){
+          try{
+            eval(x.responseText);
+            window.ALL_PRODUCTS = PRODUCTS.concat(PRODUCTS_SKUS);
+            renderAll();
+          }catch(e){console.log('SKU load issue:',e.message);}
+        };
+        x.send();
+      })();
+  
+      function getPageItems(items,page){var start=(page-1)*PAGE_SIZE;return items.slice(start,start+PAGE_SIZE);}
+      function getTotalPages(items){return Math.max(1,Math.ceil(items.length/PAGE_SIZE));}
+  
+      function card(p){
+        var hh='';if(p.hybrids){p.hybrids.forEach(function(h){hh+='<div class="hybrid-item"><span class="hybrid-name">'+h.name+'</span><span class="hybrid-desc">'+h.desc+'</span></div>';});}
+        var fh='';if(p.features&&p.features.length){fh='<div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:4px;">';p.features.forEach(function(f){fh+='<span style="font-size:0.6875rem;padding:2px 8px;background:var(--green-100);color:var(--green-700);border-radius:var(--radius-full);">'+f+'</span>';});fh+='</div>';}
+        var mh='';var mp=[];if(p.region)mp.push(p.region);if(p.season)mp.push(p.season);if(p.duration)mp.push(p.duration);if(mp.length){mh='<div style="margin-top:10px;font-size:0.75rem;color:var(--text-muted);">'+mp.join(' &middot; ')+'</div>';}
+        var sh='';if(p.special){sh='<span style="display:inline-block;margin-top:8px;font-size:0.6875rem;font-weight:600;color:var(--gold);border:1px solid var(--gold-dim);padding:2px 8px;border-radius:var(--radius-full);">'+p.special+'</span>';}
+        var mk=p.markets?'<div class="product-card-footer"><i class="ph ph-map-pin" style="font-size:14px;font-weight:700;"></i> '+p.markets+'</div>':'';
+        var im='';if(p.image){im='<div style="margin-bottom:8px;border-radius:var(--radius-sm);overflow:hidden;height:120px;"><img src="'+p.image+'" alt="'+p.name+'" style="width:100%;height:100%;object-fit:cover;"></div>';}
+        var ph='';if(p.pdf){ph='<a href="'+p.pdf+'" class="pdf-btn" target="_blank"><i class="ph ph-file-pdf" style="font-size:14px;font-weight:700;"></i> Brochure</a>';}
+        var eq='<a href="contact.html?product='+encodeURIComponent(p.name)+'" class="pdf-btn" style="margin-left:6px;"><i class="ph ph-envelope" style="font-size:14px;font-weight:700;"></i> Enquire</a>';
+        var tg=p.detailPage?'a href="crops/'+p.id+'.html"':'div';var et=p.detailPage?'/a':'/div';
+        return '<'+tg+' class="product-card reveal" style="display:block;text-decoration:none;color:inherit;">'
+          +'<div class="product-card-header"><span class="crop-name">'+p.name+'</span><span class="crop-badge">'+p.type+'</span></div>'
+          +'<div class="product-card-body">'+im
+          +'<div style="font-size:0.8125rem;color:var(--text-light);margin-bottom:6px;">'+p.description+'</div>'
+          +'<div class="hybrid-label">Hybrids &amp; Varieties</div><div class="hybrid-list">'+hh+'</div>'
+          +fh+sh+mh
+          +'<div style="margin-top:10px;">'+ph+eq+'</div>'
+          +'</div>'+mk
+          +'</'+et+'>';
+      }
+      var currentFilter='all';var currentSearch='';var pages={};
+      function renderAll(){
+        var ops=window.ALL_PRODUCTS;
+        currentSearch=((document.getElementById('cropSearch')||{}).value||'').toLowerCase().trim();
+        var ss='';
+        cats.forEach(function(ca){
+          var items=ops.filter(function(p){return p.category===ca.k;});
+          if(!items.length)return;
+          if(currentSearch){items=items.filter(function(p){return p.name.toLowerCase().includes(currentSearch)||(p.code||'').toLowerCase().includes(currentSearch)||(p.description||'').toLowerCase().includes(currentSearch);});}
+          if(!items.length)return;
+          var total=getTotalPages(items);if(!pages[ca.k])pages[ca.k]=1;if(pages[ca.k]>total)pages[ca.k]=1;
+          var pageItems=getPageItems(items,pages[ca.k]);
+          ss+='<section class="section crop-group" id="group-'+ca.k+'" '+ca.b+' style="padding-top:0;"><div class="container"><div class="crop-section-header"><h2>'+ca.l+'</h2><span>'+ca.s+' ('+items.length+' products)</span></div><div class="product-grid">';
+          pageItems.forEach(function(p){ss+=card(p);});ss+='</div>';
+          if(total>1){
+            ss+='<div class="pagination" style="display:flex;justify-content:center;gap:4px;margin-top:20px;flex-wrap:wrap;">';
+            for(var pi=1;pi<=total;pi++){var act=pi===pages[ca.k]?' background:var(--green-600);color:var(--white);':' background:var(--white);color:var(--text-light);';ss+='<button class="page-btn" data-cat="'+ca.k+'" data-page="'+pi+'" style="padding:6px 14px;font-size:0.8125rem;font-weight:600;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast);'+act+'">'+pi+'</button>';}
+            ss+='</div>';
+          }
+          if(ca.k==='fodder'){ss+='<div class="reveal" style="margin-top:var(--space-xl);padding:var(--space-lg);background:var(--green-100);border-radius:var(--radius-sm);border:1.5px solid var(--green-200);"><p style="font-size:0.9375rem;font-weight:500;margin-bottom:0;"><strong>Note:</strong> Product portfolios are seasonal. Contact us for current availability.</p></div>';}
+          ss+='</div></section>';
+        });
+        c.innerHTML=ss;
+        document.querySelectorAll('.page-btn').forEach(function(b){b.addEventListener('click',function(){pages[this.getAttribute('data-cat')]=parseInt(this.getAttribute('data-page'));renderAll();});});
+      }
+      renderAll();
+      var bts=fb.querySelectorAll('.filter-btn');
+      bts.forEach(function(b){b.addEventListener('click',function(){bts.forEach(function(x){x.classList.remove('active');});this.classList.add('active');currentFilter=this.getAttribute('data-filter');for(var k in pages)pages[k]=1;renderAll();});});
+      var si=document.getElementById('cropSearch');if(si){var st;si.addEventListener('input',function(){clearTimeout(st);st=setTimeout(function(){for(var k in pages)pages[k]=1;renderAll();},300);});}
+    })();
+    </script>
 </body>
 </html>
