@@ -75,13 +75,10 @@
 <div class="footer-bottom"><span>&copy; 2026 Trimurti Plant Sciences Private Limited. All rights reserved.</span><span>Hyderabad, Telangana, India</span></div>
 </div></footer>
 <script src="products-data.js"></script>
-<script src="products-skus.js"></script>
 <script>
 (function(){
   var allProds = [];
-  // Safely merge featured + SKU products (SKUs may fail on slow connections)
   try { for (var i = 0; i < PRODUCTS.length; i++) allProds.push(PRODUCTS[i]); } catch(e) {}
-  try { for (var i = 0; i < PRODUCTS_SKUS.length; i++) allProds.push(PRODUCTS_SKUS[i]); } catch(e) {}
   
   var c = document.getElementById('cropSections');
   var fb = document.getElementById('filterBar');
