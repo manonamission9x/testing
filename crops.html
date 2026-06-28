@@ -151,8 +151,6 @@ var CAT_CFG = {
 };
 
 function loadProducts() {
-  var s = localStorage.getItem('trimurti_products');
-  if (s) { try { var d = JSON.parse(s); if (d.length) return d; } catch(e) {} }
   if (typeof PRODUCTS !== 'undefined') return JSON.parse(JSON.stringify(PRODUCTS));
   return [];
 }
