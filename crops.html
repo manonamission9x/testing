@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crops — TriMurti Plant Sciences</title>
-<meta name="description" content="Explore TriMurti's portfolio of 198 hybrids and varieties across field crops, vegetables, and fodder.">
+<meta name="description" content="Browse TriMurti's full product catalogue of 198 hybrids and varieties.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,6 @@
 .sub-filter-btn{padding:6px 14px;font-size:.75rem;font-weight:500;border:1px solid var(--line-solid);border-radius:var(--radius-full);background:var(--white);color:var(--text-muted);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
 .sub-filter-btn:hover{border-color:var(--green-300);color:var(--green-700)}
 .sub-filter-btn.active{background:var(--green-600);border-color:var(--green-600);color:var(--white)}
-
 .quality-filter-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-lg);padding:var(--space-sm) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .qf-label{font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);display:inline-flex;align-items:center;margin-right:4px}
 .qf-btn{padding:4px 12px;font-size:.6875rem;font-weight:500;border:1px solid var(--line-solid);border-radius:var(--radius-full);background:var(--white);color:var(--text-muted);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
@@ -29,7 +28,6 @@
 .qf-btn.active{background:var(--green-100);border-color:var(--green-400);color:var(--green-700);font-weight:600}
 .qf-group{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap;padding:0 8px;border-right:1px solid var(--line)}
 .qf-group:last-child{border-right:none}
-
 .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-md)}
 .product-card{background:var(--white);border:1px solid var(--line-solid);border-radius:var(--radius-lg);overflow:hidden;transition:all var(--duration-base) var(--ease-out);display:flex;flex-direction:column}
 .product-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.08);transform:translateY(-2px)}
@@ -51,6 +49,7 @@
 </style>
 </head>
 <body>
+
 <header class="site-header"><div class="header-inner">
 <a href="index.html" class="logo"><img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences"></a>
 <nav class="main-nav">
@@ -77,10 +76,10 @@
 
 <section class="section" style="padding-top:0;"><div class="container">
 <div class="filter-bar" id="filterBar"></div>
-<div class="search-wrapper" style="max-width:400px;margin:0 auto 24px">
+<div style="max-width:400px;margin:0 auto 24px">
 <div style="position:relative">
 <i class="ph ph-magnifying-glass" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:16px"></i>
-<input type="text" id="productSearch" placeholder="Search products by name or code…" style="width:100%;padding:10px 12px 10px 36px;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);font-family:Inter,sans-serif;font-size:.8125rem;outline:none;transition:border-color var(--duration-fast) var(--ease-out)">
+<input type="text" id="productSearch" placeholder="Search products by name or code…" style="width:100%;padding:10px 12px 10px 36px;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);font-family:Inter,sans-serif;font-size:.8125rem;outline:none">
 </div>
 </div>
 <div id="cropSections"></div>
@@ -123,7 +122,7 @@
   <ul class="mobile-nav-list">
     <li><a href="index.html" class="mobile-nav-link">Home</a></li>
     <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-    <li><a href="#" class="mobile-nav-link" data-sub="sub-crops">Products<i class="ph ph-caret-down mobile-caret" style="font-size:16px;transition:transform 0.2s"></i></a><div class="mobile-sub" id="sub-crops"><a href="crops.html#field-crops">Field Crops</a><a href="crops.html#vegetables">Vegetables</a><a href="crops.html#fodder">Fodder</a></div></li>
+    <li><a href="#" class="mobile-nav-link" data-sub="sub-crops">Products<i class="ph ph-caret-down mobile-caret" style="font-size:16px"></i></a><div class="mobile-sub" id="sub-crops"><a href="crops.html#field-crops">Field Crops</a><a href="crops.html#vegetables">Vegetables</a><a href="crops.html#fodder">Fodder</a></div></li>
     <li><a href="research.html" class="mobile-nav-link">R&amp;D</a></li>
     <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
     <li><a href="partner.html" class="mobile-nav-link">Distributor</a></li>
@@ -143,16 +142,12 @@
 </div>
 
 <script src="products-data.js"></script>
-<script src="js/main.js"></script>
 <script>
-// ================================================================
-// Product catalogue — individual cards, quality filters
-// ================================================================
-
-const CATEGORIES = {
-  'field-crops': { name: 'Field Crops', icon: '🌾', desc: 'High-yielding hybrids and varieties for staple crops.', order: 0 },
-  'vegetables':  { name: 'Vegetables',  icon: '🥬', desc: 'Premium vegetable hybrids for fresh market and commercial cultivation.', order: 1 },
-  'fodder':      { name: 'Fodder',      icon: '🌿', desc: 'Nutritious fodder options for sustained livestock feed.', order: 2 }
+// ---- Data ----
+var CAT_CFG = {
+  'field-crops': { name:'Field Crops', icon:'🌾', desc:'High-yielding hybrids and varieties for staple crops.' },
+  'vegetables':  { name:'Vegetables',  icon:'🥬', desc:'Premium vegetable hybrids for fresh market and commercial cultivation.' },
+  'fodder':      { name:'Fodder',      icon:'🌿', desc:'Nutritious fodder options for sustained livestock feed.' }
 };
 
 function loadProducts() {
@@ -162,207 +157,138 @@ function loadProducts() {
   return [];
 }
 
-var products = loadProducts();
-var currentCat = 'all';
-var currentSub = 'all';
-var seasonFilter = 'all';
-var typeFilter = 'all';
-var searchQuery = '';
+var prods = loadProducts();
+var cat = 'all', sub = 'all', season = 'all', type = 'all', search = '';
 
 function esc(s) {
-  if (typeof s !== 'string') return '';
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  return (typeof s === 'string' ? s : '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function match(p, h) {
+  if (sub !== 'all' && p.id !== sub) return false;
+  if (season !== 'all') {
+    var ps = (p.season || '').toLowerCase();
+    if (ps.indexOf(season.toLowerCase()) === -1) return false;
+  }
+  if (type !== 'all' && (p.type||'Hybrid') !== type) return false;
+  if (search) {
+    var q = search.toLowerCase();
+    var hay = (h.name+' '+(h.desc||'')+' '+p.name+' '+(p.code||'')).toLowerCase();
+    if (hay.indexOf(q) === -1) return false;
+  }
+  return true;
 }
 
 function render() {
-  var catKeys = ['field-crops','vegetables','fodder'].filter(function(k) {
-    return products.some(function(p) { return p.category === k && p.active !== false; });
+  var ckeys = Object.keys(CAT_CFG).filter(function(k) {
+    return prods.some(function(p) { return p.category === k && p.active !== false; });
   });
-
-  // Top category filter
-  var fh = '<button class="filter-btn' + (currentCat === 'all' ? ' active' : '') + '" data-cat="all">All</button>';
-  catKeys.forEach(function(k) {
-    var c = CATEGORIES[k];
-    fh += '<button class="filter-btn' + (currentCat === k ? ' active' : '') + '" data-cat="' + k + '">' + c.icon + ' ' + c.name + '</button>';
+  // Top filter bar
+  var fh = '<button class="filter-btn'+(cat==='all'?' active':'')+'" data-cat="all">All</button>';
+  ckeys.forEach(function(k) {
+    fh += '<button class="filter-btn'+(cat===k?' active':'')+'" data-cat="'+k+'">'+CAT_CFG[k].icon+' '+CAT_CFG[k].name+'</button>';
   });
   document.getElementById('filterBar').innerHTML = fh;
 
-  var html = '';
-  var totalShown = 0;
+  var html = '', shown = 0;
+  ckeys.forEach(function(ck) {
+    if (cat !== 'all' && cat !== ck) return;
+    var cP = prods.filter(function(p) { return p.category===ck && p.active!==false; })
+      .sort(function(a,b) { return (a.order||99)-(b.order||99); });
+    if (!cP.length) return;
 
-  catKeys.forEach(function(catKey) {
-    if (currentCat !== 'all' && currentCat !== catKey) return;
+    html += '<section class="section" style="padding-bottom:0"><div class="container">';
+    html += '<div class="section-header" id="'+ck+'">';
+    html += '<span class="eyebrow">'+CAT_CFG[ck].icon+'</span>';
+    html += '<h2>'+CAT_CFG[ck].name+'</h2><p>'+CAT_CFG[ck].desc+'</p></div>';
 
-    var cat = CATEGORIES[catKey];
-    var catProducts = products.filter(function(p) {
-      return p.category === catKey && p.active !== false;
-    }).sort(function(a,b) { return (a.order||99) - (b.order||99); });
-
-    if (!catProducts.length) return;
-
-    html += '<section class="section" style="padding-bottom:0;"><div class="container">';
-    html += '<div class="section-header" id="' + catKey + '">';
-    html += '<span class="eyebrow">' + cat.icon + '</span>';
-    html += '<h2>' + cat.name + '</h2>';
-    html += '<p>' + cat.desc + '</p>';
-    html += '</div>';
-
-    // Sub-category filter (crop type tabs)
+    // Sub-filter
     html += '<div class="sub-filter-bar">';
-    html += '<button class="sub-filter-btn' + (currentSub === 'all' ? ' active' : '') + '" data-sub="all">All ' + cat.name + '</button>';
-    catProducts.forEach(function(p) {
-      html += '<button class="sub-filter-btn' + (currentSub === p.id ? ' active' : '') + '" data-sub="' + p.id + '">' + esc(p.name) + '</button>';
+    html += '<button class="sub-filter-btn'+(sub==='all'?' active':'')+'" data-sub="all">All '+CAT_CFG[ck].name+'</button>';
+    cP.forEach(function(p) {
+      html += '<button class="sub-filter-btn'+(sub===p.id?' active':'')+'" data-sub="'+p.id+'">'+esc(p.name)+'</button>';
     });
     html += '</div>';
 
     // Quality filter bar
     html += '<div class="quality-filter-bar">';
-    // Season filter
     html += '<span class="qf-group"><span class="qf-label">Season</span>';
-    html += '<button class="qf-btn' + (seasonFilter === 'all' ? ' active' : '') + '" data-filter="season:all">All</button>';
-    html += '<button class="qf-btn' + (seasonFilter === 'Kharif' ? ' active' : '') + '" data-filter="season:Kharif">Kharif</button>';
-    html += '<button class="qf-btn' + (seasonFilter === 'Rabi' ? ' active' : '') + '" data-filter="season:Rabi">Rabi</button>';
-    html += '<button class="qf-btn' + (seasonFilter === 'Summer' ? ' active' : '') + '" data-filter="season:Summer">Summer</button>';
+    html += '<button class="qf-btn'+(season==='all'?' active':'')+'" data-filter="season:all">All</button>';
+    html += '<button class="qf-btn'+(season==='Kharif'?' active':'')+'" data-filter="season:Kharif">Kharif</button>';
+    html += '<button class="qf-btn'+(season==='Rabi'?' active':'')+'" data-filter="season:Rabi">Rabi</button>';
+    html += '<button class="qf-btn'+(season==='Summer'?' active':'')+'" data-filter="season:Summer">Summer</button>';
     html += '</span>';
-    // Type filter
     html += '<span class="qf-group"><span class="qf-label">Type</span>';
-    html += '<button class="qf-btn' + (typeFilter === 'all' ? ' active' : '') + '" data-filter="type:all">All</button>';
-    html += '<button class="qf-btn' + (typeFilter === 'Hybrid' ? ' active' : '') + '" data-filter="type:Hybrid">Hybrid</button>';
-    html += '<button class="qf-btn' + (typeFilter === 'Variety' ? ' active' : '') + '" data-filter="type:Variety">Variety</button>';
-    html += '</span>';ass="qf-btn' + (typeFilter === 'Variety' ? ' active' : '') + '" data-filter="type:Variety">Variety</button>';btn' + (typeFilter === 'Variety' ? ' active' : '') + '" data-filter="type:Variety">Variety</button>';
+    html += '<button class="qf-btn'+(type==='all'?' active':'')+'" data-filter="type:all">All</button>';
+    html += '<button class="qf-btn'+(type==='Hybrid'?' active':'')+'" data-filter="type:Hybrid">Hybrid</button>';
+    html += '<button class="qf-btn'+(type==='Variety'?' active':'')+'" data-filter="type:Variety">Variety</button>';
+    html += '</span>';
     html += '</div>';
 
     // Product grid
     html += '<div class="product-grid">';
-    catProducts.forEach(function(p) {
+    cP.forEach(function(p) {
       if (!p.active || !p.hybrids) return;
-      var groupSeason = p.season || '';
-      var groupType = p.type || 'Hybrid';
-
       p.hybrids.forEach(function(h) {
-        if (!matchesFilter(p, h)) return;
-        totalShown++;
-
-        var hName = esc(h.name);
-        var hDesc = esc(h.desc || '');
-        // Only show image if the hybrid has its OWN image
-        var hImg = h.img || '';
-
+        if (!match(p, h)) return;
+        shown++;
+        var img = h.img || '';
         html += '<div class="product-card">';
-        if (hImg) {
-          html += '<img class="product-card-img" src="' + esc(hImg) + '" alt="' + hName + '" loading="lazy" onerror="this.style.display=\'none\'">';
-        }
+        if (img) html += '<img class="product-card-img" src="'+esc(img)+'" alt="'+esc(h.name)+'" loading="lazy" onerror="this.style.display=\'none\'">';
         html += '<div class="product-card-body">';
-        // Tags
-        html += '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:4px;">';
-        html += '<span class="prod-tag">' + esc(groupType) + '</span>';
-        if (p.code) html += '<span class="prod-tag" style="background:var(--cream-75);color:var(--text-muted)">' + esc(p.code) + '</span>';
-        if (p.special) html += '<span class="prod-tag prod-tag-gold">' + esc(p.special) + '</span>';
+        html += '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px">';
+        html += '<span class="prod-tag">'+esc(p.type||'Hybrid')+'</span>';
+        if (p.code) html += '<span class="prod-tag" style="background:var(--cream-75);color:var(--text-muted)">'+esc(p.code)+'</span>';
+        if (p.special) html += '<span class="prod-tag prod-tag-gold">'+esc(p.special)+'</span>';
         html += '</div>';
-        // Name
-        html += '<h3>' + hName + '</h3>';
-        if (hDesc) html += '<div class="card-desc">' + hDesc + '</div>';
-        // Season badges
-        html += '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:var(--space-sm);">';
-        if (groupSeason) {
-          groupSeason.split('/').forEach(function(s) {
-            s = s.trim();
-            if (s) html += '<span class="prod-tag prod-tag-season">' + esc(s) + '</span>';
-          });
+        html += '<h3>'+esc(h.name)+'</h3>';
+        if (h.desc) html += '<div class="card-desc">'+esc(h.desc)+'</div>';
+        html += '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:var(--space-sm)">';
+        if (p.season) {
+          p.season.split('/').forEach(function(s) { s=s.trim(); if(s) html += '<span class="prod-tag prod-tag-season">'+esc(s)+'</span>'; });
         }
-        if (p.duration) html += '<span class="prod-tag prod-tag-duration">' + esc(p.duration) + '</span>';
+        if (p.duration) html += '<span class="prod-tag prod-tag-duration">'+esc(p.duration)+'</span>';
         html += '</div>';
-        // Actions
         html += '<div class="card-actions">';
-        html += '<a href="contact.html?product=' + encodeURIComponent(h.name) + '" class="btn btn-primary" style="font-size:.75rem;padding:6px 14px">Enquire</a>';
-        if (p.pdf) {
-          html += '<a href="' + esc(p.pdf) + '" class="btn btn-secondary" style="font-size:.75rem;padding:6px 14px" target="_blank"><i class="ph ph-file-pdf" style="font-size:13px"></i> Brochure</a>';
-        }
-        html += '</div>';
-        html += '</div>';
-        html += '</div>';
+        html += '<a href="contact.html?product='+encodeURIComponent(h.name)+'" class="btn btn-primary" style="font-size:.75rem;padding:6px 14px">Enquire</a>';
+        if (p.pdf) html += '<a href="'+esc(p.pdf)+'" class="btn btn-secondary" style="font-size:.75rem;padding:6px 14px" target="_blank"><i class="ph ph-file-pdf"></i> Brochure</a>';
+        html += '</div></div></div>';
       });
     });
-    html += '</div>'; // product-grid
-    html += '</div></section>';
+    html += '</div></div></section>';
   });
 
-  var countEl = document.getElementById('productCount');
-  if (countEl) countEl.textContent = totalShown;
-
-  if (totalShown === 0) {
-    html = '<div class="empty-search"><i class="ph ph-magnifying-glass" style="font-size:48px;color:var(--cream-dark);margin-bottom:var(--space-md);display:block"></i><h3>No products match your filters</h3><p>Try adjusting the search term, season, or type filters.</p></div>';
+  document.getElementById('productCount').textContent = shown;
+  if (!shown) {
+    html = '<div class="empty-search"><i class="ph ph-magnifying-glass" style="font-size:48px;color:var(--cream-dark);display:block;margin-bottom:var(--space-md)"></i><h3>No products match</h3><p>Try adjusting filters.</p></div>';
   }
-
   document.getElementById('cropSections').innerHTML = html;
 }
 
-function matchesFilter(p, h) {
-  if (currentSub !== 'all' && p.id !== currentSub) return false;
-
-  // Season filter — check if the product's season includes the selected season
-  if (seasonFilter !== 'all') {
-    var ps = (p.season || '').toLowerCase();
-    if (ps.indexOf(seasonFilter.toLowerCase()) === -1) return false;
-  }
-
-  // Type filter
-  if (typeFilter !== 'all' && (p.type || 'Hybrid') !== typeFilter) return false;
-
-  // Search filter
-  if (searchQuery) {
-    var q = searchQuery.toLowerCase();
-    var haystack = (h.name + ' ' + (h.desc || '') + ' ' + p.name + ' ' + (p.code || '')).toLowerCase();
-    if (haystack.indexOf(q) === -1) return false;
-  }
-
-  return true;
-}
-
-function setCat(c) { currentCat = c; currentSub = 'all'; seasonFilter='all'; typeFilter='all'; render(); }
-function setSub(s) { currentSub = s; seasonFilter='all'; typeFilter='all'; render(); }
-function setSeason(s) { seasonFilter = s === seasonFilter ? 'all' : s; render(); }
-function setType(t) { typeFilter = t === typeFilter ? 'all' : t; render(); }
-
-// Event delegation for all filter buttons
-document.getElementById('cropSections').addEventListener('click', function(e) {
-  var t = e.target;
-  while (t && t !== this) {
-    if (t.matches) {
-      if (t.matches('.filter-btn') && t.getAttribute('data-cat')) {
-        setCat(t.getAttribute('data-cat')); return;
-      }
-      if (t.matches('.sub-filter-btn') && t.getAttribute('data-sub')) {
-        setSub(t.getAttribute('data-sub')); return;
-      }
-      if (t.matches('.qf-btn') && t.getAttribute('data-filter')) {
-        var parts = t.getAttribute('data-filter').split(':');
-        if (parts[0] === 'season') setSeason(parts[1]);
-        else if (parts[0] === 'type') setType(parts[1]);
-        return;
-      }
+// Event delegation (one listener, catches all button clicks)
+document.addEventListener('click', function(e) {
+  try {
+    var t = e.target.closest('[data-cat]');
+    if (t) { cat=t.getAttribute('data-cat'); sub='all'; season='all'; type='all'; render(); return; }
+    t = e.target.closest('[data-sub]');
+    if (t) { sub=t.getAttribute('data-sub'); season='all'; type='all'; render(); return; }
+    t = e.target.closest('[data-filter]');
+    if (t) {
+      var p = t.getAttribute('data-filter').split(':');
+      if (p[0]==='season') { season = (season===p[1] ? 'all' : p[1]); render(); return; }
+      if (p[0]==='type')   { type = (type===p[1] ? 'all' : p[1]); render(); return; }
     }
-    t = t.parentNode;
-  }
-});
-
-// Also listen for top-level filter bar clicks
-document.getElementById('filterBar').addEventListener('click', function(e) {
-  var t = e.target.closest('[data-cat]');
-  if (t) setCat(t.getAttribute('data-cat'));
+  } catch(_) {}
 });
 
 document.addEventListener('DOMContentLoaded', function() {
   var si = document.getElementById('productSearch');
   if (si) {
-    var timer;
     si.addEventListener('input', function() {
-      clearTimeout(timer);
-      timer = setTimeout(function() { searchQuery = si.value.trim(); render(); }, 200);
+      clearTimeout(window._st);
+      window._st = setTimeout(function() { search = si.value.trim(); render(); }, 200);
     });
   }
-  var h = window.location.hash.replace('#', '');
-  if (h && CATEGORIES[h]) currentCat = h;
   render();
 });
 </script>
