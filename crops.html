@@ -17,29 +17,37 @@
 .filter-btn{padding:10px 24px;font-size:.8125rem;font-weight:600;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);background:var(--white);color:var(--text-light);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
 .filter-btn:hover{border-color:var(--green-300);color:var(--green-700)}
 .filter-btn.active{background:var(--green-600);border-color:var(--green-600);color:var(--white)}
-.filter-btn.sub-active{background:var(--green-100);border-color:var(--green-300);color:var(--green-700)}
-
-.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-lg)}
-.product-card{background:var(--white);border:1px solid var(--line-solid);border-radius:var(--radius-lg);overflow:hidden;transition:all var(--duration-base) var(--ease-out);display:flex;flex-direction:column}
-.product-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.08);transform:translateY(-2px)}
-.product-card-img{width:100%;height:200px;object-fit:contain;background:var(--cream-75);padding:12px}
-.product-card-body{padding:var(--space-md);flex:1;display:flex;flex-direction:column}
-.product-card-body h3{font-size:.9375rem;font-weight:650;margin-bottom:2px;line-height:1.3}
-.product-card-body .hybrid-code{font-size:.6875rem;color:var(--text-muted);margin-bottom:var(--space-sm)}
-.product-card-body .card-desc{font-size:.75rem;color:var(--text-light);line-height:1.5;margin-bottom:var(--space-sm);flex:1}
-.section-header{text-align:center;margin-bottom:var(--space-lg)}
-.section-header .eyebrow{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--green-600);display:block;margin-bottom:4px}
-.section-header h2{font-size:1.5rem;font-weight:650;color:var(--text)}
-.section-header p{font-size:.875rem;color:var(--text-muted);margin-top:6px}
-.sub-filter-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-lg)}
+.sub-filter-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-md)}
 .sub-filter-btn{padding:6px 14px;font-size:.75rem;font-weight:500;border:1px solid var(--line-solid);border-radius:var(--radius-full);background:var(--white);color:var(--text-muted);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
 .sub-filter-btn:hover{border-color:var(--green-300);color:var(--green-700)}
 .sub-filter-btn.active{background:var(--green-600);border-color:var(--green-600);color:var(--white)}
+
+.quality-filter-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-lg);padding:var(--space-sm) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.qf-label{font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);display:inline-flex;align-items:center;margin-right:4px}
+.qf-btn{padding:4px 12px;font-size:.6875rem;font-weight:500;border:1px solid var(--line-solid);border-radius:var(--radius-full);background:var(--white);color:var(--text-muted);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
+.qf-btn:hover{border-color:var(--green-300);color:var(--green-700)}
+.qf-btn.active{background:var(--green-100);border-color:var(--green-400);color:var(--green-700);font-weight:600}
+.qf-group{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap;padding:0 8px;border-right:1px solid var(--line)}
+.qf-group:last-child{border-right:none}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-md)}
+.product-card{background:var(--white);border:1px solid var(--line-solid);border-radius:var(--radius-lg);overflow:hidden;transition:all var(--duration-base) var(--ease-out);display:flex;flex-direction:column}
+.product-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.product-card-img{width:100%;height:180px;object-fit:contain;background:var(--cream-75);padding:12px;display:block}
+.product-card-body{padding:var(--space-md);flex:1;display:flex;flex-direction:column}
+.product-card-body h3{font-size:.9375rem;font-weight:650;margin-bottom:2px;line-height:1.3}
+.product-card-body .card-desc{font-size:.75rem;color:var(--text-light);line-height:1.5;margin-bottom:var(--space-sm);flex:1;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.section-header{text-align:center;margin-bottom:var(--space-lg);scroll-margin-top:100px}
+.section-header .eyebrow{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--green-600);display:block;margin-bottom:4px}
+.section-header h2{font-size:1.5rem;font-weight:650;color:var(--text)}
+.section-header p{font-size:.875rem;color:var(--text-muted);margin-top:6px}
 .card-actions{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap;padding-top:var(--space-sm)}
 .empty-search{text-align:center;padding:60px 20px;color:var(--text-muted)}
 .empty-search h3{font-size:1.125rem;margin-bottom:8px;color:var(--text-light)}
 .prod-tag{display:inline-block;font-size:.625rem;font-weight:600;padding:2px 8px;border-radius:var(--radius-full);background:var(--green-100);color:var(--green-700);margin-right:4px;margin-bottom:4px}
 .prod-tag-gold{background:rgba(201,162,39,0.1);color:var(--gold);border:1px solid rgba(201,162,39,0.3)}
+.prod-tag-season{background:#E8F0FE;color:#1A73E8}
+.prod-tag-duration{background:#FEF3E2;color:#D4A017}
 </style>
 </head>
 <body>
@@ -138,137 +146,137 @@
 <script src="js/main.js"></script>
 <script>
 // ================================================================
-// CROPS PAGE — Individual product card renderer
-// Every hybrid/variety gets its OWN card with image
-// Reads from localStorage (admin.html) first, falls back to file
+// Product catalogue — individual cards, quality filters
 // ================================================================
 
 const CATEGORIES = {
   'field-crops': { name: 'Field Crops', icon: '🌾', desc: 'High-yielding hybrids and varieties for staple crops.', order: 0 },
-  'vegetables':  { name: 'Vegetables',  icon: '🥬', desc: 'Premium vegetable hybrids for fresh market.', order: 1 },
-  'fodder':      { name: 'Fodder',      icon: '🌿', desc: 'Nutritious fodder for sustained livestock feed.', order: 2 }
+  'vegetables':  { name: 'Vegetables',  icon: '🥬', desc: 'Premium vegetable hybrids for fresh market and commercial cultivation.', order: 1 },
+  'fodder':      { name: 'Fodder',      icon: '🌿', desc: 'Nutritious fodder options for sustained livestock feed.', order: 2 }
 };
 
-// ---- Load products with localStorage sync ----
 function loadProducts() {
-  const stored = localStorage.getItem('trimurti_products');
-  if (stored) {
-    try {
-      const data = JSON.parse(stored);
-      if (Array.isArray(data) && data.length > 0) {
-        console.log('Loaded from localStorage (' + data.length + ' groups)');
-        return data;
-      }
-    } catch(e) {}
-  }
-  if (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) {
-    console.log('Loaded from file (' + PRODUCTS.length + ' groups)');
-    return JSON.parse(JSON.stringify(PRODUCTS));
-  }
+  var s = localStorage.getItem('trimurti_products');
+  if (s) { try { var d = JSON.parse(s); if (d.length) return d; } catch(e) {} }
+  if (typeof PRODUCTS !== 'undefined') return JSON.parse(JSON.stringify(PRODUCTS));
   return [];
 }
 
 var products = loadProducts();
 var currentCat = 'all';
 var currentSub = 'all';
+var seasonFilter = 'all';
+var typeFilter = 'all';
 var searchQuery = '';
 
-function escHtml(s) {
+function esc(s) {
   if (typeof s !== 'string') return '';
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
 function render() {
-  var catKeys = Object.keys(CATEGORIES).filter(function(k) {
+  var catKeys = ['field-crops','vegetables','fodder'].filter(function(k) {
     return products.some(function(p) { return p.category === k && p.active !== false; });
-  }).sort(function(a,b) { return CATEGORIES[a].order - CATEGORIES[b].order; });
+  });
 
-  // Top filter bar
-  var fh = '<button class="filter-btn' + (currentCat === 'all' ? ' active' : '') + '" onclick="setCat(\'all\')">All</button>';
+  // Top category filter
+  var fh = '<button class="filter-btn' + (currentCat === 'all' ? ' active' : '') + '" data-cat="all">All</button>';
   catKeys.forEach(function(k) {
     var c = CATEGORIES[k];
-    fh += '<button class="filter-btn' + (currentCat === k ? ' active' : '') + '" onclick="setCat(\'' + k + '\')">' + c.icon + ' ' + c.name + '</button>';
+    fh += '<button class="filter-btn' + (currentCat === k ? ' active' : '') + '" data-cat="' + k + '">' + c.icon + ' ' + c.name + '</button>';
   });
   document.getElementById('filterBar').innerHTML = fh;
 
-  // Build individual product cards
   var html = '';
   var totalShown = 0;
 
   catKeys.forEach(function(catKey) {
+    if (currentCat !== 'all' && currentCat !== catKey) return;
+
     var cat = CATEGORIES[catKey];
     var catProducts = products.filter(function(p) {
-      return p.category === catKey && p.active !== false && (currentCat === 'all' || currentCat === catKey);
-    }).sort(function(a,b) { return (a.order || 99) - (b.order || 99); });
+      return p.category === catKey && p.active !== false;
+    }).sort(function(a,b) { return (a.order||99) - (b.order||99); });
 
-    if (catProducts.length === 0) return;
+    if (!catProducts.length) return;
 
-    // Check if any product has visible hybrids
-    var hasVisible = false;
-    catProducts.forEach(function(p) {
-      if (p.hybrids && p.hybrids.length > 0) {
-        p.hybrids.forEach(function(h) { if (matchesFilter(p, h)) hasVisible = true; });
-      }
-    });
-    if (!hasVisible) return;
-
-    html += '<section class="section section-id" id="' + catKey + '" style="padding-bottom:0;">';
-    html += '<div class="container">';
-    html += '<div class="section-header">';
+    html += '<section class="section" style="padding-bottom:0;"><div class="container">';
+    html += '<div class="section-header" id="' + catKey + '">';
     html += '<span class="eyebrow">' + cat.icon + '</span>';
     html += '<h2>' + cat.name + '</h2>';
     html += '<p>' + cat.desc + '</p>';
     html += '</div>';
 
-    // Sub-category filter (crop type within this category)
+    // Sub-category filter (crop type tabs)
     html += '<div class="sub-filter-bar">';
-    html += '<button class="sub-filter-btn' + (currentSub === 'all' ? ' active' : '') + '" onclick="setSub(\'all\')">All</button>';
+    html += '<button class="sub-filter-btn' + (currentSub === 'all' ? ' active' : '') + '" data-sub="all">All ' + cat.name + '</button>';
     catProducts.forEach(function(p) {
-      var active = currentSub === p.id;
-      html += '<button class="sub-filter-btn' + (active ? ' active' : '') + '" onclick="setSub(\'' + p.id + '\')">' + escHtml(p.name) + '</button>';
+      html += '<button class="sub-filter-btn' + (currentSub === p.id ? ' active' : '') + '" data-sub="' + p.id + '">' + esc(p.name) + '</button>';
     });
     html += '</div>';
 
-    // Product grid — one card per hybrid
+    // Quality filter bar
+    html += '<div class="quality-filter-bar">';
+    // Season filter
+    html += '<span class="qf-group"><span class="qf-label">Season</span>';
+    html += '<button class="qf-btn' + (seasonFilter === 'all' ? ' active' : '') + '" data-filter="season:all">All</button>';
+    html += '<button class="qf-btn' + (seasonFilter === 'Kharif' ? ' active' : '') + '" data-filter="season:Kharif">Kharif</button>';
+    html += '<button class="qf-btn' + (seasonFilter === 'Rabi' ? ' active' : '') + '" data-filter="season:Rabi">Rabi</button>';
+    html += '<button class="qf-btn' + (seasonFilter === 'Summer' ? ' active' : '') + '" data-filter="season:Summer">Summer</button>';
+    html += '</span>';
+    // Type filter
+    html += '<span class="qf-group"><span class="qf-label">Type</span>';
+    html += '<button class="qf-btn' + (typeFilter === 'all' ? ' active' : '') + '" data-filter="type:all">All</button>';
+    html += '<button class="qf-btn' + (typeFilter === 'Hybrid' ? ' active' : '') + '" data-filter="type:Hybrid">Hybrid</button>';
+    html += '<button class="qf-btn' + (typeFilter === 'Variety' ? ' active' : '') + '" data-filter="type:Variety">Variety</button>';
+    html += '</span>';ass="qf-btn' + (typeFilter === 'Variety' ? ' active' : '') + '" data-filter="type:Variety">Variety</button>';btn' + (typeFilter === 'Variety' ? ' active' : '') + '" data-filter="type:Variety">Variety</button>';
+    html += '</div>';
+
+    // Product grid
     html += '<div class="product-grid">';
     catProducts.forEach(function(p) {
-      var active = p.active !== false;
-      if (!active || !p.hybrids) return;
-
-      var groupImg = p.image || '';
-      var season = p.season || '';
-      var region = p.region || '';
-      var code = p.code || '';
+      if (!p.active || !p.hybrids) return;
+      var groupSeason = p.season || '';
+      var groupType = p.type || 'Hybrid';
 
       p.hybrids.forEach(function(h) {
         if (!matchesFilter(p, h)) return;
         totalShown++;
 
-        var hName = escHtml(h.name);
-        var hDesc = escHtml(h.desc || '');
-        var hImg = h.img || groupImg;
+        var hName = esc(h.name);
+        var hDesc = esc(h.desc || '');
+        // Only show image if the hybrid has its OWN image
+        var hImg = h.img || '';
 
         html += '<div class="product-card">';
-        html += '<img class="product-card-img" src="' + escHtml(hImg) + '" alt="' + hName + '" loading="lazy" onerror="this.parentNode.querySelector(\'.product-card-img\').style.display=\'none\'">';
-        html += '<div class="product-card-body">';
-        html += '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:4px;">';
-        html += '<span class="prod-tag">' + escHtml(p.type || 'Hybrid') + '</span>';
-        if (code) html += '<span class="prod-tag" style="background:var(--cream-75);color:var(--text-muted)">' + escHtml(code) + '</span>';
-        if (p.special) html += '<span class="prod-tag prod-tag-gold">' + escHtml(p.special) + '</span>';
-        html += '</div>';
-        html += '<h3>' + hName + '</h3>';
-        html += '<div class="hybrid-code">' + escHtml(p.name) + '</div>';
-        if (hDesc) html += '<div class="card-desc">' + hDesc + '</div>';
-        if (season || region) {
-          html += '<div style="font-size:.6875rem;color:var(--text-muted);margin-bottom:var(--space-sm);display:flex;gap:8px;flex-wrap:wrap;">';
-          if (season) html += '<span><i class="ph ph-calendar" style="font-size:12px"></i> ' + escHtml(season) + '</span>';
-          if (region) html += '<span><i class="ph ph-map-pin" style="font-size:12px"></i> ' + escHtml(region) + '</span>';
-          html += '</div>';
+        if (hImg) {
+          html += '<img class="product-card-img" src="' + esc(hImg) + '" alt="' + hName + '" loading="lazy" onerror="this.style.display=\'none\'">';
         }
+        html += '<div class="product-card-body">';
+        // Tags
+        html += '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:4px;">';
+        html += '<span class="prod-tag">' + esc(groupType) + '</span>';
+        if (p.code) html += '<span class="prod-tag" style="background:var(--cream-75);color:var(--text-muted)">' + esc(p.code) + '</span>';
+        if (p.special) html += '<span class="prod-tag prod-tag-gold">' + esc(p.special) + '</span>';
+        html += '</div>';
+        // Name
+        html += '<h3>' + hName + '</h3>';
+        if (hDesc) html += '<div class="card-desc">' + hDesc + '</div>';
+        // Season badges
+        html += '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:var(--space-sm);">';
+        if (groupSeason) {
+          groupSeason.split('/').forEach(function(s) {
+            s = s.trim();
+            if (s) html += '<span class="prod-tag prod-tag-season">' + esc(s) + '</span>';
+          });
+        }
+        if (p.duration) html += '<span class="prod-tag prod-tag-duration">' + esc(p.duration) + '</span>';
+        html += '</div>';
+        // Actions
         html += '<div class="card-actions">';
         html += '<a href="contact.html?product=' + encodeURIComponent(h.name) + '" class="btn btn-primary" style="font-size:.75rem;padding:6px 14px">Enquire</a>';
         if (p.pdf) {
-          html += '<a href="' + escHtml(p.pdf) + '" class="btn btn-secondary" style="font-size:.75rem;padding:6px 14px" target="_blank"><i class="ph ph-file-pdf" style="font-size:13px"></i> Brochure</a>';
+          html += '<a href="' + esc(p.pdf) + '" class="btn btn-secondary" style="font-size:.75rem;padding:6px 14px" target="_blank"><i class="ph ph-file-pdf" style="font-size:13px"></i> Brochure</a>';
         }
         html += '</div>';
         html += '</div>';
@@ -276,54 +284,85 @@ function render() {
       });
     });
     html += '</div>'; // product-grid
-    html += '</div>'; // container
-    html += '</section>';
+    html += '</div></section>';
   });
 
   var countEl = document.getElementById('productCount');
   if (countEl) countEl.textContent = totalShown;
 
   if (totalShown === 0) {
-    html = '<div class="empty-search"><i class="ph ph-magnifying-glass" style="font-size:48px;color:var(--cream-dark);margin-bottom:var(--space-md);display:block"></i><h3>No products found</h3><p>Try adjusting your filters or search term.</p></div>';
+    html = '<div class="empty-search"><i class="ph ph-magnifying-glass" style="font-size:48px;color:var(--cream-dark);margin-bottom:var(--space-md);display:block"></i><h3>No products match your filters</h3><p>Try adjusting the search term, season, or type filters.</p></div>';
   }
 
   document.getElementById('cropSections').innerHTML = html;
-
-  // Update URL hash
-  if (currentCat !== 'all') history.replaceState(null, '', '#' + currentCat);
-  else if (currentSub !== 'all') history.replaceState(null, '', '#' + currentSub);
-  else history.replaceState(null, '', window.location.pathname);
 }
 
 function matchesFilter(p, h) {
-  // Check sub-category filter
   if (currentSub !== 'all' && p.id !== currentSub) return false;
 
-  // Check search
+  // Season filter — check if the product's season includes the selected season
+  if (seasonFilter !== 'all') {
+    var ps = (p.season || '').toLowerCase();
+    if (ps.indexOf(seasonFilter.toLowerCase()) === -1) return false;
+  }
+
+  // Type filter
+  if (typeFilter !== 'all' && (p.type || 'Hybrid') !== typeFilter) return false;
+
+  // Search filter
   if (searchQuery) {
     var q = searchQuery.toLowerCase();
-    var haystack = (h.name + ' ' + (h.desc || '') + ' ' + p.name + ' ' + (p.code || '') + ' ' + (p.region || '') + ' ' + (p.season || '')).toLowerCase();
-    return haystack.indexOf(q) !== -1;
+    var haystack = (h.name + ' ' + (h.desc || '') + ' ' + p.name + ' ' + (p.code || '')).toLowerCase();
+    if (haystack.indexOf(q) === -1) return false;
   }
 
   return true;
 }
 
-function setCat(cat) { currentCat = cat; currentSub = 'all'; render(); }
-function setSub(sub) { currentSub = sub; render(); }
+function setCat(c) { currentCat = c; currentSub = 'all'; seasonFilter='all'; typeFilter='all'; render(); }
+function setSub(s) { currentSub = s; seasonFilter='all'; typeFilter='all'; render(); }
+function setSeason(s) { seasonFilter = s === seasonFilter ? 'all' : s; render(); }
+function setType(t) { typeFilter = t === typeFilter ? 'all' : t; render(); }
+
+// Event delegation for all filter buttons
+document.getElementById('cropSections').addEventListener('click', function(e) {
+  var t = e.target;
+  while (t && t !== this) {
+    if (t.matches) {
+      if (t.matches('.filter-btn') && t.getAttribute('data-cat')) {
+        setCat(t.getAttribute('data-cat')); return;
+      }
+      if (t.matches('.sub-filter-btn') && t.getAttribute('data-sub')) {
+        setSub(t.getAttribute('data-sub')); return;
+      }
+      if (t.matches('.qf-btn') && t.getAttribute('data-filter')) {
+        var parts = t.getAttribute('data-filter').split(':');
+        if (parts[0] === 'season') setSeason(parts[1]);
+        else if (parts[0] === 'type') setType(parts[1]);
+        return;
+      }
+    }
+    t = t.parentNode;
+  }
+});
+
+// Also listen for top-level filter bar clicks
+document.getElementById('filterBar').addEventListener('click', function(e) {
+  var t = e.target.closest('[data-cat]');
+  if (t) setCat(t.getAttribute('data-cat'));
+});
 
 document.addEventListener('DOMContentLoaded', function() {
-  var searchInput = document.getElementById('productSearch');
-  if (searchInput) {
+  var si = document.getElementById('productSearch');
+  if (si) {
     var timer;
-    searchInput.addEventListener('input', function() {
+    si.addEventListener('input', function() {
       clearTimeout(timer);
-      timer = setTimeout(function() { searchQuery = searchInput.value.trim(); render(); }, 200);
+      timer = setTimeout(function() { searchQuery = si.value.trim(); render(); }, 200);
     });
   }
-
-  var hash = window.location.hash.replace('#', '');
-  if (hash && CATEGORIES[hash]) currentCat = hash;
+  var h = window.location.hash.replace('#', '');
+  if (h && CATEGORIES[h]) currentCat = h;
   render();
 });
 </script>
