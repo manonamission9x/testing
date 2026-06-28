@@ -237,7 +237,6 @@ function render() {
         html += '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px">';
         html += '<span class="prod-tag">'+esc(p.type||'Hybrid')+'</span>';
         if (p.code) html += '<span class="prod-tag" style="background:var(--cream-75);color:var(--text-muted)">'+esc(p.code)+'</span>';
-        if (p.special) html += '<span class="prod-tag prod-tag-gold">'+esc(p.special)+'</span>';
         html += '</div>';
         html += '<h3>'+esc(h.name)+'</h3>';
         if (h.desc) html += '<div class="card-desc">'+esc(h.desc)+'</div>';
