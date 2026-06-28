@@ -268,15 +268,19 @@ body {
 .table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--line-solid);
+  border-radius: var(--radius-md);
+  background: var(--white);
 }
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.8125rem;
+  table-layout: fixed;
 }
 thead th {
   text-align: left;
-  padding: 10px 12px;
+  padding: 10px 8px;
   font-weight: 600;
   font-size: 0.6875rem;
   text-transform: uppercase;
@@ -287,14 +291,132 @@ thead th {
   white-space: nowrap;
   position: sticky;
   top: 0;
+  z-index: 2;
 }
 tbody td {
-  padding: 8px 12px;
+  padding: 6px 8px;
   border-bottom: 1px solid var(--line);
   vertical-align: middle;
+  height: 56px;
+  overflow: hidden;
 }
+tbody tr { height: 56px; }
 tbody tr:hover { background: rgba(64, 160, 64, 0.03); }
 tbody tr.inactive { opacity: 0.5; background: var(--cream-50); }
+
+/* Column widths */
+.col-check { width: 36px; min-width: 36px; }
+.col-order { width: 55px; min-width: 55px; }
+.col-active { width: 50px; min-width: 50px; }
+.col-name { width: 140px; min-width: 120px; }
+.col-cat { width: 100px; min-width: 90px; }
+.col-type { width: 70px; min-width: 60px; }
+.col-code { width: 80px; min-width: 70px; }
+.col-desc { width: 180px; min-width: 140px; }
+.col-features { width: 160px; min-width: 120px; }
+.col-region { width: 110px; min-width: 90px; }
+.col-season { width: 100px; min-width: 80px; }
+.col-duration { width: 80px; min-width: 70px; }
+.col-special { width: 100px; min-width: 80px; }
+.col-hybrids { width: 160px; min-width: 120px; }
+.col-actions { width: 80px; min-width: 70px; }
+
+/* Truncated cell content */
+.cell-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+  max-height: 38px;
+  font-size: 0.75rem;
+  color: var(--text);
+  word-break: break-word;
+  cursor: default;
+  position: relative;
+}
+.cell-text.expanded {
+  -webkit-line-clamp: unset;
+  max-height: none;
+  overflow: visible;
+}
+.cell-text:hover {
+  color: var(--green-600);
+}
+.cell-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 16px;
+  background: linear-gradient(to right, transparent, var(--white));
+  pointer-events: none;
+}
+.cell-text.expanded::after { display: none; }
+
+/* Inline edit inputs - compact */
+.inline-edit {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text);
+  width: 100%;
+  transition: all var(--duration-fast) var(--ease-out);
+  line-height: 1.3;
+}
+.inline-edit:hover { border-color: var(--line-solid); background: var(--cream-50); }
+.inline-edit:focus { border-color: var(--green-400); background: var(--white); outline: none; box-shadow: 0 0 0 2px var(--logo-green-dim); }
+.inline-edit-sm { font-size: 0.6875rem; padding: 2px 4px; }
+
+/* Hybrids tooltip */
+.hybrids-trigger {
+  display: inline-block;
+  max-width: 100%;
+  cursor: pointer;
+  font-size: 0.6875rem;
+  color: var(--text-light);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--cream-50);
+  border: 1px solid var(--line-solid);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+.hybrids-trigger:hover {
+  background: var(--green-100);
+  border-color: var(--green-300);
+  color: var(--green-700);
+}
+.hybrids-popover {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  background: var(--white);
+  border: 1px solid var(--line-solid);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  max-width: 400px;
+  max-height: 300px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.hybrids-popover.show { display: block; }
+.hybrids-popover .hp-item { padding: 4px 0; border-bottom: 1px solid var(--line); }
+.hybrids-popover .hp-item:last-child { border-bottom: none; }
+.hybrids-popover .hp-name { font-weight: 600; color: var(--text); }
+.hybrids-popover .hp-desc { color: var(--text-muted); font-size: 0.6875rem; }
 
 /* ---- Status badges ---- */
 .badge {
@@ -1370,6 +1492,13 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 });
 
 // ---- Table rendering ----
+function decodeEntities(s) {
+  if (typeof s !== 'string') return '';
+  var txt = document.createElement('textarea');
+  txt.innerHTML = s;
+  return txt.value;
+}
+
 function renderTable() {
   const search = (document.getElementById('searchInput').value || '').toLowerCase().trim();
   const catFilter = document.getElementById('filterCategory').value;
@@ -1396,37 +1525,68 @@ function renderTable() {
   }
   empty.style.display = 'none';
 
-  // Sort by category then order
   filtered.sort((a, b) => {
     if (a.category !== b.category) return a.category.localeCompare(b.category);
     return (a.order || 99) - (b.order || 99);
   });
 
   let html = '';
+  var hpIdCounter = 0;
   filtered.forEach((p, idx) => {
     const realIdx = products.indexOf(p);
     const active = p.active !== false;
     const featuresStr = Array.isArray(p.features) ? p.features.join(', ') : (p.features || '');
-    const hybridsStr = Array.isArray(p.hybrids) ? p.hybrids.map(h => h.name + (h.desc ? ' | ' + h.desc : '')).join('; ') : '';
     const catInfo = CATEGORIES.find(c => c.id === p.category) || {};
     const catLabel = catInfo.name || p.category;
     const catBadge = catInfo.badge || 'badge-field';
+    
+    // Hybrids string - decoded
+    var hybridsItems = [];
+    if (Array.isArray(p.hybrids) && p.hybrids.length) {
+      p.hybrids.forEach(function(h) {
+        hybridsItems.push({name: decodeEntities(h.name || ''), desc: decodeEntities(h.desc || '')});
+      });
+    }
+    var hybridsCount = hybridsItems.length;
+    var hpId = 'hp-' + (hpIdCounter++);
 
     html += '<tr class="' + (active ? '' : 'inactive') + '">';
-    html += '<td><input type="checkbox" class="row-select" data-idx="' + realIdx + '" ' + (selectedIds.has(realIdx) ? 'checked' : '') + ' onchange="toggleRowSelect(' + realIdx + ')"></td>';
-    html += '<td class="col-order"><input type="number" class="inline-edit inline-edit-sm" value="' + (p.order || 99) + '" min="1" max="999" onchange="updateField(' + realIdx + ',\'order\',this.value)" style="width:45px"></td>';
+    html += '<td class="col-check"><input type="checkbox" class="row-select" data-idx="' + realIdx + '" ' + (selectedIds.has(realIdx) ? 'checked' : '') + ' onchange="toggleRowSelect(' + realIdx + ')"></td>';
+    html += '<td class="col-order"><input type="number" class="inline-edit inline-edit-sm" value="' + (p.order || 99) + '" min="1" max="999" onchange="updateField(' + realIdx + ',\'order\',this.value)"></td>';
     html += '<td class="col-active"><label class="toggle"><input type="checkbox" ' + (active ? 'checked' : '') + ' onchange="toggleActive(' + realIdx + ')"><span class="toggle-slider"></span></label></td>';
     html += '<td class="col-name"><input class="inline-edit" value="' + escHtml(p.name) + '" onchange="updateField(' + realIdx + ',\'name\',this.value)"></td>';
-    html += '<td><span class="badge ' + catBadge + '">' + catLabel + '</span></td>';
-    html += '<td><span class="badge ' + (p.type === 'Variety' ? 'badge-variety' : 'badge-hybrid') + '">' + (p.type || 'Hybrid') + '</span></td>';
-    html += '<td><input class="inline-edit inline-edit-sm" value="' + escHtml(p.code||'') + '" onchange="updateField(' + realIdx + ',\'code\',this.value)" style="width:70px"></td>';
-    html += '<td style="max-width:200px"><input class="inline-edit" value="' + escHtml(p.description||'') + '" onchange="updateField(' + realIdx + ',\'description\',this.value)"></td>';
-    html += '<td style="max-width:150px"><input class="inline-edit" value="' + escHtml(featuresStr) + '" onchange="updateFeatures(' + realIdx + ',this.value)" placeholder="comma-separated"></td>';
-    html += '<td><input class="inline-edit" value="' + escHtml(p.region||'') + '" onchange="updateField(' + realIdx + ',\'region\',this.value)" style="width:100px"></td>';
-    html += '<td><input class="inline-edit" value="' + escHtml(p.season||'') + '" onchange="updateField(' + realIdx + ',\'season\',this.value)" style="width:90px"></td>';
-    html += '<td><input class="inline-edit" value="' + escHtml(p.duration||'') + '" onchange="updateField(' + realIdx + ',\'duration\',this.value)" style="width:80px"></td>';
-    html += '<td><input class="inline-edit" value="' + escHtml(p.special||'') + '" onchange="updateField(' + realIdx + ',\'special\',this.value)" style="width:90px"></td>';
-    html += '<td style="max-width:150px;font-size:0.6875rem;">' + escHtml(hybridsStr) + '</td>';
+    html += '<td class="col-cat"><span class="badge ' + catBadge + '">' + catLabel + '</span></td>';
+    html += '<td class="col-type"><span class="badge ' + (p.type === 'Variety' ? 'badge-variety' : 'badge-hybrid') + '">' + (p.type || 'Hybrid') + '</span></td>';
+    html += '<td class="col-code"><input class="inline-edit inline-edit-sm" value="' + escHtml(p.code||'') + '" onchange="updateField(' + realIdx + ',\'code\',this.value)"></td>';
+    
+    // Description - truncated with expand
+    html += '<td class="col-desc"><div class="cell-text" onclick="this.classList.toggle(\'expanded\')" title="' + escHtml(p.description||'') + '">' + escHtml(p.description||'') + '</div></td>';
+    
+    // Features - truncated with expand
+    html += '<td class="col-features"><div class="cell-text" onclick="this.classList.toggle(\'expanded\')" title="' + escHtml(featuresStr) + '">' + escHtml(featuresStr) + '</div></td>';
+    
+    html += '<td class="col-region"><input class="inline-edit" value="' + escHtml(p.region||'') + '" onchange="updateField(' + realIdx + ',\'region\',this.value)"></td>';
+    html += '<td class="col-season"><input class="inline-edit" value="' + escHtml(p.season||'') + '" onchange="updateField(' + realIdx + ',\'season\',this.value)"></td>';
+    html += '<td class="col-duration"><input class="inline-edit" value="' + escHtml(p.duration||'') + '" onchange="updateField(' + realIdx + ',\'duration\',this.value)"></td>';
+    html += '<td class="col-special"><input class="inline-edit" value="' + escHtml(p.special||'') + '" onchange="updateField(' + realIdx + ',\'special\',this.value)"></td>';
+    
+    // Hybrids - trigger button that shows popover on click
+    html += '<td class="col-hybrids">';
+    if (hybridsCount > 0) {
+      var shortLabel = hybridsCount + ' hybrid' + (hybridsCount > 1 ? 's' : '');
+      html += '<span class="hybrids-trigger" onclick="showHybridsPopover(event,\'' + hpId + '\')">' + shortLabel + ' →</span>';
+      html += '<div class="hybrids-popover" id="' + hpId + '">';
+      hybridsItems.forEach(function(h) {
+        html += '<div class="hp-item"><span class="hp-name">' + escHtml(h.name) + '</span>';
+        if (h.desc) html += '<div class="hp-desc">' + escHtml(h.desc) + '</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    } else {
+      html += '<span style="font-size:0.6875rem;color:var(--text-muted);">—</span>';
+    }
+    html += '</td>';
+    
     html += '<td class="col-actions">';
     html += '<button class="btn btn-xs btn-secondary" onclick="openEditModal(' + realIdx + ')" title="Full edit">✎</button> ';
     html += '<button class="btn btn-xs btn-ghost" onclick="duplicateProduct(' + realIdx + ')" title="Duplicate">⧉</button> ';
@@ -1436,6 +1596,32 @@ function renderTable() {
   });
   tbody.innerHTML = html;
 }
+
+var activePopover = null;
+function showHybridsPopover(event, id) {
+  event.stopPropagation();
+  if (activePopover) {
+    activePopover.classList.remove('show');
+    activePopover = null;
+  }
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('show');
+  activePopover = el;
+  
+  // Position near the click
+  var rect = event.target.getBoundingClientRect();
+  el.style.left = Math.min(rect.left, window.innerWidth - 420) + 'px';
+  el.style.top = (rect.bottom + 4) + 'px';
+}
+
+// Close popover on click outside
+document.addEventListener('click', function(e) {
+  if (activePopover && !e.target.classList.contains('hybrids-trigger')) {
+    activePopover.classList.remove('show');
+    activePopover = null;
+  }
+});
 
 function escHtml(s) {
   if (typeof s !== 'string') return '';
