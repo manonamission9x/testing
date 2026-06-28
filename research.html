@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Research & Development — Trimurti Plant Sciences</title>
 <meta name="description" content="Trimurti's R&D centres and breeding programs across India's agro-climatic zones — developing superior hybrids for farmers.">
+
+<!-- OG tags -->
+<meta property="og:title" content="Research & Development — Trimurti Plant Sciences">
+<meta property="og:description" content="Trimurti's R&D centres and breeding programs across India's agro-climatic zones — developing superior hybrids for farmers.">
+<meta property="og:image" content="https://testing-mu-bay.vercel.app/images/og-trimurti.jpg">
+<meta property="og:url" content="https://testing-mu-bay.vercel.app/research.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research & Development — Trimurti Plant Sciences">
+<meta name="twitter:description" content="Trimurti's R&D centres and breeding programs across India's agro-climatic zones.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -193,6 +208,10 @@
       <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
     </nav>
     <div class="header-actions">
+      <button class="search-toggle" aria-label="Search" onclick="window.searchOverlay?.open()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <a href="partner.html" class="btn btn-primary header-cta" style="font-size:0.75rem;padding:8px 16px;">Become a Distributor</a>
       <button class="mobile-menu-toggle" aria-label="Open menu">
         <i class="ph ph-list" style="font-size:22px"></i>
       </button>
@@ -203,13 +222,16 @@
 <div class="search-overlay">
   <div class="search-box">
     <div class="search-box-input-row">
-      <i class="ph ph-magnifying-glass" style="font-size:18px"></i>
-      <input type="text" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="global-search-input" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
       <button class="search-close" aria-label="Close search">
-        <i class="ph ph-x" style="font-size:22px"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <div class="search-hint">Press <strong>Esc</strong> to close &middot; <strong>Ctrl+K</strong> to open</div>
+    <div class="search-hint">Press <strong>Esc</strong> to close &middot; <strong>Ctrl+K</strong> to open — try "Rice", "Maize", "Mustard"</div>
+    <div id="search-results" style="margin-top:16px;display:none;">
+      <div class="search-results-list"></div>
+    </div>
   </div>
 </div>
 
@@ -230,7 +252,17 @@
     <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
   </ul>
   <div class="mobile-nav-cta">
-    <img class="logo-img" src="images/trimurti-logo.png" alt="Trimurti" style="height:32px;width:auto;">
+    <a href="partner.html" class="btn btn-primary" style="width:100%;justify-content:center;">Become a Distributor</a>
+  </div>
+</nav>
+
+<!-- ============ BREADCRUMBS ============ -->
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li>Research &amp; Development</li>
+    </ol>
   </div>
 </nav>
 
@@ -275,20 +307,12 @@
         <p>We operate dedicated research centres positioned across India's major agro-climatic zones. Each centre focuses on developing hybrids and varieties tailored to the specific soil, water, and seasonal conditions of its region — because what works in Telangana may not work in Bihar.</p>
         <p>Our current portfolio includes 120+ hybrids and varieties across field crops, vegetables, and fodder, with new products in the pipeline every season.</p>
       </div>
-      <div class="story-art field-art tone-bone reveal">
-        <svg width="100%" height="100%" viewBox="0 0 500 380" fill="none" preserveAspectRatio="xMidYMid slice">
-          <rect width="500" height="380" fill="#F7F5EF"/>
-          <g opacity="0.5" stroke="#9B9B8C" stroke-width="0.6">
-            <line x1="0" y1="60" x2="500" y2="60"/><line x1="0" y1="120" x2="500" y2="120"/>
-            <line x1="0" y1="180" x2="500" y2="180"/><line x1="0" y1="240" x2="500" y2="240"/>
-            <line x1="0" y1="300" x2="500" y2="300"/>
-          </g>
-          <circle cx="250" cy="180" r="70" fill="#1B4D32" opacity="0.8"/>
-          <circle cx="250" cy="180" r="45" fill="#0F2818"/>
-          <text x="250" y="190" text-anchor="middle" fill="#C9A227" font-family="Inter,sans-serif" font-size="20" font-weight="700">R&amp;D</text>
-          <line x1="250" y1="110" x2="250" y2="45" stroke="#C9A227" stroke-width="2" stroke-dasharray="4 3"/>
-          <circle cx="250" cy="38" r="8" fill="#C9A227"/>
-        </svg>
+      <div class="story-art field-art tone-bone reveal" style="display:flex;align-items:center;justify-content:center;background:var(--cream-75);border:2px dashed var(--cream-dark);overflow:hidden;">
+        <!-- Placeholder: Replace this with a real photo of Trimurti's R&D lab or field trial station -->
+        <div style="text-align:center;padding:20px;">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p style="color:var(--text-muted);font-size:0.8125rem;margin-top:8px;"><strong>Real photo placeholder</strong><br>Replace with lab / field trial imagery</p>
+        </div>
       </div>
     </div>
   </div>
@@ -399,6 +423,16 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ PRODUCT DETAIL MODAL ============ -->
+<div class="product-modal-overlay" id="product-modal" style="display:none;">
+  <div class="product-modal">
+    <button class="product-modal-close" aria-label="Close modal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="product-modal-content"></div>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>

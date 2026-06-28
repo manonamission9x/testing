@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us — Trimurti Plant Sciences</title>
 <meta name="description" content="Learn about Trimurti Plant Sciences — our story, leadership, values, and vision for transforming agriculture through superior seeds.">
+<meta property="og:title" content="About Us — Trimurti Plant Sciences">
+<meta property="og:description" content="Learn about Trimurti Plant Sciences — our story, leadership, values, and vision for transforming agriculture through superior seeds.">
+<meta property="og:image" content="https://testing-mu-bay.vercel.app/images/og-trimurti.jpg">
+<meta property="og:url" content="https://testing-mu-bay.vercel.app/about.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Us — Trimurti Plant Sciences">
+<meta name="twitter:description" content="Learn about Trimurti — our story, leadership, principles, and vision for transforming agriculture through superior seeds.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,8 +21,13 @@
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/field-art.css">
 <link rel="stylesheet" href="css/pages.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Phosphor Icons -->
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='19' fill='%23C9A227'/><path d='M20 8C20 8 13 14 13 21C13 25.4183 16.134 29 20 29C23.866 29 27 25.4183 27 21C27 14 20 8 20 8Z' fill='%230F2818'/></svg>">
 <style>
 /* ============================================
    About Us — Premium Overrides
@@ -483,6 +497,10 @@
       <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
     </nav>
     <div class="header-actions">
+      <button class="search-toggle" aria-label="Search" onclick="window.searchOverlay?.open()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <a href="partner.html" class="btn btn-primary header-cta" style="font-size:0.75rem;padding:8px 16px;">Become a Distributor</a>
       <button class="mobile-menu-toggle" aria-label="Open menu">
         <i class="ph ph-list" style="font-size:22px"></i>
       </button>
@@ -494,13 +512,16 @@
 <div class="search-overlay">
   <div class="search-box">
     <div class="search-box-input-row">
-      <i class="ph ph-magnifying-glass" style="font-size:18px"></i>
-      <input type="text" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="global-search-input" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
       <button class="search-close" aria-label="Close search">
-        <i class="ph ph-x" style="font-size:22px"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <div class="search-hint">Press <strong>Esc</strong> to close &middot; <strong>Ctrl+K</strong> to open</div>
+    <div class="search-hint">Press <strong>Esc</strong> to close &middot; <strong>Ctrl+K</strong> to open — try "Rice", "Maize", "Mustard"</div>
+    <div id="search-results" style="margin-top:16px;display:none;">
+      <div class="search-results-list"></div>
+    </div>
   </div>
 </div>
 
@@ -523,6 +544,15 @@
   </ul>
   <div class="mobile-nav-cta">
     <img class="logo-img" src="images/trimurti-logo.png" alt="Trimurti" style="height:32px;width:auto;">
+  </div>
+</nav>
+
+<!-- ============ BREADCRUMBS ============ -->
+<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <div class="container">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">About Us</span>
   </div>
 </nav>
 
@@ -597,7 +627,7 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="tag-label">Our Principles</div>
-      <h2>Our Values</h2>
+      <h2>Our Principles</h2>
       <p>Every decision we make is guided by the same principle: deliver value to the farmer through science, quality, and integrity.</p>
     </div>
     <div class="values-grid">
@@ -661,44 +691,6 @@
         <div class="pledge-lang" style="background:rgba(201,162,39,0.12);color:var(--gold);">తె</div>
         <h3>త్రిమూర్తి ప్రతిజ్ఞ</h3>
         <p>రైతులే త్రిమూర్తి యొక్క అన్ని కార్యకలాపాలకు కేంద్రబిందువు. వారి ఆనందం మరియు సంపదకే మా ప్రాధాన్యత. మాపై వారుంచిన విశ్వాసానికి కృతజ్ఞతగా అత్యధిక నాణ్యతగల విత్తనాలు పంపిణీ చేయడానికి ఎల్లప్పుడూ కృషి చేస్తాము. త్రిమూర్తి విక్రయించే ప్రతి విత్తనం, మా శాస్త్రీయ పరిశోధనా బలం, మా బృందం యొక్క నిబద్దత మరియు కఠినమైన నాణ్యతా ప్రమాణాలతో తయారుకాబడుతుంది.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TRIMURTI VALUES ============ -->
-<section class="section-accent">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="tag-label">Our Culture</div>
-      <h2>Trimurti Values</h2>
-      <p>The principles that guide everything we do.</p>
-    </div>
-    <div class="internal-values-grid">
-      <div class="ivalue-card reveal">
-        <div class="value-icon"><i class="ph ph-hand-heart" style="font-size:24px"></i></div>
-        <h3>Farmer Centricity</h3>
-        <p>At Trimurti, farmers' interests are always central and supreme. All our products shall address specific needs of farmers. We go the extra mile to deliver joy to farmers.</p>
-      </div>
-      <div class="ivalue-card reveal">
-        <div class="value-icon"><i class="ph ph-flask" style="font-size:24px"></i></div>
-        <h3>Innovation &amp; Quality</h3>
-        <p>Innovative products and processes define who we are. We spare no efforts in delivering these innovative products to our customers.</p>
-      </div>
-      <div class="ivalue-card reveal">
-        <div class="value-icon"><i class="ph ph-shield-check" style="font-size:24px"></i></div>
-        <h3>Responsibility &amp; Ownership</h3>
-        <p>We take complete ownership of each of our actions. Our commitments shall be honored. We take pride in going beyond the call of duty.</p>
-      </div>
-      <div class="ivalue-card reveal">
-        <div class="value-icon"><i class="ph ph-users-three" style="font-size:24px"></i></div>
-        <h3>Teamwork</h3>
-        <p>We understand and respect that we are a team with varied knowledge, skills and experience. Talent shall always be recognized and respected, and only the worthy shall find a place in our team. Our company encourages teamwork and knowledge-sharing.</p>
-      </div>
-      <div class="ivalue-card reveal" style="justify-self:center;">
-        <div class="value-icon"><i class="ph ph-scales" style="font-size:24px"></i></div>
-        <h3>Integrity</h3>
-        <p>Honesty and integrity are our guiding principles: self-regulated behavior is the foundation of integrity. Personal integrity is always superior to knowledge and ability. We know we can speak without fear or favour about any challenges to integrity.</p>
       </div>
     </div>
   </div>

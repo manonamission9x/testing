@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Partner with Trimurti — Distributor Opportunities</title>
 <meta name="description" content="Join Trimurti's trade partner network. We're growing our distributor and dealer network across India and Nepal.">
+
+<!-- OG tags -->
+<meta property="og:title" content="Partner with Trimurti — Distributor Opportunities">
+<meta property="og:description" content="Join Trimurti's trade partner network. We're growing our distributor and dealer network across India and Nepal.">
+<meta property="og:image" content="https://testing-mu-bay.vercel.app/images/og-trimurti.jpg">
+<meta property="og:url" content="https://testing-mu-bay.vercel.app/partner.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Partner with Trimurti — Distributor Opportunities">
+<meta name="twitter:description" content="Join Trimurti's trade partner network across India and Nepal.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -275,6 +290,10 @@
       <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
     </nav>
     <div class="header-actions">
+      <button class="search-toggle" aria-label="Search" onclick="window.searchOverlay?.open()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <a href="partner.html" class="btn btn-primary header-cta" style="font-size:0.75rem;padding:8px 16px;">Become a Distributor</a>
       <button class="mobile-menu-toggle" aria-label="Open menu">
         <i class="ph ph-list" style="font-size:22px"></i>
       </button>
@@ -285,13 +304,16 @@
 <div class="search-overlay">
   <div class="search-box">
     <div class="search-box-input-row">
-      <i class="ph ph-magnifying-glass" style="font-size:18px"></i>
-      <input type="text" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="global-search-input" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
       <button class="search-close" aria-label="Close search">
-        <i class="ph ph-x" style="font-size:22px"></i>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <div class="search-hint">Press <strong>Esc</strong> to close &middot; <strong>Ctrl+K</strong> to open</div>
+    <div class="search-hint">Press <strong>Esc</strong> to close &middot; <strong>Ctrl+K</strong> to open — try "Rice", "Maize", "Mustard"</div>
+    <div id="search-results" style="margin-top:16px;display:none;">
+      <div class="search-results-list"></div>
+    </div>
   </div>
 </div>
 
@@ -312,7 +334,17 @@
     <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
   </ul>
   <div class="mobile-nav-cta">
-    <img class="logo-img" src="images/trimurti-logo.png" alt="Trimurti" style="height:32px;width:auto;">
+    <a href="partner.html" class="btn btn-primary" style="width:100%;justify-content:center;">Become a Distributor</a>
+  </div>
+</nav>
+
+<!-- ============ BREADCRUMBS ============ -->
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li>Partner with Trimurti</li>
+    </ol>
   </div>
 </nav>
 
@@ -537,6 +569,16 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ PRODUCT DETAIL MODAL ============ -->
+<div class="product-modal-overlay" id="product-modal" style="display:none;">
+  <div class="product-modal">
+    <button class="product-modal-close" aria-label="Close modal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="product-modal-content"></div>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>

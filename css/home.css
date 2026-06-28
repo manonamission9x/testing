@@ -417,6 +417,62 @@
   text-decoration-color: var(--green-600);
 }
 
+/* ---- testimonial grid ---- */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* ---- testimonial cards ---- */
+.testimonial-card {
+  background: var(--white);
+  border: 1px solid var(--line-solid);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-base) var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.testimonial-card:hover {
+  border-color: var(--green-200);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.testimonial-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--green-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.testimonial-card-content p {
+  font-size: 0.9375rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: var(--space-md);
+}
+.testimonial-card-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.testimonial-card-author strong {
+  font-size: 0.875rem;
+  color: var(--text);
+  font-weight: 600;
+}
+.testimonial-card-author span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
 /* ---------- PARTNER CTA ---------- */
 .partner-band {
   background: var(--green-800);
@@ -476,6 +532,8 @@
   .rd-art { height: 300px; order: -1; }
   .partner-band { flex-direction: column; text-align: center; }
   .partner-band p { max-width: 100%; }
+  .testimonial-grid { grid-template-columns: 1fr 1fr; }
+  .testimonial-card { padding: var(--space-lg); }
 }
 
 @media (max-width: 640px) {
@@ -494,4 +552,6 @@
   .partner-band { padding: var(--space-xl) var(--space-lg); }
   .partner-band-ctas { flex-direction: column; }
   .partner-band-ctas .btn { width: 100%; justify-content: center; }
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: var(--space-md); }
 }

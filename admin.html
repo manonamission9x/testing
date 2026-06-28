@@ -4,9 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trimurti — Product Admin Panel</title>
+
+<!-- OG tags -->
+<meta property="og:title" content="Trimurti — Product Admin Panel">
+<meta property="og:description" content="Admin panel for Trimurti Plant Sciences product management.">
+<meta property="og:image" content="https://testing-mu-bay.vercel.app/images/og-trimurti.jpg">
+<meta property="og:url" content="https://testing-mu-bay.vercel.app/admin.html">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <style>
 /* ============================================
    Trimurti Admin Panel — Styles
@@ -2245,6 +2258,12 @@ document.addEventListener('keydown', function(e) {
     saveToLocalStorage();
     showToast('success', 'Saved');
   }
+});
+
+// ---- Warn on unsaved changes before leaving ----
+window.addEventListener('beforeunload', function(e) {
+  e.preventDefault();
+  e.returnValue = '';
 });
 </script>
 </body>

@@ -5,11 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thank You — Trimurti Plant Sciences</title>
 <meta name="description" content="Thank you for contacting Trimurti Plant Sciences.">
+
+<!-- OG tags -->
+<meta property="og:title" content="Thank You — Trimurti Plant Sciences">
+<meta property="og:description" content="Thank you for contacting Trimurti Plant Sciences. We'll get back to you within 2 business days.">
+<meta property="og:image" content="https://testing-mu-bay.vercel.app/images/og-trimurti.jpg">
+<meta property="og:url" content="https://testing-mu-bay.vercel.app/thank-you.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thank You — Trimurti Plant Sciences">
+<meta name="twitter:description" content="Thank you for contacting Trimurti Plant Sciences.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/pages.css">
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <style>
 .thank-you-section{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 0}
@@ -20,6 +36,7 @@
 </head>
 <body>
 
+<!-- ============ HEADER ============ -->
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="logo"><img class="logo-img" src="images/trimurti-logo.png" alt="Trimurti Plant Sciences"></a>
@@ -32,10 +49,63 @@
       <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
     </nav>
     <div class="header-actions">
+      <button class="search-toggle" aria-label="Search" onclick="window.searchOverlay?.open()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <a href="partner.html" class="btn btn-primary header-cta" style="font-size:0.75rem;padding:8px 16px;">Become a Distributor</a>
       <button class="mobile-menu-toggle" aria-label="Open menu"><i class="ph ph-list" style="font-size:22px"></i></button>
     </div>
   </div>
 </header>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<div class="search-overlay">
+  <div class="search-box">
+    <div class="search-box-input-row">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="global-search-input" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
+      <button class="search-close" aria-label="Close search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="search-hint">Press <strong>Esc</strong> to close &middot; <strong>Ctrl+K</strong> to open — try "Rice", "Maize", "Mustard"</div>
+    <div id="search-results" style="margin-top:16px;display:none;">
+      <div class="search-results-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MOBILE NAV ============ -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-top">
+    <img class="logo-img" src="images/trimurti-logo.png" alt="Trimurti" style="height:28px;width:auto;">
+    <button class="mobile-nav-close" aria-label="Close menu">
+      <i class="ph ph-x" style="font-size:22px"></i>
+    </button>
+  </div>
+  <ul class="mobile-nav-list">
+    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+    <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+    <li><a href="#" class="mobile-nav-link" data-sub="sub-crops">Products<i class="ph ph-caret-down mobile-caret" style="font-size:16px;transition:transform 0.2s"></i></a><div class="mobile-sub" id="sub-crops"><a href="crops.html#field-crops">Field Crops</a><a href="crops.html#vegetables">Vegetables</a><a href="crops.html#fodder">Fodder</a></div></li>
+    <li><a href="research.html" class="mobile-nav-link">R&amp;D</a></li>
+    <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+    <li><a href="partner.html" class="mobile-nav-link">Distributor</a></li>
+    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-cta">
+    <a href="partner.html" class="btn btn-primary" style="width:100%;justify-content:center;">Become a Distributor</a>
+  </div>
+</nav>
+
+<!-- ============ BREADCRUMBS ============ -->
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li>Thank You</li>
+    </ol>
+  </div>
+</nav>
 
 <section class="thank-you-section">
   <div class="container">
@@ -102,38 +172,16 @@
   </div>
 </footer>
 
-<nav class="mobile-nav">
-  <div class="mobile-nav-top">
-    <img class="logo-img" src="images/trimurti-logo.png" alt="Trimurti" style="height:28px;width:auto;">
-    <button class="mobile-nav-close" aria-label="Close menu">
-      <i class="ph ph-x" style="font-size:22px"></i>
+<!-- ============ PRODUCT DETAIL MODAL ============ -->
+<div class="product-modal-overlay" id="product-modal" style="display:none;">
+  <div class="product-modal">
+    <button class="product-modal-close" aria-label="Close modal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-  </div>
-  <ul class="mobile-nav-list">
-    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-    <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-    <li><a href="#" class="mobile-nav-link" data-sub="sub-crops">Products<i class="ph ph-caret-down mobile-caret" style="font-size:16px;transition:transform 0.2s"></i></a><div class="mobile-sub" id="sub-crops"><a href="crops.html#field-crops">Field Crops</a><a href="crops.html#vegetables">Vegetables</a><a href="crops.html#fodder">Fodder</a></div></li>
-    <li><a href="research.html" class="mobile-nav-link">R&amp;D</a></li>
-    <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
-    <li><a href="partner.html" class="mobile-nav-link">Distributor</a></li>
-    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
-  </ul>
-  <div class="mobile-nav-cta">
-    <img class="logo-img" src="images/trimurti-logo.png" alt="Trimurti" style="height:32px;width:auto;">
-  </div>
-</nav>
-
-<div class="search-overlay">
-  <div class="search-box">
-    <div class="search-box-input-row">
-      <i class="ph ph-magnifying-glass" style="font-size:18px"></i>
-      <input type="text" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
-      <button class="search-close" aria-label="Close search">
-        <i class="ph ph-x" style="font-size:22px"></i>
-      </button>
-    </div>
+    <div class="product-modal-content"></div>
   </div>
 </div>
 
+<script src="js/main.js"></script>
 </body>
 </html>

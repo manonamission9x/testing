@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us — Trimurti Plant Sciences</title>
 <meta name="description" content="Get in touch with Trimurti Plant Sciences. Find our address, phone, email, or send us a message.">
+<meta property="og:title" content="Contact Us — Trimurti Plant Sciences">
+<meta property="og:description" content="Get in touch with Trimurti Plant Sciences. Find our address, phone, email, or send us a message.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://trimurti.in/contact.html">
+<meta property="og:image" content="https://trimurti.in/images/trimurti-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -224,6 +229,38 @@
     .form-card { padding: 24px 20px; }
     .contact-info-card { padding: 24px 20px; }
   }
+
+  /* ===== Breadcrumbs ===== */
+  .breadcrumbs {
+    background: var(--green-50);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+  }
+  .breadcrumbs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.8125rem;
+  }
+  .breadcrumbs li {
+    color: var(--text-muted);
+  }
+  .breadcrumbs li + li::before {
+    content: "›";
+    margin-right: 8px;
+    color: var(--text-muted);
+  }
+  .breadcrumbs a {
+    color: var(--green-600);
+    text-decoration: none;
+  }
+  .breadcrumbs a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+  }
 </style>
 </head>
 <body>
@@ -320,6 +357,16 @@
     <div class="banner-line"></div>
   </div>
 </section>
+
+<!-- ============ BREADCRUMBS ============ -->
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li>Contact Us</li>
+    </ol>
+  </div>
+</nav>
 
 <!-- ============ CONTACT GRID ============ -->
 <section class="section">
@@ -478,5 +525,19 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var params = new URLSearchParams(window.location.search);
+    var product = params.get('product');
+    if (product) {
+      var subjectEl = document.getElementById('subject');
+      var messageEl = document.getElementById('message');
+      if (subjectEl) subjectEl.value = 'product';
+      if (messageEl) {
+        messageEl.value = "I'm interested in: " + product + "\n\n";
+      }
+    }
+  });
+</script>
 </body>
 </html>
