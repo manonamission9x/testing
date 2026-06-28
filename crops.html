@@ -7,45 +7,351 @@
 <meta name="description" content="Browse Trimurti's full product catalogue of 198 hybrids and varieties.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/pages.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1">
 <style>
-.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:20px 0}
-.filter-btn{padding:10px 24px;font-size:.8125rem;font-weight:600;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);background:var(--white);color:var(--text-light);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
-.filter-btn:hover{border-color:var(--green-300);color:var(--green-700)}
-.filter-btn.active{background:var(--green-600);border-color:var(--green-600);color:var(--white)}
-.sub-filter-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-md)}
-.sub-filter-btn{padding:6px 14px;font-size:.75rem;font-weight:500;border:1px solid var(--line-solid);border-radius:var(--radius-full);background:var(--white);color:var(--text-muted);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
-.sub-filter-btn:hover{border-color:var(--green-300);color:var(--green-700)}
-.sub-filter-btn.active{background:var(--green-600);border-color:var(--green-600);color:var(--white)}
-.quality-filter-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-lg);padding:var(--space-sm) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.qf-label{font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);display:inline-flex;align-items:center;margin-right:4px}
-.qf-btn{padding:4px 12px;font-size:.6875rem;font-weight:500;border:1px solid var(--line-solid);border-radius:var(--radius-full);background:var(--white);color:var(--text-muted);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
-.qf-btn:hover{border-color:var(--green-300);color:var(--green-700)}
-.qf-btn.active{background:var(--green-100);border-color:var(--green-400);color:var(--green-700);font-weight:600}
-.qf-group{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap;padding:0 8px;border-right:1px solid var(--line)}
-.qf-group:last-child{border-right:none}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--space-md)}
-.product-card{background:var(--white);border:1px solid var(--line-solid);border-radius:var(--radius-lg);overflow:hidden;transition:all var(--duration-base) var(--ease-out);display:flex;flex-direction:column}
-.product-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.08);transform:translateY(-2px)}
-.product-card-img{width:100%;height:180px;object-fit:contain;background:var(--cream-75);padding:12px;display:block}
-.product-card-body{padding:var(--space-md);flex:1;display:flex;flex-direction:column}
-.product-card-body h3{font-size:.9375rem;font-weight:650;margin-bottom:2px;line-height:1.3}
-.product-card-body .card-desc{font-size:.75rem;color:var(--text-light);line-height:1.5;margin-bottom:var(--space-sm);flex:1;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.section-header{text-align:center;margin-bottom:var(--space-lg);scroll-margin-top:100px}
-.section-header .eyebrow{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--green-600);display:block;margin-bottom:4px}
-.section-header h2{font-size:1.5rem;font-weight:650;color:var(--text)}
-.section-header p{font-size:.875rem;color:var(--text-muted);margin-top:6px}
-.card-actions{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap;padding-top:var(--space-sm)}
-.empty-search{text-align:center;padding:60px 20px;color:var(--text-muted)}
-.empty-search h3{font-size:1.125rem;margin-bottom:8px;color:var(--text-light)}
-.prod-tag{display:inline-block;font-size:.625rem;font-weight:600;padding:2px 8px;border-radius:var(--radius-full);background:var(--green-100);color:var(--green-700);margin-right:4px;margin-bottom:4px}
-.prod-tag-gold{background:rgba(201,162,39,0.1);color:var(--gold);border:1px solid rgba(201,162,39,0.3)}
-.prod-tag-season{background:#E8F0FE;color:#1A73E8}
-.prod-tag-duration{background:#FEF3E2;color:#D4A017}
+/* ── Product Catalogue — Redesigned ── */
+
+/* Header area */
+.catalog-header {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+.catalog-header h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.catalog-header p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.catalog-header .count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--green-600);
+  background: var(--green-100);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+}
+
+/* Filter bar - pill style */
+.filter-bar {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 0 8px;
+}
+.filter-btn {
+  padding: 8px 20px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1.5px solid var(--line-solid);
+  border-radius: var(--radius-full);
+  background: var(--white);
+  color: var(--text-light);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.filter-btn:hover {
+  border-color: var(--green-300);
+  color: var(--green-700);
+  background: var(--green-100);
+}
+.filter-btn.active {
+  background: var(--green-600);
+  border-color: var(--green-600);
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(36,92,60,0.2);
+}
+
+/* Sub-filter bar - smaller pills */
+.sub-filter-bar {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+.sub-filter-btn {
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.15s ease;
+}
+.sub-filter-btn:hover { color: var(--green-700); border-color: var(--green-200); background: var(--green-100); }
+.sub-filter-btn.active { background: var(--green-600); border-color: var(--green-600); color: var(--white); font-weight: 600; }
+
+/* Quality filter bar - divider style */
+.quality-filter-bar {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding: 12px 16px;
+  background: var(--cream-50);
+  border-radius: var(--radius-lg);
+}
+.qf-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex-wrap: wrap;
+  padding: 0 12px;
+}
+.qf-group + .qf-group { border-left: 1px solid var(--line-solid); }
+.qf-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+.qf-btn {
+  padding: 4px 10px;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: all 0.15s ease;
+}
+.qf-btn:hover { color: var(--green-700); background: var(--white); border-color: var(--green-200); }
+.qf-btn.active { background: var(--white); border-color: var(--green-400); color: var(--green-700); font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+
+/* Search input - elevated */
+.search-wrap {
+  max-width: 400px;
+  margin: 0 auto 28px;
+  position: relative;
+}
+.search-wrap .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 16px;
+  pointer-events: none;
+}
+.search-wrap input {
+  width: 100%;
+  padding: 12px 16px 12px 42px;
+  border: 1.5px solid var(--line-solid);
+  border-radius: var(--radius-lg);
+  font-family: Inter, sans-serif;
+  font-size: 0.875rem;
+  outline: none;
+  background: var(--white);
+  color: var(--text);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+.search-wrap input:hover { border-color: var(--green-300); }
+.search-wrap input:focus { border-color: var(--green-500); box-shadow: 0 0 0 3px var(--logo-green-dim); }
+
+/* Section headers - clean, no emoji */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+  scroll-margin-top: 100px;
+}
+.section-header .section-label {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-600);
+  margin-bottom: 6px;
+}
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.section-header p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Product grid - premium cards */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--line-solid);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03);
+  border-color: var(--green-200);
+  transform: translateY(-3px);
+}
+.product-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: var(--cream-50);
+  padding: 16px;
+  display: block;
+}
+.product-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.product-card-body .card-badges {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.prod-tag {
+  display: inline-block;
+  font-size: 0.625rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: var(--green-100);
+  color: var(--green-700);
+  letter-spacing: 0.02em;
+}
+.prod-tag-code { background: var(--cream-50); color: var(--text-muted); }
+.prod-tag-season { background: #E8F0FE; color: #1A73E8; }
+.prod-tag-duration { background: #FEF3E2; color: #D4A017; }
+.product-card-body h3 {
+  font-size: 1rem;
+  font-weight: 650;
+  margin-bottom: 2px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.product-card-body .card-desc {
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  line-height: 1.55;
+  margin-bottom: 12px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-meta {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.card-actions .btn {
+  font-size: 0.75rem;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.card-actions .btn-primary {
+  background: var(--green-600);
+  color: var(--white);
+  border: none;
+}
+.card-actions .btn-primary:hover {
+  background: var(--green-700);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(36,92,60,0.25);
+}
+.card-actions .btn-ghost {
+  background: transparent;
+  color: var(--green-600);
+  border: 1.5px solid var(--green-200);
+}
+.card-actions .btn-ghost:hover {
+  background: var(--green-100);
+  border-color: var(--green-400);
+  transform: translateY(-1px);
+}
+
+/* Empty state */
+.empty-search {
+  text-align: center;
+  padding: 80px 20px;
+}
+.empty-search .empty-icon {
+  font-size: 48px;
+  color: var(--cream-dark);
+  display: block;
+  margin-bottom: 16px;
+}
+.empty-search h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-light);
+}
+.empty-search p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* Section spacing */
+.crop-group + .crop-group {
+  margin-top: 24px;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .product-grid { grid-template-columns: 1fr; gap: 16px; }
+  .quality-filter-bar { flex-direction: column; gap: 8px; padding: 12px; }
+  .qf-group + .qf-group { border-left: none; border-top: 1px solid var(--line-solid); padding-top: 8px; }
+  .catalog-header { padding: 32px 0 24px; }
+}
 </style>
 </head>
 <body>
@@ -67,23 +373,22 @@
 </div>
 </div></header>
 
-<section class="page-banner"><div class="container">
-<span class="eyebrow">Our Products</span>
-<h1>Product Catalogue</h1>
-<p>Browse our complete range of <span id="productCount">198</span> hybrids and varieties.</p>
-<div class="banner-line"></div>
-</div></section>
+<div class="section" style="padding-bottom:0"><div class="container">
+<div class="catalog-header">
+  <h1>Product Catalogue</h1>
+  <p>Browse our complete range of hybrids and varieties bred for Indian growing conditions.</p>
+  <div class="count-badge"><i class="ph ph-flower-tulip"></i> <span id="productCount">0</span> products</div>
+</div>
 
-<section class="section" style="padding-top:0;"><div class="container">
 <div class="filter-bar" id="filterBar"></div>
-<div style="max-width:400px;margin:0 auto 24px">
-<div style="position:relative">
-<i class="ph ph-magnifying-glass" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:16px"></i>
-<input type="text" id="productSearch" placeholder="Search products by name or code…" style="width:100%;padding:10px 12px 10px 36px;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);font-family:Inter,sans-serif;font-size:.8125rem;outline:none">
+
+<div class="search-wrap">
+  <i class="ph ph-magnifying-glass search-icon"></i>
+  <input type="text" id="productSearch" placeholder="Search products by name or code…" autocomplete="off">
 </div>
-</div>
+
 <div id="cropSections"></div>
-</div></section>
+</div></div>
 
 <section class="section" style="padding-top:0;"><div class="container">
 <div class="partner-band reveal">
@@ -145,9 +450,9 @@
 <script>
 // ---- Data ----
 var CAT_CFG = {
-  'field-crops': { name:'Field Crops', icon:'🌾', desc:'High-yielding hybrids and varieties for staple crops.' },
-  'vegetables':  { name:'Vegetables',  icon:'🥬', desc:'Premium vegetable hybrids for fresh market and commercial cultivation.' },
-  'fodder':      { name:'Fodder',      icon:'🌿', desc:'Nutritious fodder options for sustained livestock feed.' }
+  'field-crops': { name:'Field Crops', desc:'High-yielding hybrids and varieties for staple crops.' },
+  'vegetables':  { name:'Vegetables',  desc:'Premium vegetable hybrids for fresh market and commercial cultivation.' },
+  'fodder':      { name:'Fodder',      desc:'Nutritious fodder options for sustained livestock feed.' }
 };
 
 function loadProducts() {
@@ -159,7 +464,7 @@ var prods = loadProducts();
 var cat = 'all', sub = 'all', season = 'all', type = 'all', search = '';
 
 function esc(s) {
-  return (typeof s === 'string' ? s : '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return (typeof s === 'string' ? s : '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;');
 }
 
 function match(p, h) {
@@ -182,9 +487,9 @@ function render() {
     return prods.some(function(p) { return p.category === k && p.active !== false; });
   });
   // Top filter bar
-  var fh = '<button class="filter-btn'+(cat==='all'?' active':'')+'" data-cat="all">All</button>';
+  var fh = '<button class="filter-btn'+(cat==='all'?' active':'')+'" data-cat="all">All Products</button>';
   ckeys.forEach(function(k) {
-    fh += '<button class="filter-btn'+(cat===k?' active':'')+'" data-cat="'+k+'">'+CAT_CFG[k].icon+' '+CAT_CFG[k].name+'</button>';
+    fh += '<button class="filter-btn'+(cat===k?' active':'')+'" data-cat="'+k+'">'+CAT_CFG[k].name+'</button>';
   });
   document.getElementById('filterBar').innerHTML = fh;
 
@@ -195,9 +500,9 @@ function render() {
       .sort(function(a,b) { return (a.order||99)-(b.order||99); });
     if (!cP.length) return;
 
-    html += '<section class="section" style="padding-bottom:0"><div class="container">';
+    html += '<div class="crop-group"><div class="container" style="padding-left:0;padding-right:0;">';
     html += '<div class="section-header" id="'+ck+'">';
-    html += '<span class="eyebrow">'+CAT_CFG[ck].icon+'</span>';
+    html += '<span class="section-label">'+CAT_CFG[ck].name+'</span>';
     html += '<h2>'+CAT_CFG[ck].name+'</h2><p>'+CAT_CFG[ck].desc+'</p></div>';
 
     // Sub-filter
@@ -234,35 +539,35 @@ function render() {
         html += '<div class="product-card">';
         if (img) html += '<img class="product-card-img" src="'+esc(img)+'" alt="'+esc(h.name)+'" loading="lazy" onerror="this.style.display=\'none\'">';
         html += '<div class="product-card-body">';
-        html += '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px">';
+        html += '<div class="card-badges">';
         html += '<span class="prod-tag">'+esc(p.type||'Hybrid')+'</span>';
-        if (p.code) html += '<span class="prod-tag" style="background:var(--cream-75);color:var(--text-muted)">'+esc(p.code)+'</span>';
+        if (p.code) html += '<span class="prod-tag prod-tag-code">'+esc(p.code)+'</span>';
         html += '</div>';
         html += '<h3>'+esc(h.name)+'</h3>';
         if (h.desc) html += '<div class="card-desc">'+esc(h.desc)+'</div>';
-        html += '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:var(--space-sm)">';
+        html += '<div class="card-meta">';
         if (p.season) {
           p.season.split('/').forEach(function(s) { s=s.trim(); if(s) html += '<span class="prod-tag prod-tag-season">'+esc(s)+'</span>'; });
         }
         if (p.duration) html += '<span class="prod-tag prod-tag-duration">'+esc(p.duration)+'</span>';
         html += '</div>';
         html += '<div class="card-actions">';
-        html += '<a href="contact.html?product='+encodeURIComponent(h.name)+'" class="btn btn-primary" style="font-size:.75rem;padding:6px 14px">Enquire</a>';
-        if (p.pdf) html += '<a href="'+esc(p.pdf)+'" class="btn btn-secondary" style="font-size:.75rem;padding:6px 14px" target="_blank"><i class="ph ph-file-pdf"></i> Brochure</a>';
+        html += '<a href="contact.html?product='+encodeURIComponent(h.name)+'" class="btn btn-primary">Enquire</a>';
+        if (p.pdf) html += '<a href="'+esc(p.pdf)+'" class="btn btn-ghost" target="_blank"><i class="ph ph-file-pdf"></i> Brochure</a>';
         html += '</div></div></div>';
       });
     });
-    html += '</div></div></section>';
+    html += '</div></div></div>';
   });
 
   document.getElementById('productCount').textContent = shown;
   if (!shown) {
-    html = '<div class="empty-search"><i class="ph ph-magnifying-glass" style="font-size:48px;color:var(--cream-dark);display:block;margin-bottom:var(--space-md)"></i><h3>No products match</h3><p>Try adjusting filters.</p></div>';
+    html = '<div class="empty-search"><i class="ph ph-seal-question empty-icon"></i><h3>No products match</h3><p>Try adjusting your search or filters.</p></div>';
   }
   document.getElementById('cropSections').innerHTML = html;
 }
 
-// Event delegation (one listener, catches all button clicks)
+// Event delegation
 document.addEventListener('click', function(e) {
   try {
     var t = e.target.closest('[data-cat]');
