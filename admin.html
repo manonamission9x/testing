@@ -708,6 +708,7 @@ input[type="checkbox"] {
       <span>Active: <strong id="active-count">0</strong></span>
       <span>Inactive: <strong id="inactive-count">0</strong></span>
       <span id="storage-indicator" style="color:var(--success);font-size:0.6875rem;">● live</span>
+      <button class="btn btn-xs btn-secondary" onclick="clearAllData()" style="margin-left:8px">🗑 Clear & reload</button>
     </div>
   </div>
 </header>
@@ -2004,13 +2005,9 @@ function resetFromSource() {
 }
 
 function clearAllData() {
-  if (!confirm('Clear ALL localStorage product data? Products will be reloaded from the source file on next page load.')) return;
+  if (!confirm('Clear ALL localStorage product data? Products will be reloaded from the source files on next page load.')) return;
   localStorage.removeItem('trimurti_products');
-  products = getProductsFromSource();
-  updateHeaderStats();
-  renderTable();
-  renderCategories();
-  showToast('info', 'Local data cleared, reloaded from source');
+  location.reload();
 }
 
 // ---- Modal helpers ----
