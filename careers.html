@@ -14,6 +14,171 @@
 <link rel="stylesheet" href="css/pages.css">
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='19' fill='%23C9A227'/><path d='M20 8C20 8 13 14 13 21C13 25.4183 16.134 29 20 29C23.866 29 27 25.4183 27 21C27 14 20 8 20 8Z' fill='%230F2818'/></svg>">
+<style>
+  /* ===== Premium Careers Page ===== */
+  .page-banner {
+    background: linear-gradient(160deg, var(--green-800) 0%, #0D2818 45%, var(--green-900) 100%);
+    padding: 140px 0 80px;
+  }
+  .page-banner h1 { color: var(--white); }
+  .page-banner p { color: rgba(247,245,239,0.7); max-width: 540px; }
+  .page-banner .eyebrow {
+    border-color: rgba(201,162,39,0.2);
+    color: var(--gold);
+  }
+  .banner-line { background: var(--gold); }
+
+  .culture-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .culture-item {
+    text-align: center;
+    padding: 28px 20px;
+    border: 1px solid var(--line-solid);
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.35s var(--ease-out);
+  }
+  .culture-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    border-color: var(--gold-dim);
+  }
+  .culture-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--green-100);
+    color: var(--green-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+  .culture-icon i { font-size: 20px !important; color: var(--green-600) !important; margin-top: 0 !important; }
+  .culture-item h3 { font-size: 1rem; margin-bottom: 6px; }
+  .culture-item p {
+    font-size: 0.8125rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .section-head h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+  .section-head p { font-size: 1rem; max-width: 500px; margin: 12px auto 0; }
+
+  .form-card {
+    max-width: 540px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--line-solid);
+    border-radius: 12px;
+    padding: 36px 32px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .form-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .form-card .form-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .form-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line-solid);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--text);
+    outline: none;
+    transition: all 0.2s var(--ease-out);
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-dim);
+  }
+  .form-group input:hover,
+  .form-group select:hover,
+  .form-group textarea:hover {
+    border-color: var(--green-300);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  .form-group input[type="file"] {
+    padding: 8px 4px;
+    border: none;
+    font-size: 0.875rem;
+  }
+  .form-group input[type="file"]:hover {
+    border-color: transparent;
+  }
+  .file-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .notify-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: var(--gold-dim);
+    border: 1px solid rgba(201,162,39,0.15);
+    border-radius: 8px;
+    color: #8A6E1A;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .notify-badge i { font-size: 18px; color: var(--gold); }
+
+  @media (max-width: 1024px) {
+    .culture-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .culture-strip { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-card { padding: 24px 20px; }
+  }
+</style>
 </head>
 <body>
 
@@ -98,6 +263,35 @@
   </div>
 </section>
 
+<!-- ============ CULTURE STRIP ============ -->
+<section class="section" style="padding-bottom: 0;">
+  <div class="container">
+    <div class="culture-strip">
+      <div class="culture-item reveal">
+        <div class="culture-icon">
+          <i class="ph ph-flask"></i>
+        </div>
+        <h3>Science-first culture</h3>
+        <p>Work alongside geneticists, breeders, and agronomists who are pushing the boundaries of seed science.</p>
+      </div>
+      <div class="culture-item reveal" data-delay="1">
+        <div class="culture-icon">
+          <i class="ph ph-users-three"></i>
+        </div>
+        <h3>Collaborative teams</h3>
+        <p>Flat hierarchies, open communication, and a genuine commitment to helping each other succeed.</p>
+      </div>
+      <div class="culture-item reveal" data-delay="2">
+        <div class="culture-icon">
+          <i class="ph ph-tree"></i>
+        </div>
+        <h3>Impact at scale</h3>
+        <p>Your work reaches 200,000+ farmers and spans 2.5 million acres. What you do here matters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CAREERS CONTENT ============ -->
 <section class="section">
   <div class="container">
@@ -105,16 +299,20 @@
       <h2>No open positions right now</h2>
       <p>We're always on the lookout for talented individuals who share our passion for seed science and Indian agriculture. Send us your resume and we'll keep you in mind for future opportunities.</p>
     </div>
-    <div style="max-width:500px;margin:0 auto;" class="reveal">
+    <div class="form-card reveal">
+      <div class="notify-badge">
+        <i class="ph ph-bell-ringing"></i>
+        <span>We'll keep your application on file for future openings</span>
+      </div>
       <form class="contact-form" action="https://formsubmit.co/info@trimurti.in" method="POST">
         <input type="hidden" name="_captcha" value="true">
-          <input type="hidden" name="_next" value="thank-you.html">
-          <input type="hidden" name="_subject" value="Trimurti Career Application">
-          <input type="hidden" name="_template" value="table">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Full name" required>
+        <input type="hidden" name="_next" value="thank-you.html">
+        <input type="hidden" name="_subject" value="Trimurti Career Application">
+        <input type="hidden" name="_template" value="table">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Full name" required>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
@@ -128,6 +326,7 @@
         <div class="form-group">
           <label for="resume">Upload Resume (PDF/DOC)</label>
           <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" style="font-family:var(--font-sans);font-size:0.875rem;padding:8px 0;">
+          <div class="file-hint">Accepted formats: PDF, DOC, DOCX. Max 10 MB.</div>
         </div>
         <div class="form-group">
           <label for="message">Why Trimurti?</label>

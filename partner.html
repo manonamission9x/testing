@@ -14,6 +14,223 @@
 <link rel="stylesheet" href="css/pages.css">
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='19' fill='%23C9A227'/><path d='M20 8C20 8 13 14 13 21C13 25.4183 16.134 29 20 29C23.866 29 27 25.4183 27 21C27 14 20 8 20 8Z' fill='%230F2818'/></svg>">
+<style>
+  /* ===== Premium Partner/Distributor Page ===== */
+  .page-banner {
+    background: linear-gradient(160deg, var(--green-800) 0%, #0D2818 45%, var(--green-900) 100%);
+    padding: 140px 0 80px;
+  }
+  .page-banner h1 { color: var(--white); }
+  .page-banner p { color: rgba(247,245,239,0.7); max-width: 580px; }
+  .page-banner .eyebrow {
+    border-color: rgba(201,162,39,0.2);
+    color: var(--gold);
+  }
+  .banner-line { background: var(--gold); }
+
+  .partner-hero {
+    background: linear-gradient(135deg, var(--green-800), #0D2818);
+    border-radius: 12px;
+    padding: 48px 40px;
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .partner-hero h2 {
+    color: var(--white);
+    margin-bottom: 12px;
+    font-size: 1.65rem;
+  }
+  .partner-hero p {
+    color: rgba(247,245,239,0.55);
+    max-width: 600px;
+    margin: 0 auto 24px;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .section-head h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+  .section-head p { font-size: 1rem; }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .benefit-card {
+    background: var(--white);
+    border: 1px solid var(--line-solid);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.35s var(--ease-out);
+  }
+  .benefit-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    border-color: var(--gold-dim);
+  }
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+    border-radius: 12px;
+    background: var(--green-100);
+    color: var(--green-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s var(--ease-out);
+  }
+  .benefit-card:hover .benefit-icon { background: var(--gold-dim); color: var(--gold); }
+  .benefit-icon svg { width: 22px; height: 22px; }
+  .benefit-card h3 { font-size: 1.0625rem; margin-bottom: 8px; }
+  .benefit-card p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .process-section {
+    background: var(--cream-75);
+    border-top: 1px solid var(--line-solid);
+    border-bottom: 1px solid var(--line-solid);
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .process-card {
+    background: var(--white);
+    border: 1px solid var(--line-solid);
+    border-radius: 12px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+    transition: all 0.35s var(--ease-out);
+    position: relative;
+  }
+  .process-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    border-color: var(--gold-dim);
+  }
+  .process-step {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--green-900);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin: 0 auto 16px;
+    transition: all 0.2s var(--ease-out);
+  }
+  .process-card:hover .process-step { background: var(--green-600); color: var(--white); }
+  .process-card h3 { font-size: 1.0625rem; margin-bottom: 8px; }
+  .process-card p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .form-card {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--line-solid);
+    border-radius: 12px;
+    padding: 36px 32px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .form-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .form-card .form-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .form-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    padding: 12px 14px;
+    border: 1.5px solid var(--line-solid);
+    border-radius: 8px;
+    background: var(--white);
+    color: var(--text);
+    outline: none;
+    transition: all 0.2s var(--ease-out);
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-dim);
+  }
+  .form-group input:hover,
+  .form-group select:hover,
+  .form-group textarea:hover {
+    border-color: var(--green-300);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5L6 8L9 5' stroke='%236B8467' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+
+  @media (max-width: 1024px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-card { padding: 24px 20px; }
+    .partner-hero { padding: 32px 24px; }
+  }
+</style>
 </head>
 <body>
 
@@ -50,6 +267,7 @@
         </a>
         <div class="nav-dropdown">
           <a href="research.html">Breeding &amp; Research</a>
+  
         </div>
       </div>
       <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
@@ -135,35 +353,35 @@
         <h3>Trusted brand</h3>
         <p>Trimurti is a recognised name across 2.5 million acres — farmers and retailers trust the brand and its consistent quality.</p>
       </div>
-      <div class="benefit-card reveal">
+      <div class="benefit-card reveal" data-delay="1">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none"><path d="M3 7L12 2L21 7M3 7V17L12 22M3 7L12 12M21 7V17L12 22M21 7L12 12M12 12V22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <h3>Broad portfolio</h3>
         <p>120+ hybrids and varieties across field crops, vegetables, and fodder — giving you a complete product range for your market.</p>
       </div>
-      <div class="benefit-card reveal">
+      <div class="benefit-card reveal" data-delay="2">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 2V5M12 19V22M22 12H19M5 12H2M19.07 4.93L16.95 7.05M7.05 16.95L4.93 19.07" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
         <h3>Quality you can rely on</h3>
         <p>Rigorous quality control at every stage — from breeding to processing. Every seed lot tested for germination, purity, and vigour.</p>
       </div>
-      <div class="benefit-card reveal">
+      <div class="benefit-card reveal" data-delay="3">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 21C16.5 17 20 13.4 20 9C20 5.13 16.87 2 13 2H11C7.13 2 4 5.13 4 9C4 13.4 7.5 17 12 21Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
         </div>
         <h3>Regional expertise</h3>
         <p>R&D positioned across India's agro-climatic zones means products bred for your region — not a one-size-fits-all approach.</p>
       </div>
-      <div class="benefit-card reveal">
+      <div class="benefit-card reveal" data-delay="4">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none"><path d="M17 21V19C17 16.7909 15.2091 15 13 15H5C2.79086 15 1 16.7909 1 19V21M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="1.6"/><path d="M21 15V19M23 17H19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
         <h3>Growing together</h3>
         <p>We work closely with our trade partners — with marketing support, field demonstration programs, and a shared commitment to farmer success.</p>
       </div>
-      <div class="benefit-card reveal">
+      <div class="benefit-card reveal" data-delay="5">
         <div class="benefit-icon">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.6"/><path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
@@ -175,25 +393,25 @@
 </section>
 
 <!-- ============ HOW IT WORKS ============ -->
-<section class="section" style="background:var(--bone-50); border-top:1px solid var(--line-solid); border-bottom:1px solid var(--line-solid);">
+<section class="section process-section">
   <div class="container">
     <div class="section-head reveal">
       <h2>How to become a partner</h2>
       <p>The process is straightforward. We're looking for serious trade partners who share our commitment to quality and farmer success.</p>
     </div>
-    <div class="diff-grid">
-      <div class="diff-card reveal" style="text-align:center;">
-        <div style="width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--green-900);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.125rem;margin:0 auto 12px;">1</div>
+    <div class="process-grid">
+      <div class="process-card reveal">
+        <div class="process-step">1</div>
         <h3>Reach out</h3>
         <p>Contact us through the form below or give us a call. Tell us about your business and the markets you serve.</p>
       </div>
-      <div class="diff-card reveal" style="text-align:center;">
-        <div style="width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--green-900);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.125rem;margin:0 auto 12px;">2</div>
+      <div class="process-card reveal" data-delay="1">
+        <div class="process-step">2</div>
         <h3>Initial discussion</h3>
         <p>Our team will have a conversation with you to understand your region, product requirements, and business model.</p>
       </div>
-      <div class="diff-card reveal" style="text-align:center;">
-        <div style="width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--green-900);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.125rem;margin:0 auto 12px;">3</div>
+      <div class="process-card reveal" data-delay="2">
+        <div class="process-step">3</div>
         <h3>Onboarding</h3>
         <p>Once agreed, we'll set up your trade account, share product catalogues and pricing, and support your market launch.</p>
       </div>
@@ -208,16 +426,18 @@
       <h2>Send us your inquiry</h2>
       <p>Fill out the form below and our partnerships team will get back to you within 2 business days.</p>
     </div>
-    <div style="max-width:640px;margin:0 auto;" class="reveal">
+    <div class="form-card reveal">
+      <h3>Distributor Inquiry</h3>
+      <p class="form-subtitle">All fields marked as required help us process your request faster.</p>
       <form class="contact-form" action="https://formsubmit.co/info@trimurti.in" method="POST">
         <input type="hidden" name="_captcha" value="true">
-          <input type="hidden" name="_next" value="thank-you.html">
-          <input type="hidden" name="_subject" value="Trimurti Distributor Inquiry">
-          <input type="hidden" name="_template" value="table">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Full name" required>
+        <input type="hidden" name="_next" value="thank-you.html">
+        <input type="hidden" name="_subject" value="Trimurti Distributor Inquiry">
+        <input type="hidden" name="_template" value="table">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Full name" required>
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>

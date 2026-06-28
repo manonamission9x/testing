@@ -3,39 +3,43 @@
    ============================================ */
 
 :root {
-  /* ---- brand palette (farming-positive, light) ---- */
-  --green-900: #0A1A0F;
-  --green-800: #0F2818;
-  --green-700: #1B4D32;
-  --green-600: #245C3C;
-  --green-500: #2F7048;
-  --green-400: #4A8B5C;
-  --green-300: #7BAF88;
-  --green-200: #B5D6BE;
-  --green-100: #E2F0E6;
+  /* ---- brand palette (premium, refined) ---- */
+    --green-900: #0A1A0F;
+    --green-800: #0F2818;
+    --green-700: #1B4D32;
+    --green-600: #245C3C;
+    --green-500: #2F7048;
+    --green-400: #4A8B5C;
+    --green-300: #7BAF88;
+    --green-200: #B5D6BE;
+    --green-100: #E2F0E6;
 
-  /* logo brand green */
-  --logo-green:    #40A040;
-  --logo-green-dim: rgba(64, 160, 64, 0.12);
+    --gold:       #C9A227;
+    --gold-light: #DDBB4A;
+    --gold-dim:   rgba(201, 162, 39, 0.12);
 
-  --gold:       #C9A227;
-  --gold-light: #DDBB4A;
-  --gold-dim:   rgba(201, 162, 39, 0.12);
+    --cream:      #FAFAF5;
+    --cream-75:   #F5F3EC;
+    --cream-50:   #EFEDE3;
+    --cream-dark: #D4D2C5;
 
-  --cream:      #FAFAF5;
-  --cream-75:   #F5F3EC;
-  --cream-50:   #EFEDE3;
-  --cream-dark: #D4D2C5;
+    --white:      #FFFFFF;
+    --bg-light:   #FDFDFA;
 
-  --white:      #FFFFFF;
-  --bg-light:   #FDFDFA;
+    --line:       rgba(0, 0, 0, 0.06);
+    --line-solid: #E0DED5;
 
-  --line:       rgba(0, 0, 0, 0.06);
-  --line-solid: #E0DED5;
+    --text:       #1A2818;
+    --text-light: #3D513B;
+    --text-muted: #6B8467;
 
-  --text:       #1A2818;
-  --text-light: #3D513B;
-  --text-muted: #6B8467;
+    /* premium tokens */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.04);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.04), 0 24px 48px rgba(0,0,0,0.04);
+    --shadow-gold: 0 4px 16px rgba(201,162,39,0.08), 0 8px 32px rgba(201,162,39,0.04);
+    --hover-lift: translateY(-2px);
+    --radius-premium: 8px;
 
   /* ---- spacing ---- */
   --space-xs: 4px;
@@ -142,7 +146,7 @@ p:last-child { margin-bottom: 0; }
   font-weight: 600;
   line-height: 1;
   padding: 14px 28px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-premium);
   border: 2px solid transparent;
   cursor: pointer;
   transition: all var(--duration-base) var(--ease-out);
@@ -204,10 +208,17 @@ p:last-child { margin-bottom: 0; }
   margin: 0 auto var(--space-3xl);
 }
 
+.section-head h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
 .section-head p {
   color: var(--text-light);
   font-size: 1.0625rem;
-  margin-top: 12px;
+  margin-top: 14px;
+  line-height: 1.7;
 }
 
 /* ---- reveal animation ---- */

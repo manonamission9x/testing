@@ -14,6 +14,141 @@
 <link rel="stylesheet" href="css/pages.css">
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><circle cx='20' cy='20' r='19' fill='%23C9A227'/><path d='M20 8C20 8 13 14 13 21C13 25.4183 16.134 29 20 29C23.866 29 27 25.4183 27 21C27 14 20 8 20 8Z' fill='%230F2818'/></svg>">
+<style>
+  /* ===== Premium R&D Page Enhancements ===== */
+  .page-banner {
+    background: linear-gradient(160deg, var(--green-800) 0%, #0D2818 45%, var(--green-900) 100%);
+    padding: 140px 0 80px;
+  }
+  .page-banner h1 { color: var(--white); }
+  .page-banner p { color: rgba(247,245,239,0.7); max-width: 600px; }
+  .page-banner .eyebrow {
+    border-color: rgba(201,162,39,0.2);
+    color: var(--gold);
+  }
+  .banner-line { background: var(--gold); }
+
+  .research-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: -48px;
+    position: relative;
+    z-index: 10;
+  }
+  .research-metric {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+    border: 1px solid var(--line-solid);
+    transition: all 0.35s var(--ease-out);
+  }
+  .research-metric:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    border-color: var(--gold-dim);
+  }
+  .research-metric .metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green-700);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .research-metric .metric-label {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+  .story-grid { align-items: start; gap: var(--space-4xl); }
+  .story-copy h2 { font-size: clamp(1.65rem, 3vw, 2.25rem); }
+  .story-copy p { font-size: 1rem; }
+  .story-art {
+    height: 400px;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  .section-head h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+  .section-head p { font-size: 1rem; }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .diff-card {
+    background: var(--white);
+    border: 1px solid var(--line-solid);
+    border-radius: 12px;
+    padding: 32px 24px;
+    transition: all 0.35s var(--ease-out);
+  }
+  .diff-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+    border-color: var(--gold-dim);
+  }
+  .diff-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--green-100);
+    color: var(--green-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .diff-icon i { font-size: 20px !important; color: var(--green-600) !important; margin-top: 0 !important; }
+  .diff-icon svg { width: 22px; height: 22px; }
+  .diff-card h3 { font-size: 1.125rem; margin-bottom: 8px; }
+  .diff-card p { font-size: 0.875rem; color: var(--text-light); line-height: 1.7; margin-bottom: 0; }
+
+  .partner-band {
+    background: var(--green-800);
+    border-radius: 12px;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .partner-band h2 { color: var(--white); font-size: 1.35rem; margin-bottom: 6px; }
+  .partner-band p { color: rgba(247,245,239,0.6); font-size: 0.9375rem; margin-bottom: 0; }
+  .partner-band-ctas { display: flex; gap: 12px; flex-shrink: 0; }
+  .partner-band-ctas .btn-ghost {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.2);
+  }
+  .partner-band-ctas .btn-ghost:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .divider-line {
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .research-metrics { grid-template-columns: repeat(2, 1fr); margin-top: -24px; }
+    .diff-grid { grid-template-columns: repeat(2, 1fr); }
+    .partner-band { flex-direction: column; text-align: center; padding: 32px 24px; }
+  }
+  @media (max-width: 640px) {
+    .research-metrics { grid-template-columns: 1fr; margin-top: 0; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .partner-band-ctas { flex-direction: column; width: 100%; }
+    .partner-band-ctas .btn { width: 100%; justify-content: center; }
+  }
+</style>
 </head>
 <body>
 
@@ -110,6 +245,26 @@
   </div>
 </section>
 
+<!-- ============ METRICS STRIP ============ -->
+<section style="padding: 0;">
+  <div class="container">
+    <div class="research-metrics">
+      <div class="research-metric reveal">
+        <div class="metric-value">120+</div>
+        <div class="metric-label">Hybrids &amp; varieties developed</div>
+      </div>
+      <div class="research-metric reveal" data-delay="1">
+        <div class="metric-value">25+</div>
+        <div class="metric-label">Years of breeding expertise</div>
+      </div>
+      <div class="research-metric reveal" data-delay="2">
+        <div class="metric-value">6</div>
+        <div class="metric-label">Agro-climatic zones served</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ R&D OVERVIEW ============ -->
 <section class="section">
   <div class="container">
@@ -139,10 +294,8 @@
   </div>
 </section>
 
-
-
 <!-- ============ BREEDING FOCUS ============ -->
-<section class="section">
+<section class="section" style="background: var(--cream-75); border-top: 1px solid var(--line-solid); border-bottom: 1px solid var(--line-solid);">
   <div class="container">
     <div class="section-head reveal">
       <h2>Breeding priorities</h2>
@@ -151,19 +304,19 @@
     <div class="diff-grid">
       <div class="diff-card reveal">
         <div class="diff-icon">
-          <i class="ph ph-map-pin" style="font-size:16px;color:var(--green-500);flex-shrink:0;margin-top:2px;"></i>
+          <i class="ph ph-map-pin"></i>
         </div>
         <h3>Yield potential</h3>
         <p>Breeding for higher genetic yield potential under optimal and managed stress conditions across all crop segments.</p>
       </div>
-      <div class="diff-card reveal">
+      <div class="diff-card reveal" data-delay="1">
         <div class="diff-icon">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.6"/><path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
         <h3>Stress tolerance</h3>
         <p>Developing drought-tolerant, heat-tolerant, and water-logging tolerant hybrids to meet the challenges of climate variability.</p>
       </div>
-      <div class="diff-card reveal">
+      <div class="diff-card reveal" data-delay="2">
         <div class="diff-icon">
           <svg viewBox="0 0 24 24" fill="none"><path d="M3 7L12 2L21 7M3 7V17L12 22M3 7L12 12M21 7V17L12 22M21 7L12 12M12 12V22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>

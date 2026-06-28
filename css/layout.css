@@ -304,12 +304,12 @@
   background: var(--green-900);
   color: rgba(255, 255, 255, 0.7);
   padding: var(--space-4xl) 0 0;
-  margin-top: var(--space-4xl);
+  margin-top: var(--space-3xl);
 }
 .footer-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
-  gap: var(--space-2xl);
+  gap: var(--space-3xl);
   padding-bottom: var(--space-3xl);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
