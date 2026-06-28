@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crops — TriMurti Plant Sciences</title>
-<meta name="description" content="Explore TriMurti's portfolio of field crops, vegetables, and fodder hybrids and varieties.">
+<meta name="description" content="Explore TriMurti's portfolio of 198 hybrids and varieties across field crops, vegetables, and fodder.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,18 +17,38 @@
 .filter-btn{padding:10px 24px;font-size:.8125rem;font-weight:600;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);background:var(--white);color:var(--text-light);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
 .filter-btn:hover{border-color:var(--green-300);color:var(--green-700)}
 .filter-btn.active{background:var(--green-600);border-color:var(--green-600);color:var(--white)}
-.pdf-btn{display:inline-flex;align-items:center;gap:4px;font-size:.6875rem;font-weight:600;color:var(--green-600);padding:4px 10px;border:1.5px solid var(--green-200);border-radius:var(--radius-sm);transition:all var(--duration-fast) var(--ease-out);text-decoration:none}
-.pdf-btn:hover{background:var(--green-100);border-color:var(--green-400)}
-.page-btn:hover{border-color:var(--green-300);color:var(--green-700)}
+.filter-btn.sub-active{background:var(--green-100);border-color:var(--green-300);color:var(--green-700)}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--space-lg)}
+.product-card{background:var(--white);border:1px solid var(--line-solid);border-radius:var(--radius-lg);overflow:hidden;transition:all var(--duration-base) var(--ease-out);display:flex;flex-direction:column}
+.product-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.product-card-img{width:100%;height:200px;object-fit:contain;background:var(--cream-75);padding:12px}
+.product-card-body{padding:var(--space-md);flex:1;display:flex;flex-direction:column}
+.product-card-body h3{font-size:.9375rem;font-weight:650;margin-bottom:2px;line-height:1.3}
+.product-card-body .hybrid-code{font-size:.6875rem;color:var(--text-muted);margin-bottom:var(--space-sm)}
+.product-card-body .card-desc{font-size:.75rem;color:var(--text-light);line-height:1.5;margin-bottom:var(--space-sm);flex:1}
+.section-header{text-align:center;margin-bottom:var(--space-lg)}
+.section-header .eyebrow{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--green-600);display:block;margin-bottom:4px}
+.section-header h2{font-size:1.5rem;font-weight:650;color:var(--text)}
+.section-header p{font-size:.875rem;color:var(--text-muted);margin-top:6px}
+.sub-filter-bar{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-lg)}
+.sub-filter-btn{padding:6px 14px;font-size:.75rem;font-weight:500;border:1px solid var(--line-solid);border-radius:var(--radius-full);background:var(--white);color:var(--text-muted);cursor:pointer;font-family:var(--font-sans);transition:all var(--duration-fast) var(--ease-out)}
+.sub-filter-btn:hover{border-color:var(--green-300);color:var(--green-700)}
+.sub-filter-btn.active{background:var(--green-600);border-color:var(--green-600);color:var(--white)}
+.card-actions{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap;padding-top:var(--space-sm)}
+.empty-search{text-align:center;padding:60px 20px;color:var(--text-muted)}
+.empty-search h3{font-size:1.125rem;margin-bottom:8px;color:var(--text-light)}
+.prod-tag{display:inline-block;font-size:.625rem;font-weight:600;padding:2px 8px;border-radius:var(--radius-full);background:var(--green-100);color:var(--green-700);margin-right:4px;margin-bottom:4px}
+.prod-tag-gold{background:rgba(201,162,39,0.1);color:var(--gold);border:1px solid rgba(201,162,39,0.3)}
 </style>
 </head>
 <body>
 <header class="site-header"><div class="header-inner">
 <a href="index.html" class="logo"><img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences"></a>
 <nav class="main-nav">
-<div class="nav-item"><a href="about.html" class="nav-link">About Us<svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg></a><div class="nav-dropdown"><a href="about.html#vision-mission">Vision &amp; Mission</a><a href="about.html#leadership">Leadership</a><a href="about.html#inception">Inception</a></div></div>
-<div class="nav-item"><a href="crops.html" class="nav-link active">Products<svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg></a><div class="nav-dropdown"><a href="#field-crops">Field Crops</a><a href="#vegetables">Vegetables</a><a href="#fodder">Fodder</a></div></div>
-<div class="nav-item"><a href="research.html" class="nav-link">R&amp;D<svg class="nav-caret" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.3"/></svg></a><div class="nav-dropdown"><a href="research.html">Breeding &amp; Research</a></div></div>
+<div class="nav-item"><a href="about.html" class="nav-link">About Us<i class="ph ph-caret-down" style="font-size:12px;margin-left:2px;"></i></a><div class="nav-dropdown"><a href="about.html">Company Overview</a></div></div>
+<div class="nav-item"><a href="crops.html" class="nav-link active">Products<i class="ph ph-caret-down" style="font-size:12px;margin-left:2px;"></i></a><div class="nav-dropdown"><a href="#field-crops">Field Crops</a><a href="#vegetables">Vegetables</a><a href="#fodder">Fodder</a></div></div>
+<div class="nav-item"><a href="research.html" class="nav-link">R&amp;D<i class="ph ph-caret-down" style="font-size:12px;margin-left:2px;"></i></a><div class="nav-dropdown"><a href="research.html">Breeding &amp; Research</a></div></div>
 <div class="nav-item"><a href="careers.html" class="nav-link">Careers</a></div>
 <div class="nav-item"><a href="partner.html" class="nav-link">Distributor</a></div>
 <div class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></div>
@@ -39,13 +59,25 @@
 <button class="mobile-menu-toggle" aria-label="Open menu"><i class="ph ph-list" style="font-size:22px"></i></button>
 </div>
 </div></header>
+
 <section class="page-banner"><div class="container">
-<span class="eyebrow">Our Crops</span>
+<span class="eyebrow">Our Products</span>
 <h1>Product Catalogue</h1>
-<p>Browse our range of hybrids and varieties across field crops, vegetables, and fodder.</p>
+<p>Browse our complete range of <span id="productCount">198</span> hybrids and varieties.</p>
 <div class="banner-line"></div>
 </div></section>
+
+<section class="section" style="padding-top:0;"><div class="container">
+<div class="filter-bar" id="filterBar"></div>
+<div class="search-wrapper" style="max-width:400px;margin:0 auto 24px">
+<div style="position:relative">
+<i class="ph ph-magnifying-glass" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:16px"></i>
+<input type="text" id="productSearch" placeholder="Search products by name or code…" style="width:100%;padding:10px 12px 10px 36px;border:1.5px solid var(--line-solid);border-radius:var(--radius-sm);font-family:Inter,sans-serif;font-size:.8125rem;outline:none;transition:border-color var(--duration-fast) var(--ease-out)">
+</div>
+</div>
 <div id="cropSections"></div>
+</div></section>
+
 <section class="section" style="padding-top:0;"><div class="container">
 <div class="partner-band reveal">
 <div><h2>Looking for a specific hybrid?</h2><p>Our team can help you find the right product for your region and season.</p></div>
@@ -55,6 +87,7 @@
 </div>
 </div>
 </div></section>
+
 <footer class="site-footer"><div class="container">
 <div class="footer-grid">
 <div><div class="footer-brand-logo"><img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti Plant Sciences"></div><p class="footer-tagline">Transforming lives through superior seeds, leveraging science &amp; technology.</p><div class="footer-social">
@@ -77,9 +110,7 @@
 <nav class="mobile-nav">
   <div class="mobile-nav-top">
     <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti" style="height:28px;width:auto;">
-    <button class="mobile-nav-close" aria-label="Close menu">
-      <i class="ph ph-x" style="font-size:22px"></i>
-    </button>
+    <button class="mobile-nav-close" aria-label="Close menu"><i class="ph ph-x" style="font-size:22px"></i></button>
   </div>
   <ul class="mobile-nav-list">
     <li><a href="index.html" class="mobile-nav-link">Home</a></li>
@@ -90,9 +121,7 @@
     <li><a href="partner.html" class="mobile-nav-link">Distributor</a></li>
     <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
   </ul>
-  <div class="mobile-nav-cta">
-    <img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti" style="height:32px;width:auto;">
-  </div>
+  <div class="mobile-nav-cta"><img class="logo-img" src="images/trimurti-logo.png" alt="TriMurti" style="height:32px;width:auto;"></div>
 </nav>
 
 <div class="search-overlay">
@@ -100,12 +129,203 @@
     <div class="search-box-input-row">
       <i class="ph ph-magnifying-glass" style="font-size:18px"></i>
       <input type="text" placeholder="Search crops, hybrids, varieties…" autocomplete="off">
-      <button class="search-close" aria-label="Close search">
-        <i class="ph ph-x" style="font-size:22px"></i>
-      </button>
+      <button class="search-close" aria-label="Close search"><i class="ph ph-x" style="font-size:22px"></i></button>
     </div>
   </div>
 </div>
 
+<script src="products-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+// ================================================================
+// CROPS PAGE — Individual product card renderer
+// Every hybrid/variety gets its OWN card with image
+// Reads from localStorage (admin.html) first, falls back to file
+// ================================================================
+
+const CATEGORIES = {
+  'field-crops': { name: 'Field Crops', icon: '🌾', desc: 'High-yielding hybrids and varieties for staple crops.', order: 0 },
+  'vegetables':  { name: 'Vegetables',  icon: '🥬', desc: 'Premium vegetable hybrids for fresh market.', order: 1 },
+  'fodder':      { name: 'Fodder',      icon: '🌿', desc: 'Nutritious fodder for sustained livestock feed.', order: 2 }
+};
+
+// ---- Load products with localStorage sync ----
+function loadProducts() {
+  const stored = localStorage.getItem('trimurti_products');
+  if (stored) {
+    try {
+      const data = JSON.parse(stored);
+      if (Array.isArray(data) && data.length > 0) {
+        console.log('Loaded from localStorage (' + data.length + ' groups)');
+        return data;
+      }
+    } catch(e) {}
+  }
+  if (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) {
+    console.log('Loaded from file (' + PRODUCTS.length + ' groups)');
+    return JSON.parse(JSON.stringify(PRODUCTS));
+  }
+  return [];
+}
+
+var products = loadProducts();
+var currentCat = 'all';
+var currentSub = 'all';
+var searchQuery = '';
+
+function escHtml(s) {
+  if (typeof s !== 'string') return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function render() {
+  var catKeys = Object.keys(CATEGORIES).filter(function(k) {
+    return products.some(function(p) { return p.category === k && p.active !== false; });
+  }).sort(function(a,b) { return CATEGORIES[a].order - CATEGORIES[b].order; });
+
+  // Top filter bar
+  var fh = '<button class="filter-btn' + (currentCat === 'all' ? ' active' : '') + '" onclick="setCat(\'all\')">All</button>';
+  catKeys.forEach(function(k) {
+    var c = CATEGORIES[k];
+    fh += '<button class="filter-btn' + (currentCat === k ? ' active' : '') + '" onclick="setCat(\'' + k + '\')">' + c.icon + ' ' + c.name + '</button>';
+  });
+  document.getElementById('filterBar').innerHTML = fh;
+
+  // Build individual product cards
+  var html = '';
+  var totalShown = 0;
+
+  catKeys.forEach(function(catKey) {
+    var cat = CATEGORIES[catKey];
+    var catProducts = products.filter(function(p) {
+      return p.category === catKey && p.active !== false && (currentCat === 'all' || currentCat === catKey);
+    }).sort(function(a,b) { return (a.order || 99) - (b.order || 99); });
+
+    if (catProducts.length === 0) return;
+
+    // Check if any product has visible hybrids
+    var hasVisible = false;
+    catProducts.forEach(function(p) {
+      if (p.hybrids && p.hybrids.length > 0) {
+        p.hybrids.forEach(function(h) { if (matchesFilter(p, h)) hasVisible = true; });
+      }
+    });
+    if (!hasVisible) return;
+
+    html += '<section class="section section-id" id="' + catKey + '" style="padding-bottom:0;">';
+    html += '<div class="container">';
+    html += '<div class="section-header">';
+    html += '<span class="eyebrow">' + cat.icon + '</span>';
+    html += '<h2>' + cat.name + '</h2>';
+    html += '<p>' + cat.desc + '</p>';
+    html += '</div>';
+
+    // Sub-category filter (crop type within this category)
+    html += '<div class="sub-filter-bar">';
+    html += '<button class="sub-filter-btn' + (currentSub === 'all' ? ' active' : '') + '" onclick="setSub(\'all\')">All</button>';
+    catProducts.forEach(function(p) {
+      var active = currentSub === p.id;
+      html += '<button class="sub-filter-btn' + (active ? ' active' : '') + '" onclick="setSub(\'' + p.id + '\')">' + escHtml(p.name) + '</button>';
+    });
+    html += '</div>';
+
+    // Product grid — one card per hybrid
+    html += '<div class="product-grid">';
+    catProducts.forEach(function(p) {
+      var active = p.active !== false;
+      if (!active || !p.hybrids) return;
+
+      var groupImg = p.image || '';
+      var season = p.season || '';
+      var region = p.region || '';
+      var code = p.code || '';
+
+      p.hybrids.forEach(function(h) {
+        if (!matchesFilter(p, h)) return;
+        totalShown++;
+
+        var hName = escHtml(h.name);
+        var hDesc = escHtml(h.desc || '');
+        var hImg = h.img || groupImg;
+
+        html += '<div class="product-card">';
+        html += '<img class="product-card-img" src="' + escHtml(hImg) + '" alt="' + hName + '" loading="lazy" onerror="this.parentNode.querySelector(\'.product-card-img\').style.display=\'none\'">';
+        html += '<div class="product-card-body">';
+        html += '<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:4px;">';
+        html += '<span class="prod-tag">' + escHtml(p.type || 'Hybrid') + '</span>';
+        if (code) html += '<span class="prod-tag" style="background:var(--cream-75);color:var(--text-muted)">' + escHtml(code) + '</span>';
+        if (p.special) html += '<span class="prod-tag prod-tag-gold">' + escHtml(p.special) + '</span>';
+        html += '</div>';
+        html += '<h3>' + hName + '</h3>';
+        html += '<div class="hybrid-code">' + escHtml(p.name) + '</div>';
+        if (hDesc) html += '<div class="card-desc">' + hDesc + '</div>';
+        if (season || region) {
+          html += '<div style="font-size:.6875rem;color:var(--text-muted);margin-bottom:var(--space-sm);display:flex;gap:8px;flex-wrap:wrap;">';
+          if (season) html += '<span><i class="ph ph-calendar" style="font-size:12px"></i> ' + escHtml(season) + '</span>';
+          if (region) html += '<span><i class="ph ph-map-pin" style="font-size:12px"></i> ' + escHtml(region) + '</span>';
+          html += '</div>';
+        }
+        html += '<div class="card-actions">';
+        html += '<a href="contact.html?product=' + encodeURIComponent(h.name) + '" class="btn btn-primary" style="font-size:.75rem;padding:6px 14px">Enquire</a>';
+        if (p.pdf) {
+          html += '<a href="' + escHtml(p.pdf) + '" class="btn btn-secondary" style="font-size:.75rem;padding:6px 14px" target="_blank"><i class="ph ph-file-pdf" style="font-size:13px"></i> Brochure</a>';
+        }
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
+      });
+    });
+    html += '</div>'; // product-grid
+    html += '</div>'; // container
+    html += '</section>';
+  });
+
+  var countEl = document.getElementById('productCount');
+  if (countEl) countEl.textContent = totalShown;
+
+  if (totalShown === 0) {
+    html = '<div class="empty-search"><i class="ph ph-magnifying-glass" style="font-size:48px;color:var(--cream-dark);margin-bottom:var(--space-md);display:block"></i><h3>No products found</h3><p>Try adjusting your filters or search term.</p></div>';
+  }
+
+  document.getElementById('cropSections').innerHTML = html;
+
+  // Update URL hash
+  if (currentCat !== 'all') history.replaceState(null, '', '#' + currentCat);
+  else if (currentSub !== 'all') history.replaceState(null, '', '#' + currentSub);
+  else history.replaceState(null, '', window.location.pathname);
+}
+
+function matchesFilter(p, h) {
+  // Check sub-category filter
+  if (currentSub !== 'all' && p.id !== currentSub) return false;
+
+  // Check search
+  if (searchQuery) {
+    var q = searchQuery.toLowerCase();
+    var haystack = (h.name + ' ' + (h.desc || '') + ' ' + p.name + ' ' + (p.code || '') + ' ' + (p.region || '') + ' ' + (p.season || '')).toLowerCase();
+    return haystack.indexOf(q) !== -1;
+  }
+
+  return true;
+}
+
+function setCat(cat) { currentCat = cat; currentSub = 'all'; render(); }
+function setSub(sub) { currentSub = sub; render(); }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var searchInput = document.getElementById('productSearch');
+  if (searchInput) {
+    var timer;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(timer);
+      timer = setTimeout(function() { searchQuery = searchInput.value.trim(); render(); }, 200);
+    });
+  }
+
+  var hash = window.location.hash.replace('#', '');
+  if (hash && CATEGORIES[hash]) currentCat = hash;
+  render();
+});
+</script>
 </body>
 </html>
