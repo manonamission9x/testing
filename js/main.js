@@ -310,11 +310,32 @@
   // ========== PRODUCT DETAIL MODAL ==========
   function initProductModal() {
     var overlay = qs('.modal-overlay');
-    var content = qs('.modal-content', overlay);
     if (!overlay) return;
+
+    // Use event delegation on document so dynamically-rendered cards work
+    on(document, 'click', function(e) {
+      var card = e.target.closest('[data-product-name]');
+      if (!card) return;
+      // Don't open modal if clicking a link or button inside
+      if (e.target.closest('a') || e.target.closest('button')) return;
+      openModalFromCard(card);
+    });
+
+    function openModalFromCard(card) {
+      var name = card.getAttribute('data-product-name');
+      var type = card.getAttribute('data-product-type') || '';
+      var code = card.getAttribute('data-product-code') || '';
+      var desc = card.getAttribute('data-product-desc') || '';
+      var img = card.getAttribute('data-product-img') || '';
+      var duration = card.getAttribute('data-product-duration') || '';
+      var region = card.getAttribute('data-product-region') || '';
+      var seasons = card.getAttribute('data-product-season') || '';
+      openModal({ name: name, type: type, code: code, desc: desc, img: img, duration: duration, region: region, seasons: seasons });
+    }
 
     function openModal(data) {
       if (!data) return;
+      var content = qs('.modal-content', overlay);
       var h = qs('.modal-header h2', content);
       var body = qs('.modal-body', content);
       var footer = qs('.modal-footer', content);
@@ -343,23 +364,6 @@
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
-
-    // Wire card clicks — data-product-name attribute
-    qsa('[data-product-name]').forEach(function(card) {
-      on(card, 'click', function(e) {
-        // Don't open modal if clicking a link inside
-        if (e.target.closest('a') || e.target.closest('button')) return;
-        var name = card.getAttribute('data-product-name');
-        var type = card.getAttribute('data-product-type') || '';
-        var code = card.getAttribute('data-product-code') || '';
-        var desc = card.getAttribute('data-product-desc') || '';
-        var img = card.getAttribute('data-product-img') || '';
-        var duration = card.getAttribute('data-product-duration') || '';
-        var region = card.getAttribute('data-product-region') || '';
-        var seasons = card.getAttribute('data-product-season') || '';
-        openModal({ name: name, type: type, code: code, desc: desc, img: img, duration: duration, region: region, seasons: seasons });
-      });
-    });
 
     // Close on overlay click
     on(overlay, 'click', function(e) {
