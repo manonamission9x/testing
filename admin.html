@@ -1089,24 +1089,36 @@ input[type="checkbox"] {
 
 <hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
 
-<h4 style="margin:var(--space-md) 0 var(--space-sm)">🔧 Exporting to the Live Site</h4>
+<h4 style="margin:var(--space-md) 0 var(--space-sm)">🔧 Exporting to the Live Site (Step by Step)</h4>
 <ol style="padding-left:20px;margin:0 0 var(--space-md)">
+  <li><strong>Make your edits</strong> in the <strong>📋 Products</strong> or <strong>➕ Add Product</strong> tabs — changes auto-save to your browser.</li>
   <li>Go to the <strong>🔧 Export / Import</strong> tab</li>
-  <li>Click <strong>⬇ Download products-data.js</strong> — this downloads a file</li>
-  <li><strong>Replace</strong> the existing <code>products-data.js</code> in your project folder</li>
-  <li><strong>Push to GitHub</strong> — Vercel auto-deploys the changes</li>
+  <li>Click <strong>⬇ Download products-data.js</strong> — this downloads the updated file to your computer</li>
+  <li><strong>Replace</strong> the old <code>products-data.js</code> in your project folder with this downloaded file</li>
+  <li><strong>Push to GitHub:</strong>
+    <pre style="background:#1A2818;color:#E2F0E6;padding:8px 12px;border-radius:4px;font-size:.75rem;margin:6px 0;">
+git add products-data.js
+git commit -m "update: product catalog changes"
+git push</pre>
+  </li>
+  <li><strong>Wait ~20 seconds</strong> — Vercel auto-deploys. The live site updates automatically.</li>
 </ol>
-<p><strong>Tip:</strong> You can also edit products directly in <code>products-data.js</code> if you prefer working with the raw file.</p>
+<p><strong>What gets replaced:</strong> Only the <code>products-data.js</code> file. Images and PDFs are separate — if you added new ones, commit those too (<code>git add images/products/your-file.jpg</code>).</p>
 
 <hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
 
 <h4 style="margin:var(--space-md) 0 var(--space-sm)">📸 Adding Product Images</h4>
+<p><strong>Images work in two ways:</strong></p>
+<p><strong>Option 1 — Remote URLs (current setup):</strong> The 198 products already have images hosted on the old <code>trimurti.in</code> server. These work for everyone visiting the site. You don't need to do anything — just leave the <code>image</code> field as-is.</p>
+<p><strong>Option 2 — Local files (for new products):</strong></p>
 <ol style="padding-left:20px;margin:0 0 var(--space-md)">
-  <li>Save the image as a <code>.jpg</code> file in the <code>images/products/</code> folder</li>
-  <li>In the product form, set Image path to <code>images/products/your-image-name.jpg</code></li>
-  <li>The image must be committed to GitHub to appear on the live site</li>
-  <li>If a product has no image, just leave the Image field blank</li>
+  <li>Save your image as <code>.jpg</code>, <code>.png</code>, or <code>.webp</code> in the <code>images/products/</code> folder</li>
+  <li>In the product form, set Image path to <code>images/products/your-file.jpg</code></li>
+  <li><strong>Commit the image file to GitHub</strong> along with <code>products-data.js</code> — otherwise it won't appear on the live site</li>
+  <li>Once committed, the image works for <strong>all users</strong> visiting the site — it's part of the codebase</li>
+  <li>If a product has no image, just leave the Image field blank (no broken placeholder shows)</li>
 </ol>
+<p><strong>Note:</strong> Local images (Option 2) are more reliable because they don't depend on the old website staying online. You can migrate existing products from remote URLs to local files anytime by downloading the image and updating the path.</p>
 
 <hr style="border:none;border-top:1px solid var(--line);margin:var(--space-md) 0;">
 
