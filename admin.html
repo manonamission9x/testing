@@ -1306,12 +1306,21 @@ function init() {
     for (var i = 0; i < PRODUCTS_SKUS.length; i++) allProducts.push(PRODUCTS_SKUS[i]);
   }
 
-  // Try localStorage first
+  // Try localStorage first, but only if it has more products than source
+  // (prevents stale data from overwriting expanded catalog)
   const stored = localStorage.getItem('trimurti_products');
   if (stored) {
     try {
-      products = JSON.parse(stored);
-      showToast('info', 'Loaded products from localStorage');
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length >= allProducts.length) {
+        products = parsed;
+        showToast('info', 'Loaded products from localStorage (' + products.length + ')');
+      } else {
+        products = JSON.parse(JSON.stringify(allProducts));
+        // Save the fresh source to localStorage
+        localStorage.setItem('trimurti_products', JSON.stringify(products));
+        showToast('info', 'LocalStorage had stale data (' + (parsed ? parsed.length : 0) + ') — reloaded from source (' + products.length + ')');
+      }
     } catch(e) {
       products = JSON.parse(JSON.stringify(allProducts));
     }
