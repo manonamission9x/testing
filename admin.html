@@ -1278,6 +1278,7 @@ git push</pre>
 
 <!-- ============ SCRIPTS ============ -->
 <script src="products-data.js"></script>
+<script src="products-skus.js"></script>
 <script>
 // ================================================================
 // Trimurti Admin Panel — JavaScript
@@ -1296,6 +1297,15 @@ let selectedIds = new Set();
 
 // ---- Init ----
 function init() {
+  // Merge PRODUCTS + PRODUCTS_SKUS
+  let allProducts = [];
+  if (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) {
+    for (var i = 0; i < PRODUCTS.length; i++) allProducts.push(PRODUCTS[i]);
+  }
+  if (typeof PRODUCTS_SKUS !== 'undefined' && Array.isArray(PRODUCTS_SKUS)) {
+    for (var i = 0; i < PRODUCTS_SKUS.length; i++) allProducts.push(PRODUCTS_SKUS[i]);
+  }
+
   // Try localStorage first
   const stored = localStorage.getItem('trimurti_products');
   if (stored) {
@@ -1303,10 +1313,10 @@ function init() {
       products = JSON.parse(stored);
       showToast('info', 'Loaded products from localStorage');
     } catch(e) {
-      products = getProductsFromSource();
+      products = JSON.parse(JSON.stringify(allProducts));
     }
   } else {
-    products = getProductsFromSource();
+    products = JSON.parse(JSON.stringify(allProducts));
   }
   updateHeaderStats();
   renderTable();
@@ -1316,10 +1326,14 @@ init();
 
 // ---- Source helpers ----
 function getProductsFromSource() {
+  let all = [];
   if (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) {
-    return JSON.parse(JSON.stringify(PRODUCTS)); // deep clone
+    for (var i = 0; i < PRODUCTS.length; i++) all.push(PRODUCTS[i]);
   }
-  return [];
+  if (typeof PRODUCTS_SKUS !== 'undefined' && Array.isArray(PRODUCTS_SKUS)) {
+    for (var i = 0; i < PRODUCTS_SKUS.length; i++) all.push(PRODUCTS_SKUS[i]);
+  }
+  return JSON.parse(JSON.stringify(all));
 }
 
 function saveToLocalStorage() {
@@ -1971,17 +1985,13 @@ function clearFilters() {
 
 // ---- Reset from source ----
 function resetFromSource() {
-  if (!confirm('Reset all products from the source file (products-data.js)? Any local changes will be lost.')) return;
-  if (typeof PRODUCTS !== 'undefined' && Array.isArray(PRODUCTS)) {
-    products = JSON.parse(JSON.stringify(PRODUCTS));
-    saveToLocalStorage();
-    updateHeaderStats();
-    renderTable();
-    renderCategories();
-    showToast('success', 'Reset from source (' + products.length + ' products)');
-  } else {
-    showToast('error', 'PRODUCTS array not found in source file');
-  }
+  if (!confirm('Reset all products from the source files (products-data.js + products-skus.js)? Any local changes will be lost.')) return;
+  products = getProductsFromSource();
+  saveToLocalStorage();
+  updateHeaderStats();
+  renderTable();
+  renderCategories();
+  showToast('success', 'Reset from source (' + products.length + ' products)');
 }
 
 function clearAllData() {
